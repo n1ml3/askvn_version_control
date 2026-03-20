@@ -3,16 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ASK Training – Dashboard</title>
+  <title>ASK Training – Lịch sử thanh toán</title>
   <link rel="icon" href="../assets/logo.png" type="image/png"/>
+
   <!-- Bootstrap 5 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <!-- Dashboard CSS -->
+  
+  <!-- Shared Dashboard CSS -->
   <link rel="stylesheet" href="../styles/dashboard.css"/>
+  <!-- Checkout History CSS -->
+  <link rel="stylesheet" href="../styles/checkoutHistory.css"/>
 </head>
 <body>
 
@@ -26,7 +30,7 @@
   </div>
 
   <nav class="sidebar-nav">
-    <a href="dashboard.html" class="nav-link active" title="Dashboard">
+    <a href="dashboard.html" class="nav-link" title="Dashboard">
       <i class="bi bi-grid-1x2"></i><span>Dashboard</span>
     </a>
     <a href="courses.html" class="nav-link" title="Khoá học">
@@ -35,7 +39,7 @@
     <a href="calendar.html" class="nav-link" title="Lịch học Zoom">
       <i class="bi bi-calendar3"></i><span>Lịch học Zoom</span>
     </a>
-    <a href="checkoutHistory.html" class="nav-link" title="Lịch sử thanh toán">
+    <a href="checkoutHistory.html" class="nav-link active" title="Lịch sử thanh toán">
       <i class="bi bi-clock"></i><span>Lịch sử thanh toán</span>
     </a>
     <a href="#" class="nav-link" title="Chứng nhận">
@@ -62,19 +66,22 @@
     <i class="bi bi-list"></i>
   </button>
 
-  <h1 class="topbar-page-title">Dashboard</h1>
+  <h1 class="topbar-page-title">Lịch sử thanh toán</h1>
   
   <div class="topbar-breadcrumb">
     <span>Home</span>
     <i class="bi bi-chevron-right"></i>
-    <span class="active">Dashboard</span>
+    <span class="active">Lịch sử thanh toán</span>
   </div>
 
   <div class="topbar-right" style="margin-left: auto;">
+    <!-- Notification bell -->
     <button class="topbar-notif" title="Thông báo">
       <i class="bi bi-bell"></i>
       <span class="notif-badge">0</span>
     </button>
+
+    <!-- User dropdown -->
     <div class="dropdown">
       <button class="topbar-avatar dropdown-toggle" data-bs-toggle="dropdown"
               aria-expanded="false" id="userDropdownBtn" title="Tài khoản">
@@ -112,104 +119,73 @@
   </div>
 </header>
 
-<!-- ===== MAIN CONTENT ===== -->
-<main id="main-content">
-
-  <!-- Welcome Banner -->
-  <div class="welcome-banner">
-    <div class="banner-text">
-      <h3>Chào mừng trở lại, hv_ask!</h3>
-      <p>Chúc bạn một ngày học tập thật hiệu quả và tràn đầy năng lượng.</p>
+<!-- ===== MAIN ===== -->
+<main id="mainContent">
+  <div class="checkout-header">
+    <h2 class="page-title">Quản lý giao dịch</h2>
+    <div class="checkout-tabs">
+      <button class="checkout-tab-btn active" data-tab="paid">Đã thanh toán</button>
+      <button class="checkout-tab-btn" data-tab="pending">Chờ thanh toán</button>
     </div>
-    <img src="../assets/img_dashboard.png" alt="Welcome" class="banner-img" onerror="this.style.display='none'"/>
   </div>
 
-  <!-- Stats Cards -->
-  <div class="row g-3 mb-4">
-    <div class="col-12 col-md-6 col-lg-3">
-      <div class="stat-card">
-        <div class="stat-icon"><i class="bi bi-journal-bookmark"></i></div>
-        <div class="stat-info">
-          <div class="label">Khóa đang học</div>
-          <div class="value">2</div>
+  <!-- Panels -->
+  <div id="tabPaid" class="checkout-panel">
+    <!-- Order Card 1 -->
+    <div class="order-card">
+      <div class="order-header">
+        <div class="order-code">Mã Đơn: <strong>ASK-PAY-10023</strong></div>
+        <div class="order-date"><i class="bi bi-calendar3"></i> 14/10/2026 - 15:30</div>
+        <div class="order-status badge-success">Đã thanh toán</div>
+      </div>
+      <div class="order-body">
+        <div class="order-info">
+          <h4 class="course-name">Mật Mã Tiền Tệ - K10</h4>
+          <p class="course-teacher"><i class="bi bi-person-workspace"></i> Mr. Phạm Ngọc Anh</p>
+        </div>
+        <div class="order-amount">
+          19,900,000 đ
         </div>
       </div>
     </div>
-    <div class="col-12 col-md-6 col-lg-3">
-      <div class="stat-card">
-        <div class="stat-icon"><i class="bi bi-check-circle"></i></div>
-        <div class="stat-info">
-          <div class="label">Đã hoàn thành</div>
-          <div class="value">2</div>
-        </div>
+    
+    <!-- Order Card 2 -->
+    <div class="order-card">
+      <div class="order-header">
+        <div class="order-code">Mã Đơn: <strong>ASK-PAY-10018</strong></div>
+        <div class="order-date"><i class="bi bi-calendar3"></i> 02/09/2026 - 09:12</div>
+        <div class="order-status badge-success">Đã thanh toán</div>
       </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-      <div class="stat-card">
-        <div class="stat-icon"><i class="bi bi-award"></i></div>
-        <div class="stat-info">
-          <div class="label">Chứng chỉ</div>
-          <div class="value">0</div>
+      <div class="order-body">
+        <div class="order-info">
+          <h4 class="course-name">Wake Up - K105</h4>
+          <p class="course-teacher"><i class="bi bi-person-workspace"></i> Mr. Phạm Ngọc Anh</p>
         </div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-      <div class="stat-card">
-        <div class="stat-icon"><i class="bi bi-wallet"></i></div>
-        <div class="stat-info">
-          <div class="label">Đã thanh toán</div>
-          <div class="value">0</div>
+        <div class="order-amount">
+          9,900,000 đ
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Calendar & Notifications Grid -->
-  <div class="row g-3">
-    <!-- Lịch học trực quan -->
-    <div class="col-12 col-lg-8">
-      <div class="card-section h-100">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <h6 class="mb-0" id="calTitle">Lịch học sắp tới</h6>
-          <div class="cal-controls d-flex align-items-center gap-2 mb-0">
-            <!-- Nav buttons -->
-            <button class="cal-nav" id="prevMonth"><i class="bi bi-chevron-left"></i></button>
-            <button class="cal-nav" id="nextMonth"><i class="bi bi-chevron-right"></i></button>
-          </div>
-        </div>
-        
-        <!-- Select Month and Year -->
-        <div class="select-row mb-3 d-flex justify-content-end gap-2">
-			<select id="selMonth">
-			<option value="0">Tháng 1</option>
-			<option value="1">Tháng 2</option>
-			<option value="2">Tháng 3</option>
-			<option value="3">Tháng 4</option>
-			<option value="4">Tháng 5</option>
-			<option value="5">Tháng 6</option>
-			<option value="6">Tháng 7</option>
-			<option value="7">Tháng 8</option>
-			<option value="8">Tháng 9</option>
-			<option value="9">Tháng 10</option>
-			<option value="10">Tháng 11</option>
-			<option value="11">Tháng 12</option>
-			</select>
-			<select id="selYear"></select>
-        </div>
-
-        <div id="calendar">
-          <!-- Rendered via JS -->
-        </div>
+  <div id="tabPending" class="checkout-panel d-none">
+    <!-- Order Card 3 -->
+    <div class="order-card">
+      <div class="order-header">
+        <div class="order-code">Mã Đơn: <strong>ASK-PAY-10055</strong></div>
+        <div class="order-date"><i class="bi bi-calendar3"></i> 20/03/2026 - 10:05</div>
+        <div class="order-status badge-warning">Chờ thanh toán</div>
       </div>
-    </div>
-
-    <!-- Thông báo mới -->
-    <div class="col-12 col-lg-4">
-      <div class="card-section h-100">
-        <h6 class="mb-3">Thông báo mới</h6>
-        <div class="notif-empty">
-          <i class="bi bi-envelope-open fs-2 mb-2 d-block text-muted"></i>
-          Bạn đang không có thông báo nào mới.
+      <div class="order-body">
+        <div class="order-info">
+          <h4 class="course-name">Trại Lãnh Đạo Cấp Cao - K05</h4>
+          <p class="course-teacher"><i class="bi bi-person-workspace"></i> Mr. Phạm Ngọc Anh</p>
+        </div>
+        <div class="order-amount text-warning">
+          49,900,000 đ
+        </div>
+        <div class="order-actions">
+          <button class="btn btn-sm btn-danger mt-3">Thanh toán ngay</button>
         </div>
       </div>
     </div>
@@ -219,8 +195,9 @@
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Dashboard JS -->
+<!-- Dashboard Shared Object/Sidebar JS -->
 <script src="../scripts/dashboard.js"></script>
-
+<!-- Checkout JS -->
+<script src="../scripts/checkoutHistory.js"></script>
 </body>
 </html>

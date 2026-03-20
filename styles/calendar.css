@@ -296,6 +296,60 @@ body.sidebar-collapsed #mainContent {
     margin: 0;
 }
 
+/* ===== TIMELINE VIEW (24H) ===== */
+.timeline-wrapper {
+  display: flex;
+  height: 60vh;
+  min-height: 400px;
+  max-height: 800px;
+  overflow-y: auto;
+  border: 1px solid #f0f0f0;
+  border-top: none;
+  background: #fff;
+  position: relative;
+}
+
+.timeline-time-col {
+  width: 60px;
+  flex-shrink: 0;
+  border-right: 1px solid #f0f0f0;
+  background: #fafafa;
+}
+
+.timeline-hour-label {
+  height: 60px; /* 1 hour = 60px */
+  text-align: right;
+  padding-right: 8px;
+  font-size: 0.75rem;
+  color: #888;
+  border-bottom: 1px solid transparent;
+}
+
+.timeline-hour-label span {
+  position: relative;
+  top: -8px; 
+}
+
+.timeline-grid {
+  flex: 1;
+  display: grid;
+  position: relative;
+}
+
+.timeline-day-col {
+  border-right: 1px solid #f0f0f0;
+  position: relative;
+}
+
+.timeline-day-col:last-child {
+  border-right: none;
+}
+
+.timeline-hour-cell {
+  height: 60px;
+  border-bottom: 1px dashed #f0f0f0;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     .cal-controls {
