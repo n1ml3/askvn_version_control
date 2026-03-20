@@ -74,49 +74,80 @@ function renderCourses() {
 
   filtered.forEach(c => {
     let badgeHtml = '';
-    if (c.categories.includes('completed')) {
-      badgeHtml = `<span class="course-badge completed"><i class="bi bi-check-circle-fill me-1"></i>Hoàn thành</span>`;
-    } else if (c.categories.includes('studying')) {
-      badgeHtml = `<span class="course-badge studying">Đang học</span>`;
-    } else if (c.categories.includes('owned')) {
-      badgeHtml = `<span class="course-badge owned">Sở hữu</span>`;
-    }
+    let footerHtml = '';
 
-    let progressHtml = '';
-    if (c.progress !== null && activeFilter !== 'all' && !c.categories.includes('completed')) {
-      progressHtml = `
-        <div class="course-progress">
-          <div class="d-flex justify-content-between mb-1">
-            <span class="progress-label">Tiến trình</span>
-            <span class="progress-pct">${c.progress}%</span>
+    if (activeFilter === 'owned') {
+      let pg = c.progress !== null ? c.progress : 0;
+      if (c.categories.includes('completed')) pg = 100;
+      footerHtml = `
+        <div class="course-progress" style="margin-top: 16px; margin-bottom: 20px;">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="progress-label" style="font-size: 0.85rem; color: #666; font-weight: 500;">Tiến trình</span>
+            <span class="progress-pct text-danger fw-bold" style="font-size: 0.9rem;">${pg}%</span>
           </div>
-          <div class="progress-track">
-            <div class="progress-fill" style="width:${c.progress}%"></div>
+          <div class="progress-track" style="height: 8px; background: #e5e7eb; border-radius: 4px; overflow: hidden;">
+            <div class="progress-fill" style="width:${pg}%; height: 100%; background: #E50000; border-radius: 4px;"></div>
           </div>
+        </div>
+        <div class="mt-auto">
+          <a href="lecture.html?id=${c.id}" class="btn w-100 d-flex align-items-center justify-content-center" style="border: 1px solid #3b82f6; color: #3b82f6; border-radius: 8px; padding: 10px 0; font-weight: 600; background: #fff; transition: all 0.2s;">
+            <i class="bi bi-play-circle-fill me-2 fs-5"></i> Bài giảng
+          </a>
+        </div>
+      `;
+    } else {
+      if (c.categories.includes('completed')) {
+        badgeHtml = `<span class="course-badge completed"><i class="bi bi-check-circle-fill me-1"></i>Hoàn thành</span>`;
+      } else if (c.categories.includes('studying')) {
+        badgeHtml = `<span class="course-badge studying">Đang học</span>`;
+      } else if (c.categories.includes('owned')) {
+        badgeHtml = `<span class="course-badge owned">Sở hữu</span>`;
+      }
+
+      let progressHtml = '';
+      if (c.progress !== null && activeFilter !== 'all' && !c.categories.includes('completed')) {
+        progressHtml = `
+          <div class="course-progress" style="margin-top: 12px;">
+            <div class="d-flex justify-content-between mb-1">
+              <span class="progress-label" style="font-size: 0.8rem; color: #666;">Tiến trình</span>
+              <span class="progress-pct text-danger fw-bold" style="font-size: 0.85rem;">${c.progress}%</span>
+            </div>
+            <div class="progress-track" style="height: 6px; background: #f0f0f0; border-radius: 4px; overflow: hidden;">
+              <div class="progress-fill" style="width:${c.progress}%; height: 100%; background: #E50000; border-radius: 4px;"></div>
+            </div>
+          </div>
+        `;
+      }
+
+      footerHtml = `
+        ${progressHtml}
+        <div class="course-footer mt-auto" style="display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid #f0f0f0; margin-top: 16px;">
+          <span class="course-price" style="font-size: 0.95rem; font-weight: 700; color: #E50000;">${c.price}</span>
+          ${badgeHtml}
         </div>
       `;
     }
 
     const html = `
-      <div class="col-6 col-md-4">
-        <a href="https://ask.com.vn/collections/khoa-hoc-ask" target="_blank" class="course-link">
-          <div class="course-card">
-            <div class="course-thumb">
-              <img src="${c.img}" alt="${c.title}"
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="course-card h-100 d-flex flex-column" style="background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: transform 0.2s;">
+          <a href="${activeFilter === 'owned' ? 'lecture.html?id=' + c.id : '#'}" class="course-link d-flex flex-column flex-grow-1 text-decoration-none text-dark">
+            <div class="course-thumb" style="aspect-ratio: 16/9; overflow: hidden; background: #f5f6fa; flex-shrink: 0;">
+              <img src="${c.img}" alt="${c.title}" style="width: 100%; height: 100%; object-fit: cover; border-top-left-radius: 16px; border-top-right-radius: 16px;"
                    onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22180%22><rect fill=%22%23f5f6fa%22 width=%22300%22 height=%22180%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2240%22>${c.emoji}</text></svg>'"/>
             </div>
-            <div class="course-body">
-              <h6 class="course-title">${c.title}</h6>
-              <p class="course-type"><i class="bi bi-play-circle-fill me-1"></i>${c.type}</p>
-              <p class="course-teacher"><i class="bi bi-person-fill me-1"></i>${c.teacher}</p>
-              ${progressHtml}
-              <div class="course-footer">
-                <span class="course-price">${c.price}</span>
-                ${badgeHtml}
-              </div>
+            <div class="course-body d-flex flex-column flex-grow-1" style="padding: 20px;">
+              <h6 class="course-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">${c.title}</h6>
+              <p class="course-type" style="font-size: 0.85rem; color: #777; margin-bottom: 12px;">
+                <i class="bi bi-play-circle-fill" style="color: #E50000; margin-right: 6px;"></i>${c.type}
+              </p>
+              <p class="course-teacher" style="font-size: 0.85rem; color: #E50000; font-weight: 500; margin-bottom: 0;">
+                <i class="bi bi-person-fill" style="margin-right: 4px;"></i>${c.teacher}
+              </p>
+              ${footerHtml}
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </div>
     `;
     courseGrid.innerHTML += html;

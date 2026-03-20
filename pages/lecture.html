@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASK Training – Bài giảng</title>
+  <link rel="icon" href="../assets/logo.png" type="image/png" />
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/lecture.css" />
+</head>
+<body class="bg-light">
+
+  <!-- Topbar Header -->
+  <header class="lecture-header d-flex align-items-center bg-white border-bottom px-4">
+    <div class="d-flex align-items-center gap-4">
+      <img src="../assets/logo.png" alt="ASK Logo" height="28" />
+      <div class="vr bg-secondary opacity-25"></div>
+      <a href="courses.html" class="text-dark text-decoration-none d-flex align-items-center fw-medium header-back-link lh-1">
+        <i class="bi bi-chevron-left me-2"></i> Nói Vạn Người Mê
+      </a>
+    </div>
+  </header>
+
+  <main class="container-fluid py-4 px-xl-5">
+    <div class="row g-4">
+      
+      <!-- Left Column: Video & Info -->
+      <div class="col-12 col-lg-8">
+        <!-- Video Player / Placeholder -->
+        <div class="video-container rounded-3 overflow-hidden bg-white mb-4 shadow-sm" style="border: 1px solid #f0f0f0;">
+          <iframe id="videoPlayer" width="100%" height="500" src="https://youtu.be/dQw4w9WgXcQ?list=RDdQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        
+        <!-- Course Title -->
+        <h3 id="videoTitle" class="fw-bold mb-4 text-dark fs-4">Video1</h3>
+
+        <!-- Description Card -->
+        <div class="card border-0 shadow-sm desc-card" style="border: 1px solid #f0f0f0 !important;">
+          <div class="card-body p-4">
+            <h5 class="text-danger fw-semibold mb-3 fs-6">Mô tả ngắn</h5>
+            <p class="text-muted mb-0" style="font-size: 0.95rem;">Chưa có thông tin</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Playlist/Content -->
+      <div class="col-12 col-lg-4">
+        <div class="card border-0 shadow-sm playlist-card" style="border: 1px solid #f0f0f0 !important;">
+          <!-- Card Header -->
+          <div class="card-header bg-white border-bottom p-4 d-flex justify-content-between align-items-center">
+            <h6 class="mb-0 fw-bold fs-6">Nội dung khóa học</h6>
+            <span class="text-muted" style="font-size: 0.8rem;">0% Hoàn thành</span>
+          </div>
+
+          <!-- Card Body / Accordion -->
+          <div class="card-body p-2 p-md-0">
+            <div class="accordion accordion-flush" id="courseAccordion">
+              
+              <!-- Section 1 -->
+              <div class="accordion-item border-bottom">
+                <h2 class="accordion-header">
+                  <button class="accordion-button bg-white text-dark fw-medium shadow-none px-4 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Video1
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#courseAccordion">
+                  <div class="accordion-body p-0">
+                    <!-- Note the added border styles for the active item per the screenshot -->
+                    <div class="video-item active border border-info-subtle rounded m-2 d-flex align-items-center px-4 py-3" data-url="https://www.youtube.com/embed/dQw4w9WgXcQ?list=RDdQw4w9WgXcQ" data-title="Video1">
+                      <div class="item-icon text-primary me-3">
+                        <i class="bi bi-play-circle lh-1 fs-5"></i>
+                      </div>
+                      <div class="item-title text-muted fw-medium" style="font-size: 0.9rem;">
+                        Video1 <span class="text-danger ms-1">(3%)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 2 -->
+              <div class="accordion-item border-bottom">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-white text-dark fw-medium shadow-none px-4 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Video 2
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#courseAccordion">
+                  <div class="accordion-body p-0">
+                    <div class="video-item border border-transparent rounded m-2 d-flex align-items-center px-4 py-3" data-url="https://www.youtube.com/embed/3JZ_D3ELwOQ" data-title="Video 2">
+                      <div class="item-icon text-muted me-3">
+                        <i class="bi bi-play-circle lh-1 fs-5"></i>
+                      </div>
+                      <div class="item-title text-muted fw-medium" style="font-size: 0.9rem;">
+                        Video 2 <span class="text-danger ms-1">(1%)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 3 -->
+              <div class="accordion-item border-bottom">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-white text-dark fw-medium shadow-none px-4 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Video3
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#courseAccordion">
+                  <div class="accordion-body p-0">
+                    <div class="video-item border border-transparent rounded m-2 d-flex align-items-center px-4 py-3" data-url="https://www.youtube.com/embed/tgbNymZ7vqY" data-title="Video 3">
+                      <div class="item-icon text-muted me-3">
+                        <i class="bi bi-play-circle lh-1 fs-5"></i>
+                      </div>
+                      <div class="item-title text-muted fw-medium" style="font-size: 0.9rem;">
+                        Video 3 <span class="text-danger ms-1">(1%)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 4 -->
+              <div class="accordion-item border-bottom-0">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-white text-dark fw-medium shadow-none px-4 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Video 4
+                  </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#courseAccordion">
+                  <div class="accordion-body p-0">
+                    <div class="video-item border border-transparent rounded m-2 d-flex align-items-center px-4 py-3" data-url="https://www.youtube.com/embed/9bZkp7q19f0" data-title="Video 4">
+                      <div class="item-icon text-muted me-3">
+                        <i class="bi bi-play-circle lh-1 fs-5"></i>
+                      </div>
+                      <div class="item-title text-muted fw-medium" style="font-size: 0.9rem;">
+                        Video 4
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../scripts/lecture.js"></script>
+</body>
+</html>

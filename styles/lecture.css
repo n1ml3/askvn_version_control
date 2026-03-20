@@ -1,0 +1,82 @@
+/* ========================================================
+   ASK Training Vietnam – Lecture Page Styles
+   File: styles/lecture.css
+   ======================================================== */
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Header */
+.lecture-header {
+  height: 64px;
+}
+
+.header-back-link {
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.header-back-link:hover {
+  color: #E50000 !important;
+}
+
+/* Cards */
+.desc-card {
+  border-radius: 12px;
+}
+
+.playlist-card {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Accordion */
+.accordion-item {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.accordion-button {
+  font-size: 0.95rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #fff;
+  color: #333;
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  border-color: rgba(0,0,0,0.1);
+  box-shadow: none;
+}
+
+/* Video Item inside Accordion */
+.video-item {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.video-item:hover {
+  background-color: #f9fafb;
+}
+
+.video-item.active {
+  background-color: #f9fafb;
+}
+
+.video-item.active .item-icon {
+  color: #3b82f6 !important; /* Blue icon when active */
+}
+
+/* Custom Accordion Chevron */
+.accordion-button::after {
+  background-size: 0.85rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  color: #6c757d;
+}
