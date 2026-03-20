@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderOrders() {
     const tabPaid = document.getElementById('tabPaid');
     const tabPending = document.getElementById('tabPending');
-    
-    if(!tabPaid || !tabPending) return;
+
+    if (!tabPaid || !tabPending) return;
 
     tabPaid.innerHTML = '';
     tabPending.innerHTML = '';
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const statusClass = isPaid ? 'badge-success' : 'badge-warning';
       const statusText = isPaid ? 'Đã thanh toán' : 'Chờ thanh toán';
       const amountClass = isPaid ? '' : 'text-warning';
-      
+
       let html = `
         <div class="order-card">
           <div class="order-header">
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
       tabPaid.innerHTML += generateCard(o);
     });
 
-    if(paidOrders.length === 0) {
+    if (paidOrders.length === 0) {
       tabPaid.innerHTML = `
         <div class="checkout-empty-state">
           <img src="../assets/note_taking.svg" alt="Empty" />
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
       tabPending.innerHTML += generateCard(o);
     });
 
-    if(pendingOrders.length === 0) {
+    if (pendingOrders.length === 0) {
       tabPending.innerHTML = `
         <div class="checkout-empty-state">
           <img src="../assets/note_taking.svg" alt="Empty" />

@@ -7,17 +7,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- HANDLE TAB SELECTION FROM URL ---
   const urlParams = new URLSearchParams(window.location.search);
   const tabParam = urlParams.get('tab');
-  
+
   if (tabParam === 'password') {
     const passwordTabBtn = document.getElementById('password-tab');
-    if(passwordTabBtn) {
+    if (passwordTabBtn) {
       const passwordTab = new bootstrap.Tab(passwordTabBtn);
       passwordTab.show();
     }
   } else {
     // Default to 'info' tab
     const infoTabBtn = document.getElementById('info-tab');
-    if(infoTabBtn) {
+    if (infoTabBtn) {
       const infoTab = new bootstrap.Tab(infoTabBtn);
       infoTab.show();
     }
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('Đã cập nhật Thông tin cá nhân! (Giả lập)');
     });
   }
-  
+
   const passwordForm = document.getElementById('passwordForm');
   if (passwordForm) {
     passwordForm.addEventListener('submit', (e) => {
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(data => {
         locationData = data;
         renderProvinces(data);
-        
+
         // Mock default value for hv_ask
         provinceSelect.value = data.find(p => p.name.includes('An Giang'))?.code || "";
         provinceSelect.dispatchEvent(new Event('change'));
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    provinceSelect.addEventListener('change', function() {
+    provinceSelect.addEventListener('change', function () {
       const pCode = this.value;
       districtSelect.innerHTML = '<option value="">Chọn quận huyện</option>';
       wardSelect.innerHTML = '<option value="">Chọn phường xã</option>';
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    districtSelect.addEventListener('change', function() {
+    districtSelect.addEventListener('change', function () {
       const pCode = provinceSelect.value;
       const dCode = this.value;
       wardSelect.innerHTML = '<option value="">Chọn phường xã</option>';

@@ -83,7 +83,7 @@ function renderCourses() {
     }
 
     let progressHtml = '';
-    if (c.progress !== null && !c.categories.includes('completed')) {
+    if (c.progress !== null && activeFilter !== 'all' && !c.categories.includes('completed')) {
       progressHtml = `
         <div class="course-progress">
           <div class="d-flex justify-content-between mb-1">

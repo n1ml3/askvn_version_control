@@ -36,7 +36,7 @@ if (feedbackForm) {
     // Use string padding to mimic local time cleanly
     const now = new Date();
     const pad = (n) => String(n).padStart(2, '0');
-    const dateStr = `${pad(now.getDate())}/${pad(now.getMonth()+1)}/${now.getFullYear()} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
+    const dateStr = `${pad(now.getDate())}/${pad(now.getMonth() + 1)}/${now.getFullYear()} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
 
     mockFeedbacks.unshift({
       topic,

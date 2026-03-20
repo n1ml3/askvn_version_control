@@ -21,10 +21,10 @@ const mockNotifications = [
 
 function renderNotifications(filter = 'all') {
   const container = document.getElementById('notifList');
-  if(!container) return;
-  
+  if (!container) return;
+
   const filtered = filter === 'unread' ? mockNotifications.filter(n => !n.isRead) : mockNotifications;
-  
+
   if (filtered.length === 0) {
     container.innerHTML = `
       <div class="col-12 d-flex justify-content-center align-items-center" style="min-height: 60vh;">
@@ -37,7 +37,7 @@ function renderNotifications(filter = 'all') {
     `;
     return;
   }
-  
+
   container.innerHTML = filtered.map(n => `
     <div class="col-md-6 col-xl-4">
       <div class="notif-item grid-card ${n.isRead ? '' : 'unread'}">

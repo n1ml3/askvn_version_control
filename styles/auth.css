@@ -38,8 +38,8 @@ body.auth-page {
   padding: 40px;
   position: relative;
   /* subtle grid pattern */
-  background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-  linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
@@ -104,7 +104,7 @@ body.auth-page {
   outline: none;
   border-color: var(--ask-red, #E50000);
   background: #fff;
-  box-shadow: 0 0 0 3px rgba(229,0,0,0.1);
+  box-shadow: 0 0 0 3px rgba(229, 0, 0, 0.1);
 }
 
 .auth-password-toggle {

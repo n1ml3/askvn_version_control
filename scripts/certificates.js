@@ -17,14 +17,14 @@ const mockCertificates = [
 function renderCertificates() {
   const grid = document.getElementById('certificateGrid');
   const emptyState = document.getElementById('certEmptyState');
-  if(!grid) return;
+  if (!grid) return;
 
   if (mockCertificates.length === 0) {
-    if(emptyState) emptyState.classList.remove('d-none');
+    if (emptyState) emptyState.classList.remove('d-none');
     grid.innerHTML = '';
   } else {
-    if(emptyState) emptyState.classList.add('d-none');
-    
+    if (emptyState) emptyState.classList.add('d-none');
+
     grid.innerHTML = mockCertificates.map(cert => `
       <div class="col-12 col-sm-6 col-lg-4">
         <div class="cert-card">

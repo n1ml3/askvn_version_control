@@ -9,7 +9,9 @@
   --sidebar-width: 220px;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   font-family: 'Inter', sans-serif;
@@ -21,7 +23,8 @@ body {
 /* ===== SIDEBAR ===== */
 #sidebar {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: var(--sidebar-width);
   height: 100vh;
   background: #fff;
@@ -36,7 +39,8 @@ body {
   border-bottom: 0px solid #ececec;
   display: flex;
   align-items: center;
-  justify-content: center;   /* căn giữa logo */
+  justify-content: center;
+  /* căn giữa logo */
   overflow: hidden;
   transition: padding .25s;
 }
@@ -110,8 +114,10 @@ body {
 
 .sidebar-nav .nav-link.active {
   font-weight: 700;
-  border-left: 3px solid var(--ask-red);  /* thanh đỏ bên trái */
-  padding-left: 19px;                     /* bù lại 3px border */
+  border-left: 3px solid var(--ask-red);
+  /* thanh đỏ bên trái */
+  padding-left: 19px;
+  /* bù lại 3px border */
 }
 
 .sidebar-bottom {
@@ -137,7 +143,9 @@ body {
   transition: opacity .2s;
 }
 
-.sidebar-bottom .nav-link:hover { color: var(--ask-red); }
+.sidebar-bottom .nav-link:hover {
+  color: var(--ask-red);
+}
 
 /* ===== TOPBAR ===== */
 #topbar {
@@ -184,13 +192,19 @@ body {
   align-items: center;
   gap: 5px;
   font-size: .78rem;
-  color: rgba(255,255,255,.75);
+  color: rgba(255, 255, 255, .75);
   white-space: nowrap;
   flex-shrink: 0;
 }
 
-.topbar-breadcrumb i { font-size: .62rem; }
-.topbar-breadcrumb .active { color: #fff; font-weight: 500; }
+.topbar-breadcrumb i {
+  font-size: .62rem;
+}
+
+.topbar-breadcrumb .active {
+  color: #fff;
+  font-weight: 500;
+}
 
 /* ===== TOPBAR SEARCH (Global) ===== */
 .topbar-search {
@@ -231,10 +245,11 @@ body {
 /* Notification bell */
 .topbar-notif {
   position: relative;
-  width: 36px; height: 36px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: none;
-  background: rgba(255,255,255,.18);
+  background: rgba(255, 255, 255, .18);
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
@@ -245,7 +260,9 @@ body {
   flex-shrink: 0;
 }
 
-.topbar-notif:hover { background: rgba(255,255,255,.28); }
+.topbar-notif:hover {
+  background: rgba(255, 255, 255, .28);
+}
 
 /* Ẩn mũi tên mặc định của dropdown Bootstrap cho nút chuông */
 .topbar-notif.dropdown-toggle::after {
@@ -254,12 +271,14 @@ body {
 
 .notif-badge {
   position: absolute;
-  top: 2px; right: 2px;
+  top: 2px;
+  right: 2px;
   background: #fff;
   color: var(--ask-red);
   font-size: .58rem;
   font-weight: 700;
-  width: 15px; height: 15px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -309,7 +328,8 @@ body {
 }
 
 .topbar-avatar {
-  width: 38px; height: 38px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: var(--ask-red);
   border: none;
@@ -322,10 +342,14 @@ body {
   transition: background .15s;
 }
 
-.topbar-avatar:hover { background: var(--ask-red-dark); }
+.topbar-avatar:hover {
+  background: var(--ask-red-dark);
+}
 
 /* Loại bỏ mũi tên dropdown mặc định của Bootstrap */
-.topbar-avatar.dropdown-toggle::after { display: none; }
+.topbar-avatar.dropdown-toggle::after {
+  display: none;
+}
 
 /* ===== USER DROPDOWN ===== */
 .user-dropdown {
@@ -346,10 +370,22 @@ body {
   gap: 12px;
 }
 
-.user-avatar-lg { font-size: 2.4rem; color: rgba(255,255,255,.85); flex-shrink: 0; }
+.user-avatar-lg {
+  font-size: 2.4rem;
+  color: rgba(255, 255, 255, .85);
+  flex-shrink: 0;
+}
 
-.user-name { font-weight: 700; font-size: .98rem; }
-.user-phone { font-size: .78rem; opacity: .85; margin-top: 1px; }
+.user-name {
+  font-weight: 700;
+  font-size: .98rem;
+}
+
+.user-phone {
+  font-size: .78rem;
+  opacity: .85;
+  margin-top: 1px;
+}
 
 .user-dropdown .dropdown-item {
   font-size: .88rem;
@@ -360,9 +396,18 @@ body {
   transition: background .12s, color .12s;
 }
 
-.user-dropdown .dropdown-item:hover { background: #fff0f0; color: var(--ask-red); }
-.user-dropdown .dropdown-item.text-danger { color: var(--ask-red) !important; }
-.user-dropdown .dropdown-item.text-danger:hover { background: #fff0f0; }
+.user-dropdown .dropdown-item:hover {
+  background: #fff0f0;
+  color: var(--ask-red);
+}
+
+.user-dropdown .dropdown-item.text-danger {
+  color: var(--ask-red) !important;
+}
+
+.user-dropdown .dropdown-item.text-danger:hover {
+  background: #fff0f0;
+}
 
 /* ===== MAIN CONTENT ===== */
 #main-content {
@@ -412,16 +457,18 @@ body {
   height: 155px;
   object-fit: contain;
   z-index: 2;
-  filter: drop-shadow(0 4px 12px rgba(0,0,0,.18));
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, .18));
 }
 
 /* Wave decoration */
 .welcome-banner::after {
   content: '';
   position: absolute;
-  right: 0; bottom: 0;
-  width: 260px; height: 180px;
-  background: rgba(255,255,255,.06);
+  right: 0;
+  bottom: 0;
+  width: 260px;
+  height: 180px;
+  background: rgba(255, 255, 255, .06);
   border-radius: 60% 0 0 60%;
   z-index: 1;
 }
@@ -434,7 +481,7 @@ body {
   display: flex;
   align-items: center;
   gap: 16px;
-  box-shadow: 0 1px 6px rgba(0,0,0,.06);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, .06);
   height: 100%;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -447,7 +494,8 @@ body {
 }
 
 .stat-icon {
-  width: 52px; height: 52px;
+  width: 52px;
+  height: 52px;
   border-radius: 12px;
   background: var(--ask-red);
   display: flex;
@@ -479,7 +527,7 @@ body {
   background: #fff;
   border-radius: 14px;
   padding: 22px;
-  box-shadow: 0 1px 6px rgba(0,0,0,.06);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, .06);
 }
 
 .card-section h6 {
@@ -507,7 +555,9 @@ body {
   transition: background .15s;
 }
 
-.cal-controls .cal-nav:hover { background: #fff0f0; }
+.cal-controls .cal-nav:hover {
+  background: #fff0f0;
+}
 
 .cal-title {
   font-weight: 700;
@@ -532,7 +582,9 @@ body {
   outline: none;
 }
 
-.select-row select:focus { border-color: var(--ask-red); }
+.select-row select:focus {
+  border-color: var(--ask-red);
+}
 
 /* ===== NOTIFICATION ===== */
 .notif-empty {
@@ -541,6 +593,7 @@ body {
   font-size: .88rem;
   padding: 24px 0;
 }
+
 /* Ô ngày dùng span bên trong để tạo hình tròn chính xác */
 #calendar table {
   width: 100%;
@@ -570,7 +623,8 @@ body {
   justify-content: center;
   width: 32px;
   height: 32px;
-  border-radius: 50%;          /* TRÒN hoàn hảo */
+  border-radius: 50%;
+  /* TRÒN hoàn hảo */
   font-size: .84rem;
   transition: background .12s, color .12s;
   margin: auto;
@@ -581,7 +635,9 @@ body {
   color: var(--ask-red);
 }
 
-#calendar td.other-month .day-num { color: #ccc; }
+#calendar td.other-month .day-num {
+  color: #ccc;
+}
 
 /* Ngày hiện tại — hình tròn đỏ */
 #calendar td.today .day-num {
@@ -599,25 +655,46 @@ body {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  :root { --sidebar-width: 0px; }
-  #sidebar { transform: translateX(-220px); transition: transform .25s; width: 220px; }
-  #sidebar.show { transform: translateX(0); }
-  #topbar { left: 0; padding: 0 12px; gap: 8px;}
-  #main-content { margin-left: 0; padding: 80px 16px 20px;}
-  
+  :root {
+    --sidebar-width: 0px;
+  }
+
+  #sidebar {
+    transform: translateX(-220px);
+    transition: transform .25s;
+    width: 220px;
+  }
+
+  #sidebar.show {
+    transform: translateX(0);
+  }
+
+  #topbar {
+    left: 0;
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  #main-content {
+    margin-left: 0;
+    padding: 80px 16px 20px;
+  }
+
   /* Fix Topbar Text Cutoff */
   .topbar-page-title {
     font-size: 1rem;
     white-space: normal;
     overflow: visible;
   }
+
   .topbar-breadcrumb {
     display: none;
   }
+
   .topbar-right {
     gap: 8px !important;
   }
-  
+
   /* Fix Welcome Banner Overlap */
   .welcome-banner {
     padding: 24px 20px;
@@ -625,11 +702,11 @@ body {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .welcome-banner .banner-text {
     margin-bottom: 90px;
   }
-  
+
   .welcome-banner .banner-text p {
     max-width: 100%;
   }
@@ -658,7 +735,9 @@ body.sidebar-collapsed .sidebar-logo {
   justify-content: center;
 }
 
-body.sidebar-collapsed .logo-full { display: none; }
+body.sidebar-collapsed .logo-full {
+  display: none;
+}
 
 body.sidebar-collapsed .logo-mini {
   display: flex;
@@ -696,7 +775,7 @@ body.sidebar-collapsed .sidebar-nav .nav-link:hover::after {
   white-space: nowrap;
   pointer-events: none;
   z-index: 2000;
-  box-shadow: 0 2px 8px rgba(0,0,0,.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
 }
 
 body.sidebar-collapsed .sidebar-nav .nav-link {

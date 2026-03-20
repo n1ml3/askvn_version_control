@@ -18,8 +18,8 @@ document.getElementById('sidebarToggle').addEventListener('click', () => {
 // ===== Calendar logic =====
 const DAYS = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
 const MONTHS_VN = [
-  'Tháng 1','Tháng 2','Tháng 3','Tháng 4','Tháng 5','Tháng 6',
-  'Tháng 7','Tháng 8','Tháng 9','Tháng 10','Tháng 11','Tháng 12'
+  'Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6',
+  'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'
 ];
 
 // Mock Stats
@@ -36,8 +36,8 @@ const mockDashboardEvents = [
 
 function renderDashboardStats() {
   const container = document.getElementById('dashboardStats');
-  if(!container) return;
-  
+  if (!container) return;
+
   container.innerHTML = mockStats.map(stat => `
     <div class="col-12 col-md-6 col-lg-3">
       <div class="stat-card">
@@ -53,11 +53,11 @@ function renderDashboardStats() {
 document.addEventListener('DOMContentLoaded', renderDashboardStats);
 
 const now = new Date();
-let viewYear  = now.getFullYear();
+let viewYear = now.getFullYear();
 let viewMonth = now.getMonth(); // 0-based
 
 const selMonth = document.getElementById('selMonth');
-const selYear  = document.getElementById('selYear');
+const selYear = document.getElementById('selYear');
 
 // Dropdowns
 if (selMonth && selYear) {
@@ -74,13 +74,13 @@ if (selMonth && selYear) {
 
   function renderCalendar(year, month) {
     selMonth.value = month;
-    selYear.value  = year;
+    selYear.value = year;
     document.getElementById('calTitle').textContent = `${MONTHS_VN[month]} ${year}`;
 
-    const firstDay    = new Date(year, month, 1).getDay();
+    const firstDay = new Date(year, month, 1).getDay();
     const startOffset = (firstDay === 0) ? 6 : firstDay - 1;
     const daysInMonth = new Date(year, month + 1, 0).getDate();
-    const daysInPrev  = new Date(year, month, 0).getDate();
+    const daysInPrev = new Date(year, month, 0).getDate();
 
     let html = '<table><thead><tr>';
     DAYS.forEach(d => { html += `<th>${d}</th>`; });
@@ -96,7 +96,7 @@ if (selMonth && selYear) {
     for (let d = 1; d <= daysInMonth; d++) {
       if (dayCount % 7 === 0 && dayCount !== 0) html += '</tr><tr>';
 
-      const cellDateStr = `${year}-${String(month+1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+      const cellDateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
       const isToday = (
         d === now.getDate() &&
         month === now.getMonth() &&
@@ -105,7 +105,7 @@ if (selMonth && selYear) {
       const isEvent = mockDashboardEvents.some(ev => ev.date === cellDateStr) && !isToday;
 
       let cls = '';
-      if (isToday)      cls = 'today';
+      if (isToday) cls = 'today';
       else if (isEvent) cls = 'has-event';
 
       html += `<td class="${cls}" title="${d}/${month + 1}/${year}"><span class="day-num">${d}</span></td>`;

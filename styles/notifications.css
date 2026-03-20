@@ -5,7 +5,7 @@
   background: #fff;
   border-radius: 12px;
   border: 1px solid #eef0f3;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
   transition: all 0.2s ease;
   cursor: pointer;
   height: 100%;
@@ -13,11 +13,12 @@
 
 .notif-item.grid-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .notif-item.unread {
-  background: #f0fdf4; /* Light green tint */
+  background: #f0fdf4;
+  /* Light green tint */
 }
 
 .notif-item.unread:hover {

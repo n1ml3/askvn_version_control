@@ -1,142 +1,150 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ASK Training – Thông báo</title>
-  <link rel="icon" href="../assets/logo.png" type="image/png"/>
+  <link rel="icon" href="../assets/logo.png" type="image/png" />
 
   <!-- Bootstrap 5 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
   <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Shared Dashboard CSS -->
-  <link rel="stylesheet" href="../styles/dashboard.css"/>
+  <link rel="stylesheet" href="../styles/dashboard.css" />
   <!-- Notifications & Shared Filter CSS -->
-  <link rel="stylesheet" href="../styles/courses.css"/>
-  <link rel="stylesheet" href="../styles/notifications.css"/>
+  <link rel="stylesheet" href="../styles/courses.css" />
+  <link rel="stylesheet" href="../styles/notifications.css" />
 </head>
+
 <body>
 
-<!-- ===== SIDEBAR ===== -->
-<aside id="sidebar">
-  <div class="sidebar-logo">
-    <img src="../assets/logo.png" alt="ASK" class="logo-full"/>
-    <div class="logo-mini" aria-label="ASK">
-      <span>A</span><span>S</span><span>K</span>
-    </div>
-  </div>
-
-  <nav class="sidebar-nav">
-    <a href="dashboard.html" class="nav-link" title="Dashboard">
-      <i class="bi bi-grid-1x2"></i><span>Dashboard</span>
-    </a>
-    <a href="courses.html" class="nav-link" title="Khoá học">
-      <i class="bi bi-journal-bookmark"></i><span>Khoá học</span>
-    </a>
-    <a href="calendar.html" class="nav-link" title="Lịch học Zoom">
-      <i class="bi bi-calendar3"></i><span>Lịch học Zoom</span>
-    </a>
-    <a href="checkoutHistory.html" class="nav-link" title="Lịch sử thanh toán">
-      <i class="bi bi-clock"></i><span>Lịch sử thanh toán</span>
-    </a>
-    <a href="certificates.html" class="nav-link" title="Chứng nhận">
-      <i class="bi bi-award"></i><span>Chứng nhận</span>
-    </a>
-    <a href="notifications.html" class="nav-link active" title="Thông báo">
-      <i class="bi bi-bell"></i><span>Thông báo</span>
-    </a>
-    <a href="feedback.html" class="nav-link" title="Phản hồi, góp ý">
-      <i class="bi bi-list"></i><span>Phản hồi, góp ý</span>
-    </a>
-    <a href="login.html" class="nav-link" title="Đăng xuất">
-      <i class="bi bi-box-arrow-right"></i><span>Đăng xuất</span>
-    </a>
-  </nav>
-</aside>
-
-<!-- ===== TOPBAR ===== -->
-<header id="topbar">
-  <button class="topbar-toggle" id="sidebarToggle">
-    <i class="bi bi-list"></i>
-  </button>
-
-  <h1 class="topbar-page-title">Thông báo</h1>
-  
-  <div class="topbar-breadcrumb">
-    <span>Home</span>
-    <i class="bi bi-chevron-right"></i>
-    <span class="active">Thông báo</span>
-  </div>
-
-  <div class="topbar-right" style="margin-left: auto;">
-    <div class="dropdown d-inline-block">
-      <button class="topbar-notif dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="notifDropdownBtn" title="Thông báo">
-        <i class="bi bi-bell"></i>
-        <span class="notif-badge">0</span>
-      </button>
-      <div class="dropdown-menu dropdown-menu-end notif-dropdown shadow" aria-labelledby="notifDropdownBtn">
-        <div class="notif-dropdown-header">
-          Thông báo
-        </div>
-        <div class="notif-dropdown-body">
-          <img src="../assets/note_taking.svg" alt="No notifications" />
-          <p>Bạn chưa có thông báo nào</p>
-        </div>
+  <!-- ===== SIDEBAR ===== -->
+  <aside id="sidebar">
+    <div class="sidebar-logo">
+      <img src="../assets/logo.png" alt="ASK" class="logo-full" />
+      <div class="logo-mini" aria-label="ASK">
+        <span>A</span><span>S</span><span>K</span>
       </div>
     </div>
-    <div class="dropdown">
-      <button class="topbar-avatar dropdown-toggle" data-bs-toggle="dropdown"
-              aria-expanded="false" id="userDropdownBtn" title="Tài khoản">
-        <i class="bi bi-person-fill"></i>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end user-dropdown shadow" aria-labelledby="userDropdownBtn">
-        <li>
-          <div class="user-dropdown-header">
-            <div class="user-avatar-lg"><i class="bi bi-person-circle"></i></div>
-            <div>
-              <div class="user-name">hv_ask</div>
-              <div class="user-phone">0888888888</div>
-            </div>
-          </div>
-        </li>
-        <li><hr class="dropdown-divider my-1"></li>
-        <li>
-          <a class="dropdown-item" href="profile.html">
-            <i class="bi bi-person me-2"></i>Thông tin cá nhân
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item" href="profile.html?tab=password">
-            <i class="bi bi-key me-2"></i>Đổi mật khẩu
-          </a>
-        </li>
-        <li><hr class="dropdown-divider my-1"></li>
-        <li>
-          <a class="dropdown-item text-danger" href="#">
-            <i class="bi bi-box-arrow-right me-2"></i>Đăng xuất
-          </a>
-        </li>
-      </ul>
+
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-link" title="Dashboard">
+        <i class="bi bi-grid-1x2"></i><span>Dashboard</span>
+      </a>
+      <a href="courses.html" class="nav-link" title="Khoá học">
+        <i class="bi bi-journal-bookmark"></i><span>Khoá học</span>
+      </a>
+      <a href="calendar.html" class="nav-link" title="Lịch học Zoom">
+        <i class="bi bi-calendar3"></i><span>Lịch học Zoom</span>
+      </a>
+      <a href="checkoutHistory.html" class="nav-link" title="Lịch sử thanh toán">
+        <i class="bi bi-clock"></i><span>Lịch sử thanh toán</span>
+      </a>
+      <a href="certificates.html" class="nav-link" title="Chứng nhận">
+        <i class="bi bi-award"></i><span>Chứng nhận</span>
+      </a>
+      <a href="notifications.html" class="nav-link active" title="Thông báo">
+        <i class="bi bi-bell"></i><span>Thông báo</span>
+      </a>
+      <a href="feedback.html" class="nav-link" title="Phản hồi, góp ý">
+        <i class="bi bi-list"></i><span>Phản hồi, góp ý</span>
+      </a>
+      <a href="login.html" class="nav-link" title="Đăng xuất">
+        <i class="bi bi-box-arrow-right"></i><span>Đăng xuất</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- ===== TOPBAR ===== -->
+  <header id="topbar">
+    <button class="topbar-toggle" id="sidebarToggle">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <h1 class="topbar-page-title">Thông báo</h1>
+
+    <div class="topbar-breadcrumb">
+      <span>Home</span>
+      <i class="bi bi-chevron-right"></i>
+      <span class="active">Thông báo</span>
     </div>
-  </div>
-</header>
 
-<!-- ===== MAIN ===== -->
-<main id="main-content">
-  <div class="row g-4" id="notifList">
-    <!-- Rendered via JS -->
-  </div>
+    <div class="topbar-right" style="margin-left: auto;">
+      <div class="dropdown d-inline-block">
+        <button class="topbar-notif dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+          id="notifDropdownBtn" title="Thông báo">
+          <i class="bi bi-bell"></i>
+          <span class="notif-badge">0</span>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end notif-dropdown shadow" aria-labelledby="notifDropdownBtn">
+          <div class="notif-dropdown-header">
+            Thông báo
+          </div>
+          <div class="notif-dropdown-body">
+            <img src="../assets/note_taking.svg" alt="No notifications" />
+            <p>Bạn chưa có thông báo nào</p>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="topbar-avatar dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+          id="userDropdownBtn" title="Tài khoản">
+          <i class="bi bi-person-fill"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end user-dropdown shadow" aria-labelledby="userDropdownBtn">
+          <li>
+            <div class="user-dropdown-header">
+              <div class="user-avatar-lg"><i class="bi bi-person-circle"></i></div>
+              <div>
+                <div class="user-name">hv_ask</div>
+                <div class="user-phone">0888888888</div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <hr class="dropdown-divider my-1">
+          </li>
+          <li>
+            <a class="dropdown-item" href="profile.html">
+              <i class="bi bi-person me-2"></i>Thông tin cá nhân
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="profile.html?tab=password">
+              <i class="bi bi-key me-2"></i>Đổi mật khẩu
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider my-1">
+          </li>
+          <li>
+            <a class="dropdown-item text-danger" href="#">
+              <i class="bi bi-box-arrow-right me-2"></i>Đăng xuất
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
 
-</main>
+  <!-- ===== MAIN ===== -->
+  <main id="main-content">
+    <div class="row g-4" id="notifList">
+      <!-- Rendered via JS -->
+    </div>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Dashboard JS (sidebar toggle) -->
-<script src="../scripts/dashboard.js"></script>
-<!-- Notifications JS -->
-<script src="../scripts/notifications.js"></script>
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Dashboard JS (sidebar toggle) -->
+  <script src="../scripts/dashboard.js"></script>
+  <!-- Notifications JS -->
+  <script src="../scripts/notifications.js"></script>
 </body>
+
 </html>

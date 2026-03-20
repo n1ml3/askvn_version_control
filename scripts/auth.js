@@ -5,9 +5,9 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const toggleBtns = document.querySelectorAll('.auth-password-toggle');
-  
+
   toggleBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
+    btn.addEventListener('click', function () {
       // Find the input relatively
       const input = this.parentElement.querySelector('.auth-input');
       const icon = this.querySelector('i');

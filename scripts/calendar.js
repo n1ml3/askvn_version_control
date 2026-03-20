@@ -20,13 +20,13 @@
   ];
 
   /* ---------- DOM refs ---------- */
-  const calBody      = document.getElementById('calBody');
-  const monthTitle   = document.getElementById('monthTitle');
-  const prevBtn      = document.getElementById('prevMonth');
-  const nextBtn      = document.getElementById('nextMonth');
-  const todayBtn     = document.getElementById('todayBtn');
-  const viewBtns     = document.querySelectorAll('.cal-view-btn');
-  const tabBtns      = document.querySelectorAll('.cal-tab');
+  const calBody = document.getElementById('calBody');
+  const monthTitle = document.getElementById('monthTitle');
+  const prevBtn = document.getElementById('prevMonth');
+  const nextBtn = document.getElementById('nextMonth');
+  const todayBtn = document.getElementById('todayBtn');
+  const viewBtns = document.querySelectorAll('.cal-view-btn');
+  const tabBtns = document.querySelectorAll('.cal-tab');
   const calHeaderRow = document.querySelector('.cal-header-row');
 
   /* ---------- Helpers ---------- */
@@ -51,8 +51,8 @@
       el.style.display = 'block';
       el.innerHTML = dayNames[idx];
     });
-    
-    const year  = currentDate.getFullYear();
+
+    const year = currentDate.getFullYear();
     const month = currentDate.getMonth(); // 0-based
 
     // Update header text
@@ -118,7 +118,7 @@
   function renderWeek() {
     calHeaderRow.style.display = 'grid'; // Giữ nguyên header
     calHeaderRow.style.gridTemplateColumns = 'repeat(7, 1fr)';
-    
+
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
     const date = currentDate.getDate();
@@ -130,18 +130,18 @@
     // Tính ngày đầu tuần (Thứ Hai)
     const startOfWeek = new Date(year, month, date - jsDayToMondayFirst);
     const endOfWeek = new Date(startOfWeek.getFullYear(), startOfWeek.getMonth(), startOfWeek.getDate() + 6);
-    
+
     // Header format: Từ ngày - Đến ngày
-    monthTitle.textContent = `${pad(startOfWeek.getDate())}/${pad(startOfWeek.getMonth()+1)} - ${pad(endOfWeek.getDate())}/${pad(endOfWeek.getMonth()+1)}/${endOfWeek.getFullYear()}`;
+    monthTitle.textContent = `${pad(startOfWeek.getDate())}/${pad(startOfWeek.getMonth() + 1)} - ${pad(endOfWeek.getDate())}/${pad(endOfWeek.getMonth() + 1)}/${endOfWeek.getFullYear()}`;
 
     const headerCells = calHeaderRow.querySelectorAll('.cal-header-cell');
     calBody.innerHTML = '';
-    
+
     const today = new Date();
     const todayKey = dateKey(today.getFullYear(), today.getMonth(), today.getDate());
 
     let timelineGridHtml = `<div class="timeline-wrapper"><div class="timeline-time-col">`;
-    for(let i=0; i<=23; i++) {
+    for (let i = 0; i <= 23; i++) {
       timelineGridHtml += `<div class="timeline-hour-label"><span>${pad(i)}:00</span></div>`;
     }
     timelineGridHtml += `</div><div class="timeline-grid" style="grid-template-columns: repeat(7, 1fr);">`;
@@ -149,23 +149,23 @@
     const dayNames = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
     for (let i = 0; i < 7; i++) {
       const cellDate = new Date(startOfWeek.getFullYear(), startOfWeek.getMonth(), startOfWeek.getDate() + i);
-      
-      if(headerCells[i]) {
+
+      if (headerCells[i]) {
         headerCells[i].style.display = 'block';
-        headerCells[i].innerHTML = `${dayNames[i]}<br><span style="font-size:0.75rem; font-weight:normal; color:#aaa;">${pad(cellDate.getDate())}/${pad(cellDate.getMonth()+1)}</span>`;
+        headerCells[i].innerHTML = `${dayNames[i]}<br><span style="font-size:0.75rem; font-weight:normal; color:#aaa;">${pad(cellDate.getDate())}/${pad(cellDate.getMonth() + 1)}</span>`;
       }
-      
+
       const cellKey = dateKey(cellDate.getFullYear(), cellDate.getMonth(), cellDate.getDate());
       const isToday = (cellKey === todayKey);
-      
+
       timelineGridHtml += `<div class="timeline-day-col ${isToday ? 'today' : ''}" style="${isToday ? 'background: #fff5f5;' : ''}">`;
-      for(let h=0; h<=23; h++) {
+      for (let h = 0; h <= 23; h++) {
         timelineGridHtml += `<div class="timeline-hour-cell"></div>`;
       }
       timelineGridHtml += `</div>`;
     }
     timelineGridHtml += `</div></div>`;
-    
+
     const finalContainer = document.createElement('div');
     finalContainer.style.gridColumn = '1 / -1';
     finalContainer.innerHTML = timelineGridHtml;
@@ -176,42 +176,42 @@
   function renderDay() {
     calHeaderRow.style.display = 'grid'; // Hiển thị 1 cột header
     calHeaderRow.style.gridTemplateColumns = '1fr';
-    
+
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
     const date = currentDate.getDate();
-    let day = currentDate.getDay(); 
+    let day = currentDate.getDay();
     const jsDayToMondayFirst = (day === 0) ? 6 : day - 1;
     const dayNames = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
-    
-    monthTitle.textContent = `Ngày ${pad(date)}/${pad(month+1)}/${year}`;
+
+    monthTitle.textContent = `Ngày ${pad(date)}/${pad(month + 1)}/${year}`;
     calBody.innerHTML = '';
-    
+
     const headerCells = calHeaderRow.querySelectorAll('.cal-header-cell');
     headerCells.forEach((el, index) => {
       if (index === 0) {
         el.style.display = 'block';
-        el.innerHTML = `${dayNames[jsDayToMondayFirst]}<br><span style="font-size:0.75rem; font-weight:normal; color:#aaa;">${pad(date)}/${pad(month+1)}</span>`;
+        el.innerHTML = `${dayNames[jsDayToMondayFirst]}<br><span style="font-size:0.75rem; font-weight:normal; color:#aaa;">${pad(date)}/${pad(month + 1)}</span>`;
       } else {
         el.style.display = 'none';
       }
     });
-    
+
     const today = new Date();
     const isToday = (dateKey(year, month, date) === dateKey(today.getFullYear(), today.getMonth(), today.getDate()));
 
     let timelineGridHtml = `<div class="timeline-wrapper"><div class="timeline-time-col">`;
-    for(let i=0; i<=23; i++) {
+    for (let i = 0; i <= 23; i++) {
       timelineGridHtml += `<div class="timeline-hour-label"><span>${pad(i)}:00</span></div>`;
     }
     timelineGridHtml += `</div><div class="timeline-grid" style="grid-template-columns: 1fr;">`;
 
     timelineGridHtml += `<div class="timeline-day-col ${isToday ? 'today' : ''}" style="${isToday ? 'background: #fff5f5;' : ''}">`;
-    for(let h=0; h<=23; h++) {
+    for (let h = 0; h <= 23; h++) {
       timelineGridHtml += `<div class="timeline-hour-cell"></div>`;
     }
     timelineGridHtml += `</div></div></div>`;
-    
+
     const finalContainer = document.createElement('div');
     finalContainer.style.gridColumn = '1 / -1';
     finalContainer.innerHTML = timelineGridHtml;
@@ -224,11 +224,11 @@
     calHeaderRow.style.display = 'none';
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
-    
+
     // Có thể hiện list của tháng hiện tại
-    monthTitle.textContent = `Danh sách sự kiện (Tháng ${pad(month+1)}/${year})`;
+    monthTitle.textContent = `Danh sách sự kiện (Tháng ${pad(month + 1)}/${year})`;
     calBody.innerHTML = '';
-    
+
     const cell = document.createElement('div');
     cell.className = 'cal-day empty-view-cell';
     cell.style.gridColumn = '1 / -1';
@@ -238,7 +238,7 @@
     cell.style.justifyContent = 'center';
     cell.style.fontSize = '1.1rem';
     cell.style.color = '#888';
-    
+
     cell.innerHTML = `<div><i class="bi bi-card-list fs-3 d-block text-center mb-2"></i>Không có sự kiện nào trong danh sách.</div>`;
     calBody.appendChild(cell);
   }
@@ -292,9 +292,9 @@
   /* ---------- Tab switcher ---------- */
   const tabPanels = {
     timetable: document.getElementById('tabTimetable'),
-    schedule:  document.getElementById('tabSchedule'),
+    schedule: document.getElementById('tabSchedule'),
     cancelled: document.getElementById('tabCancelled'),
-    makeup:    document.getElementById('tabMakeup'),
+    makeup: document.getElementById('tabMakeup'),
   };
 
   tabBtns.forEach(btn => {
