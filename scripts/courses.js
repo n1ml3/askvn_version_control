@@ -9,7 +9,7 @@ const courseItems = document.querySelectorAll('#courseGrid [data-category]');
 const emptyState  = document.getElementById('emptyState');
 
 // Search input
-const searchInput = document.getElementById('courseSearch');
+const searchInput = document.getElementById('top-bar-search');
 
 function applyFilter(filter) {
   let visibleCount = 0;
