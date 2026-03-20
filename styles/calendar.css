@@ -1,0 +1,359 @@
+/* ========================================================
+   ASK Training Vietnam – Calendar Page Styles
+   File: styles/calendar.css
+   ======================================================== */
+
+/* ===== MAIN CONTENT (calendar) ===== */
+#mainContent {
+    margin-left: var(--sidebar-width);
+    margin-top: 110px;
+    padding: 24px;
+    min-height: calc(100vh - 110px);
+    transition: margin-left .25s;
+}
+
+/* Collapsed sidebar override */
+body.sidebar-collapsed #mainContent {
+    margin-left: 68px;
+}
+
+@media (max-width: 768px) {
+    #mainContent {
+        margin-left: 0;
+        padding: 16px;
+    }
+}
+
+
+
+/* ===== TAB NAVIGATION ===== */
+.cal-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.cal-tab {
+    padding: 8px 20px;
+    border-radius: 6px;
+    border: 1.5px solid #ddd;
+    background: #fff;
+    color: #555;
+    font-size: .86rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .16s;
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap;
+}
+
+.cal-tab:hover {
+    border-color: var(--ask-red);
+    color: var(--ask-red);
+}
+
+.cal-tab.active {
+    background: var(--ask-red);
+    border-color: var(--ask-red);
+    color: #fff;
+    font-weight: 600;
+}
+
+/* ===== CALENDAR PANEL ===== */
+.cal-panel {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, .07);
+    overflow: hidden;
+}
+
+/* ===== CONTROLS ROW ===== */
+.cal-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.cal-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cal-nav-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    border: 1.5px solid #e0e0e0;
+    background: #fff;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: .95rem;
+    transition: all .15s;
+}
+
+.cal-nav-btn:hover {
+    border-color: var(--ask-red);
+    color: var(--ask-red);
+}
+
+.cal-today-btn {
+    padding: 6px 16px;
+    border-radius: 8px;
+    border: 1.5px solid #e0e0e0;
+    background: #fff;
+    color: #555;
+    font-size: .84rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: 'Inter', sans-serif;
+}
+
+.cal-today-btn:hover {
+    border-color: var(--ask-red);
+    color: var(--ask-red);
+}
+
+.cal-month-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+    text-align: center;
+}
+
+/* View switcher buttons */
+.cal-view-btns {
+    display: flex;
+    border: 1.5px solid var(--ask-red);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.cal-view-btn {
+    padding: 6px 14px;
+    border: none;
+    background: #fff;
+    color: var(--ask-red);
+    font-size: .82rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+    font-family: 'Inter', sans-serif;
+    border-right: 1px solid rgba(204, 26, 26, .2);
+}
+
+.cal-view-btn:last-child {
+    border-right: none;
+}
+
+.cal-view-btn.active {
+    background: var(--ask-red);
+    color: #fff;
+}
+
+.cal-view-btn:hover:not(.active) {
+    background: rgba(204, 26, 26, .06);
+}
+
+/* ===== CALENDAR GRID ===== */
+.cal-header-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.cal-header-cell {
+    text-align: center;
+    padding: 12px 0 10px;
+    font-size: .78rem;
+    font-weight: 600;
+    color: #888;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+}
+
+.cal-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+/* Each day cell */
+.cal-day {
+    min-height: 90px;
+    border-right: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 8px 10px 6px;
+    cursor: default;
+    transition: background .15s;
+    position: relative;
+}
+
+.cal-day:nth-child(7n) {
+    border-right: none;
+}
+
+/* last column */
+
+.cal-day:hover {
+    background: #fafafa;
+}
+
+/* Day number */
+.cal-day-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: .85rem;
+    font-weight: 500;
+    color: #333;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+/* Today highlight */
+.cal-day.today .cal-day-num {
+    background: var(--ask-red);
+    color: #fff;
+    font-weight: 700;
+}
+
+/* Days outside current month */
+.cal-day.other-month .cal-day-num {
+    color: #ccc;
+}
+
+.cal-day.other-month {
+    background: #fcfcfc;
+}
+
+/* Today cell background */
+.cal-day.today {
+    background: #fff5f5;
+}
+
+/* ===== EVENTS inside day cells ===== */
+.cal-event {
+    display: block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: var(--ask-red);
+    color: #fff;
+    font-size: .7rem;
+    font-weight: 500;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    transition: opacity .15s;
+}
+
+.cal-event:hover {
+    opacity: .85;
+}
+
+.cal-event.event-blue {
+    background: #3b82f6;
+}
+
+.cal-event.event-green {
+    background: #22c55e;
+}
+
+.cal-event.event-orange {
+    background: #f59e0b;
+}
+
+/* ===== EMPTY STATE ===== */
+.cal-empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: #bbb;
+}
+
+.cal-empty-state i {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 14px;
+    color: #ddd;
+}
+
+.cal-empty-state p {
+    font-size: .92rem;
+    margin: 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .cal-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .cal-month-title {
+        order: -1;
+        font-size: 1rem;
+    }
+
+    .cal-day {
+        min-height: 60px;
+        padding: 5px 4px 4px;
+    }
+
+    .cal-day-num {
+        width: 24px;
+        height: 24px;
+        font-size: .76rem;
+    }
+
+    .cal-event {
+        font-size: .62rem;
+    }
+
+    .cal-tabs {
+        gap: 6px;
+    }
+
+    .cal-tab {
+        font-size: .8rem;
+        padding: 6px 14px;
+    }
+
+    .topbar-breadcrumb {
+        display: none;
+    }
+
+    .topbar-page-title {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cal-header-cell {
+        font-size: .68rem;
+    }
+
+    .cal-day {
+        min-height: 46px;
+    }
+
+    .cal-event {
+        display: none;
+    }
+
+    /* too small on mobile */
+}

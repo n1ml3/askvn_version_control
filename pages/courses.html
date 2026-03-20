@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ASK Training – Khóa học</title>
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <!-- Shared Dashboard CSS -->
+  <link rel="stylesheet" href="../styles/dashboard.css"/>
+  <!-- Courses CSS -->
+  <link rel="stylesheet" href="../styles/courses.css"/>
+</head>
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<aside id="sidebar">
+  <div class="sidebar-logo">
+    <img src="../assets/logo.png" alt="ASK" class="logo-full"/>
+    <div class="logo-mini" aria-label="ASK">
+      <span>A</span><span>S</span><span>K</span>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a href="dashboard.html" class="nav-link" title="Dashboard">
+      <i class="bi bi-grid-1x2"></i><span>Dashboard</span>
+    </a>
+    <a href="courses.html" class="nav-link active" title="Khoá học">
+      <i class="bi bi-journal-bookmark"></i><span>Khoá học</span>
+    </a>
+    <a href="calendar.html" class="nav-link" title="Lịch học Zoom">
+      <i class="bi bi-calendar3"></i><span>Lịch học Zoom</span>
+    </a>
+    <a href="#" class="nav-link" title="Lịch sử thanh toán">
+      <i class="bi bi-clock"></i><span>Lịch sử thanh toán</span>
+    </a>
+    <a href="#" class="nav-link" title="chứng nhận">
+      <i class="bi bi-award"></i><span>Chứng nhận</span>
+    </a>
+    <a href="#" class="nav-link" title="Thông báo">
+      <i class="bi bi-bell"></i><span>Thông báo</span>
+    </a>
+    <a href="#" class="nav-link" title="Phản hồi, góp ý">
+      <i class="bi bi-list"></i><span>Phản hồi, góp ý</span>
+    </a>
+    <a href="#" class="nav-link" title="Tài khoản">
+      <i class="bi bi-person"></i><span>Tài khoản</span>
+    </a>
+    <a href="#" class="nav-link" title="Đăng xuất">
+      <i class="bi bi-box-arrow-right"></i><span>Đăng xuất</span>
+    </a>
+  </nav>
+</aside>
+
+<!-- ===== TOPBAR ===== -->
+<header id="topbar">
+  <div class="topbar-main-row">
+    <button class="topbar-toggle" id="sidebarToggle">
+      <i class="bi bi-list"></i>
+    </button>
+    <div class="topbar-right">
+      <!-- Notification bell -->
+      <button class="topbar-notif" title="Thông báo">
+        <i class="bi bi-bell"></i>
+        <span class="notif-badge">0</span>
+      </button>
+
+      <!-- User dropdown -->
+      <div class="dropdown">
+        <button class="topbar-avatar dropdown-toggle" data-bs-toggle="dropdown"
+                aria-expanded="false" id="userDropdownBtn" title="Tài khoản">
+          <i class="bi bi-person-fill"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end user-dropdown shadow" aria-labelledby="userDropdownBtn">
+          <li>
+            <div class="user-dropdown-header">
+              <div class="user-avatar-lg"><i class="bi bi-person-circle"></i></div>
+              <div>
+                <div class="user-name">hv_ask</div>
+                <div class="user-phone">0888888888</div>
+              </div>
+            </div>
+          </li>
+          <li><hr class="dropdown-divider my-1"></li>
+          <li>
+            <a class="dropdown-item" href="#">
+              <i class="bi bi-person me-2"></i>Thông tin cá nhân
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">
+              <i class="bi bi-key me-2"></i>Đổi mật khẩu
+            </a>
+          </li>
+          <li><hr class="dropdown-divider my-1"></li>
+          <li>
+            <a class="dropdown-item text-danger" href="#">
+              <i class="bi bi-box-arrow-right me-2"></i>Đăng xuất
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="topbar-bottom-row">
+    <h1 class="topbar-page-title">Khóa học</h1>
+    <div class="topbar-breadcrumb">
+      <span>Home</span>
+      <i class="bi bi-chevron-right"></i>
+      <span class="active">Khóa học</span>
+    </div>
+  </div>
+</header>
+
+
+<!-- ===== MAIN ===== -->
+<main id="main-content">
+
+  <!-- Page header -->
+  <div class="courses-header mb-4">
+    <h4 class="page-title">Khóa học</h4>
+  </div>
+
+  <!-- Filter tabs -->
+  <div class="filter-tabs mb-4">
+    <button class="filter-btn active" data-filter="all">Tất cả khóa học</button>
+    <button class="filter-btn" data-filter="owned">Khóa sở hữu</button>
+    <button class="filter-btn" data-filter="studying">Khóa đang học</button>
+    <button class="filter-btn" data-filter="completed">Khóa hoàn thành</button>
+  </div>
+
+  <!-- Course grid -->
+  <div class="row g-3" id="courseGrid">
+
+    <!-- Card 1: all / owned / studying — HAS PROGRESS -->
+    <div class="col-6 col-md-4" data-category="all owned studying" data-progress="45">
+      <a href="https://ask.com.vn/collections/khoa-hoc-ask" target="_blank" class="course-link">
+        <div class="course-card">
+          <div class="course-thumb">
+            <img src="../assets/course-1.jpg" alt="Nghệ Thuật Đọc Nhanh"
+                 onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22180%22><rect fill=%22%23f5f6fa%22 width=%22300%22 height=%22180%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2240%22>📚</text></svg>'"/>
+          </div>
+          <div class="course-body">
+            <h6 class="course-title">Nghệ Thuật Đọc Nhanh</h6>
+            <p class="course-type"><i class="bi bi-play-circle-fill me-1"></i>Học online với video</p>
+            <p class="course-teacher"><i class="bi bi-person-fill me-1"></i>DG Phạm Ngọc Anh</p>
+            <!-- Progress bar (only for studying) -->
+            <div class="course-progress">
+              <div class="d-flex justify-content-between mb-1">
+                <span class="progress-label">Tiến trình</span>
+                <span class="progress-pct">45%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width:45%"></div>
+              </div>
+            </div>
+            <div class="course-footer">
+              <span class="course-price">0 đ</span>
+              <span class="course-badge studying">Đang học</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Card 2: all / owned -->
+    <div class="col-6 col-md-4" data-category="all owned">
+      <a href="https://ask.com.vn/collections/khoa-hoc-ask" target="_blank" class="course-link">
+        <div class="course-card">
+          <div class="course-thumb">
+            <img src="../assets/course-2.jpg" alt="Nói Vạn Người Mê"
+                 onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22180%22><rect fill=%22%23f5f6fa%22 width=%22300%22 height=%22180%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2240%22>🎤</text></svg>'"/>
+          </div>
+          <div class="course-body">
+            <h6 class="course-title">Nói Vạn Người Mê</h6>
+            <p class="course-type"><i class="bi bi-play-circle-fill me-1"></i>Học online với video</p>
+            <p class="course-teacher"><i class="bi bi-person-fill me-1"></i>DG Phạm Ngọc Anh</p>
+            <div class="course-footer">
+              <span class="course-price">0 đ</span>
+              <span class="course-badge owned">Sở hữu</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Card 3: all / studying — HAS PROGRESS -->
+    <div class="col-6 col-md-4" data-category="all studying" data-progress="72">
+      <a href="https://ask.com.vn/collections/khoa-hoc-ask" target="_blank" class="course-link">
+        <div class="course-card">
+          <div class="course-thumb">
+            <img src="../assets/course-3.jpg" alt="Tư Duy Phản Biện"
+                 onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22180%22><rect fill=%22%23f5f6fa%22 width=%22300%22 height=%22180%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2240%22>📗</text></svg>'"/>
+          </div>
+          <div class="course-body">
+            <h6 class="course-title">Tư Duy Phản Biện</h6>
+            <p class="course-type"><i class="bi bi-play-circle-fill me-1"></i>Học online với video</p>
+            <p class="course-teacher"><i class="bi bi-person-fill me-1"></i>DG Phạm Ngọc Anh</p>
+            <div class="course-progress">
+              <div class="d-flex justify-content-between mb-1">
+                <span class="progress-label">Tiến trình</span>
+                <span class="progress-pct">72%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width:72%"></div>
+              </div>
+            </div>
+            <div class="course-footer">
+              <span class="course-price">0 đ</span>
+              <span class="course-badge studying">Đang học</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Card 4: all / owned / studying — HAS PROGRESS -->
+    <div class="col-6 col-md-4" data-category="all owned studying" data-progress="20">
+      <a href="https://ask.com.vn/collections/khoa-hoc-ask" target="_blank" class="course-link">
+        <div class="course-card">
+          <div class="course-thumb">
+            <img src="../assets/course-4.jpg" alt="Nói Vạn Người Mê"
+                 onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22180%22><rect fill=%22%23f5f6fa%22 width=%22300%22 height=%22180%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2240%22>🎤</text></svg>'"/>
+          </div>
+          <div class="course-body">
+            <h6 class="course-title">Nói Vạn Người Mê</h6>
+            <p class="course-type"><i class="bi bi-play-circle-fill me-1"></i>Học online với video</p>
+            <p class="course-teacher"><i class="bi bi-person-fill me-1"></i>DG Phạm Ngọc Anh</p>
+            <div class="course-progress">
+              <div class="d-flex justify-content-between mb-1">
+                <span class="progress-label">Tiến trình</span>
+                <span class="progress-pct">20%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width:20%"></div>
+              </div>
+            </div>
+            <div class="course-footer">
+              <span class="course-price">0 đ</span>
+              <span class="course-badge studying">Đang học</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Card 5: all / completed -->
+    <div class="col-6 col-md-4" data-category="all completed">
+      <a href="https://ask.com.vn/collections/khoa-hoc-ask" target="_blank" class="course-link">
+        <div class="course-card">
+          <div class="course-thumb">
+            <img src="../assets/course-5.jpg" alt="Nghệ Thuật Đọc Nhanh"
+                 onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22180%22><rect fill=%22%23f5f6fa%22 width=%22300%22 height=%22180%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2240%22>📚</text></svg>'"/>
+          </div>
+          <div class="course-body">
+            <h6 class="course-title">Nghệ Thuật Đọc Nhanh</h6>
+            <p class="course-type"><i class="bi bi-play-circle-fill me-1"></i>Học online với video</p>
+            <p class="course-teacher"><i class="bi bi-person-fill me-1"></i>DG Phạm Ngọc Anh</p>
+            <div class="course-footer">
+              <span class="course-price">0 đ</span>
+              <span class="course-badge completed"><i class="bi bi-check-circle-fill me-1"></i>Hoàn thành</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Card 6: all / owned / completed -->
+    <div class="col-6 col-md-4" data-category="all owned completed">
+      <a href="https://ask.com.vn/collections/khoa-hoc-ask" target="_blank" class="course-link">
+        <div class="course-card">
+          <div class="course-thumb">
+            <img src="../assets/course-6.jpg" alt="Nói Vạn Người Mê"
+                 onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22180%22><rect fill=%22%23f5f6fa%22 width=%22300%22 height=%22180%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2240%22>🎤</text></svg>'"/>
+          </div>
+          <div class="course-body">
+            <h6 class="course-title">Nói Vạn Người Mê</h6>
+            <p class="course-type"><i class="bi bi-play-circle-fill me-1"></i>Học online với video</p>
+            <p class="course-teacher"><i class="bi bi-person-fill me-1"></i>DG Phạm Ngọc Anh</p>
+            <div class="course-footer">
+              <span class="course-price">0 đ</span>
+              <span class="course-badge completed"><i class="bi bi-check-circle-fill me-1"></i>Hoàn thành</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+  </div><!-- /courseGrid -->
+
+  <!-- Empty state (hidden by default) -->
+  <div id="emptyState" class="empty-state d-none">
+    <i class="bi bi-journal-x"></i>
+    <p>Không có khóa học nào trong mục này.</p>
+  </div>
+
+
+
+</main>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Dashboard JS (sidebar toggle) -->
+<script src="../scripts/dashboard.js"></script>
+<!-- Courses JS -->
+<script src="../scripts/courses.js"></script>
+</body>
+</html>
