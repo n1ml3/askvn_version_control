@@ -1,22 +1,22 @@
 /* notifications.js */
 // Mảng dữ liệu rỗng để test giao diện Empty State (sau này sẽ fetch từ backend)
 const mockNotifications = [
-  { 
-    id: 1,
-    title: "Thông báo",
-    desc: "Thông báo",
-    time: "2022-01-01",
-    icon: "bi-bell",
-    link: "#"
-  },
-  {
-    id: 2,
-    title: "Thông báo",
-    desc: "Thông báo",
-    time: "2022-01-01",
-    icon: "bi-bell",
-    link: "#"
-  }
+  // { 
+  //   id: 1,
+  //   title: "Thông báo",
+  //   desc: "Thông báo",
+  //   time: "2022-01-01",
+  //   icon: "bi-clock",
+  //   link: "#"
+  // },
+  // {
+  //   id: 2,
+  //   title: "Thông báo",
+  //   desc: "Thông báo",
+  //   time: "2022-01-01",
+  //   icon: "bi-bell",
+  //   link: "#"
+  // }
 ];
 
 function renderNotifications(filter = 'all') {
