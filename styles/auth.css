@@ -1,0 +1,175 @@
+/* ========================================================
+   ASK Training Vietnam – Authentication Styles
+   File: styles/auth.css
+   ======================================================== */
+
+body.auth-page {
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  background: #fff;
+  overflow-x: hidden;
+}
+
+.auth-left {
+  flex: 1;
+  background-color: var(--ask-red, #E50000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-left img {
+  max-width: 80%;
+  max-height: 80vh;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.auth-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  position: relative;
+  /* subtle grid pattern */
+  background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.auth-back-btn {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: #fff3f3;
+  color: var(--ask-red, #E50000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.25rem;
+  transition: all 0.2s;
+}
+
+.auth-back-btn:hover {
+  background: #ffe5e5;
+  color: #c00000;
+}
+
+.auth-form-wrapper {
+  width: 100%;
+  max-width: 480px;
+  background: transparent;
+}
+
+.auth-title {
+  color: var(--ask-red, #E50000);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.auth-subtitle {
+  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 32px;
+}
+
+.auth-input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.auth-input {
+  width: 100%;
+  background: #f0f4f8;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 14px 20px;
+  font-size: 1rem;
+  color: #333;
+  transition: all 0.2s;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: var(--ask-red, #E50000);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(229,0,0,0.1);
+}
+
+.auth-password-toggle {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.auth-forgot {
+  display: block;
+  text-align: right;
+  color: var(--ask-red, #E50000);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-bottom: 32px;
+  margin-top: -10px;
+}
+
+.auth-forgot:hover {
+  text-decoration: underline;
+}
+
+.auth-btn {
+  width: 100%;
+  background: var(--ask-red, #E50000);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.auth-btn:hover {
+  background: #c00000;
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.auth-switch a {
+  color: var(--ask-red, #E50000);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 991px) {
+  .auth-left {
+    display: none;
+  }
+}
