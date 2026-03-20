@@ -16,13 +16,14 @@
 </head>
 <body class="bg-light">
 
-  <!-- Topbar Header -->
-  <header class="lecture-header d-flex align-items-center bg-white border-bottom px-4">
+  <header class="lecture-header d-flex align-items-center px-4" style="background-color: #E50000;">
     <div class="d-flex align-items-center gap-4">
-      <img src="../assets/logo.png" alt="ASK Logo" height="28" />
-      <div class="vr bg-secondary opacity-25"></div>
-      <a href="courses.html" class="text-dark text-decoration-none d-flex align-items-center fw-medium header-back-link lh-1">
-        <i class="bi bi-chevron-left me-2"></i> Nói Vạn Người Mê
+      <div class="bg-white rounded px-2 py-1 d-flex align-items-center shadow-sm">
+        <img src="../assets/logo.png" alt="ASK Logo" height="45" />
+      </div>
+      <div class="vr bg-white opacity-50"></div>
+      <a href="courses.html" id="headerBackLink" class="text-white text-decoration-none d-flex align-items-center fw-medium header-back-link lh-1">
+        <i class="bi bi-chevron-left me-2"></i> Đang tải...
       </a>
     </div>
   </header>
@@ -44,7 +45,7 @@
         <div class="card border-0 shadow-sm desc-card" style="border: 1px solid #f0f0f0 !important;">
           <div class="card-body p-4">
             <h5 class="text-danger fw-semibold mb-3 fs-6">Mô tả ngắn</h5>
-            <p class="text-muted mb-0" style="font-size: 0.95rem;">Chưa có thông tin</p>
+            <p id="courseDescription" class="text-muted mb-0" style="font-size: 0.95rem;">Đang tải...</p>
           </div>
         </div>
       </div>
@@ -52,101 +53,19 @@
       <!-- Right Column: Playlist/Content -->
       <div class="col-12 col-lg-4">
         <div class="card border-0 shadow-sm playlist-card" style="border: 1px solid #f0f0f0 !important;">
-          <!-- Card Header -->
+            <!-- Card Header -->
           <div class="card-header bg-white border-bottom p-4 d-flex justify-content-between align-items-center">
             <h6 class="mb-0 fw-bold fs-6">Nội dung khóa học</h6>
-            <span class="text-muted" style="font-size: 0.8rem;">0% Hoàn thành</span>
+            <span id="courseProgressText" class="text-muted" style="font-size: 0.8rem;">Đang tải...</span>
           </div>
 
           <!-- Card Body / Accordion -->
           <div class="card-body p-2 p-md-0">
             <div class="accordion accordion-flush" id="courseAccordion">
-              
-              <!-- Section 1 -->
-              <div class="accordion-item border-bottom">
-                <h2 class="accordion-header">
-                  <button class="accordion-button bg-white text-dark fw-medium shadow-none px-4 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Video1
-                  </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#courseAccordion">
-                  <div class="accordion-body p-0">
-                    <!-- Note the added border styles for the active item per the screenshot -->
-                    <div class="video-item active border border-info-subtle rounded m-2 d-flex align-items-center px-4 py-3" data-url="https://www.youtube.com/embed/dQw4w9WgXcQ?list=RDdQw4w9WgXcQ" data-title="Video1">
-                      <div class="item-icon text-primary me-3">
-                        <i class="bi bi-play-circle lh-1 fs-5"></i>
-                      </div>
-                      <div class="item-title text-muted fw-medium" style="font-size: 0.9rem;">
-                        Video1 <span class="text-danger ms-1">(3%)</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <!-- Rendered via HTML / Javascript -->
+              <div class="p-4 text-center text-muted">
+                Đang tải nội dung...
               </div>
-
-              <!-- Section 2 -->
-              <div class="accordion-item border-bottom">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed bg-white text-dark fw-medium shadow-none px-4 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Video 2
-                  </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#courseAccordion">
-                  <div class="accordion-body p-0">
-                    <div class="video-item border border-transparent rounded m-2 d-flex align-items-center px-4 py-3" data-url="https://www.youtube.com/embed/3JZ_D3ELwOQ" data-title="Video 2">
-                      <div class="item-icon text-muted me-3">
-                        <i class="bi bi-play-circle lh-1 fs-5"></i>
-                      </div>
-                      <div class="item-title text-muted fw-medium" style="font-size: 0.9rem;">
-                        Video 2 <span class="text-danger ms-1">(1%)</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Section 3 -->
-              <div class="accordion-item border-bottom">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed bg-white text-dark fw-medium shadow-none px-4 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Video3
-                  </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#courseAccordion">
-                  <div class="accordion-body p-0">
-                    <div class="video-item border border-transparent rounded m-2 d-flex align-items-center px-4 py-3" data-url="https://www.youtube.com/embed/tgbNymZ7vqY" data-title="Video 3">
-                      <div class="item-icon text-muted me-3">
-                        <i class="bi bi-play-circle lh-1 fs-5"></i>
-                      </div>
-                      <div class="item-title text-muted fw-medium" style="font-size: 0.9rem;">
-                        Video 3 <span class="text-danger ms-1">(1%)</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Section 4 -->
-              <div class="accordion-item border-bottom-0">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed bg-white text-dark fw-medium shadow-none px-4 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                    Video 4
-                  </button>
-                </h2>
-                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#courseAccordion">
-                  <div class="accordion-body p-0">
-                    <div class="video-item border border-transparent rounded m-2 d-flex align-items-center px-4 py-3" data-url="https://www.youtube.com/embed/9bZkp7q19f0" data-title="Video 4">
-                      <div class="item-icon text-muted me-3">
-                        <i class="bi bi-play-circle lh-1 fs-5"></i>
-                      </div>
-                      <div class="item-title text-muted fw-medium" style="font-size: 0.9rem;">
-                        Video 4
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
             </div>
           </div>
         </div>
