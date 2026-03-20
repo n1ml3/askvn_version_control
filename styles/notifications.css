@@ -82,3 +82,34 @@
   margin-top: 18px;
   margin-left: 12px;
 }
+
+/* ===== EMPTY STATE ===== */
+.notif-empty-state {
+  background: #fff;
+  border-top: 4px solid var(--ask-red);
+  padding: 80px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.notif-empty-state img {
+  width: 160px;
+  margin-bottom: 24px;
+}
+
+.notif-empty-state h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 8px;
+}
+
+.notif-empty-state p {
+  color: #6c757d;
+  font-size: 1rem;
+  margin: 0;
+}

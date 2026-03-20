@@ -62,101 +62,118 @@ let viewMonth = now.getMonth(); // 0-based
 const selMonth = document.getElementById('selMonth');
 const selYear  = document.getElementById('selYear');
 
-// Populate year dropdown
-for (let y = viewYear - 3; y <= viewYear + 3; y++) {
-  const opt = document.createElement('option');
-  opt.value = y;
-  opt.textContent = y;
-  if (y === viewYear) opt.selected = true;
-  selYear.appendChild(opt);
-}
-
-selMonth.value = viewMonth;
-
-/**
- * Render calendar grid cho năm/tháng được chỉ định.
- * @param {number} year
- * @param {number} month  0-based
- */
-function renderCalendar(year, month) {
-  selMonth.value = month;
-  selYear.value  = year;
-  document.getElementById('calTitle').textContent = `${MONTHS_VN[month]} ${year}`;
-
-  // Ngày đầu tháng (0=CN, 1=T2 … 6=T7)
-  const firstDay    = new Date(year, month, 1).getDay();
-  // Chuyển sang Mon-based (T2=0 … CN=6)
-  const startOffset = (firstDay === 0) ? 6 : firstDay - 1;
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
-  const daysInPrev  = new Date(year, month, 0).getDate();
-
-  let html = '<table><thead><tr>';
-  DAYS.forEach(d => { html += `<th>${d}</th>`; });
-  html += '</tr></thead><tbody><tr>';
-
-  let dayCount = 0;
-
-  // Ngày tháng trước (mờ)
-  for (let i = startOffset - 1; i >= 0; i--) {
-    html += `<td class="other-month"><span class="day-num">${daysInPrev - i}</span></td>`;
-    dayCount++;
-  }
-
-  // Ngày tháng hiện tại
-  for (let d = 1; d <= daysInMonth; d++) {
-    if (dayCount % 7 === 0 && dayCount !== 0) html += '</tr><tr>';
-
-    const cellDateStr = `${year}-${String(month+1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
-    const isToday = (
-      d === now.getDate() &&
-      month === now.getMonth() &&
-      year === now.getFullYear()
-    );
-    const isEvent = mockDashboardEvents.some(ev => ev.date === cellDateStr) && !isToday;
-
-    let cls = '';
-    if (isToday)      cls = 'today';
-    else if (isEvent) cls = 'has-event';
-
-    html += `<td class="${cls}" title="${d}/${month + 1}/${year}"><span class="day-num">${d}</span></td>`;
-    dayCount++;
-  }
-
-  // Ngày tháng sau (mờ)
-  const remaining = 7 - (dayCount % 7);
-  if (remaining < 7) {
-    for (let d = 1; d <= remaining; d++) {
-      html += `<td class="other-month"><span class="day-num">${d}</span></td>`;
-    }
-  }
-
-  html += '</tr></tbody></table>';
-  document.getElementById('calendar').innerHTML = html;
-}
-
-// Render mặc định
-renderCalendar(viewYear, viewMonth);
-
-// Navigation buttons
-document.getElementById('prevMonth').addEventListener('click', () => {
-  viewMonth--;
-  if (viewMonth < 0) { viewMonth = 11; viewYear--; }
-  renderCalendar(viewYear, viewMonth);
-});
-
-document.getElementById('nextMonth').addEventListener('click', () => {
-  viewMonth++;
-  if (viewMonth > 11) { viewMonth = 0; viewYear++; }
-  renderCalendar(viewYear, viewMonth);
-});
-
 // Dropdowns
-selMonth.addEventListener('change', () => {
-  viewMonth = +selMonth.value;
-  renderCalendar(viewYear, viewMonth);
-});
+if (selMonth && selYear) {
+  // Populate year dropdown
+  for (let y = viewYear - 3; y <= viewYear + 3; y++) {
+    const opt = document.createElement('option');
+    opt.value = y;
+    opt.textContent = y;
+    if (y === viewYear) opt.selected = true;
+    selYear.appendChild(opt);
+  }
 
-selYear.addEventListener('change', () => {
-  viewYear = +selYear.value;
+  selMonth.value = viewMonth;
+
+  function renderCalendar(year, month) {
+    selMonth.value = month;
+    selYear.value  = year;
+    document.getElementById('calTitle').textContent = `${MONTHS_VN[month]} ${year}`;
+
+    const firstDay    = new Date(year, month, 1).getDay();
+    const startOffset = (firstDay === 0) ? 6 : firstDay - 1;
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const daysInPrev  = new Date(year, month, 0).getDate();
+
+    let html = '<table><thead><tr>';
+    DAYS.forEach(d => { html += `<th>${d}</th>`; });
+    html += '</tr></thead><tbody><tr>';
+
+    let dayCount = 0;
+
+    for (let i = startOffset - 1; i >= 0; i--) {
+      html += `<td class="other-month"><span class="day-num">${daysInPrev - i}</span></td>`;
+      dayCount++;
+    }
+
+    for (let d = 1; d <= daysInMonth; d++) {
+      if (dayCount % 7 === 0 && dayCount !== 0) html += '</tr><tr>';
+
+      const cellDateStr = `${year}-${String(month+1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+      const isToday = (
+        d === now.getDate() &&
+        month === now.getMonth() &&
+        year === now.getFullYear()
+      );
+      const isEvent = mockDashboardEvents.some(ev => ev.date === cellDateStr) && !isToday;
+
+      let cls = '';
+      if (isToday)      cls = 'today';
+      else if (isEvent) cls = 'has-event';
+
+      html += `<td class="${cls}" title="${d}/${month + 1}/${year}"><span class="day-num">${d}</span></td>`;
+      dayCount++;
+    }
+
+    const remaining = 7 - (dayCount % 7);
+    if (remaining < 7) {
+      for (let d = 1; d <= remaining; d++) {
+        html += `<td class="other-month"><span class="day-num">${d}</span></td>`;
+      }
+    }
+
+    html += '</tr></tbody></table>';
+    document.getElementById('calendar').innerHTML = html;
+  }
+
+  // Render mặc định
   renderCalendar(viewYear, viewMonth);
+
+  // Navigation buttons
+  document.getElementById('prevMonth').addEventListener('click', () => {
+    viewMonth--;
+    if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+    renderCalendar(viewYear, viewMonth);
+  });
+
+  document.getElementById('nextMonth').addEventListener('click', () => {
+    viewMonth++;
+    if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+    renderCalendar(viewYear, viewMonth);
+  });
+
+  selMonth.addEventListener('change', () => {
+    viewMonth = +selMonth.value;
+    renderCalendar(viewYear, viewMonth);
+  });
+
+  selYear.addEventListener('change', () => {
+    viewYear = +selYear.value;
+    renderCalendar(viewYear, viewMonth);
+  });
+}
+
+// ===== BACK TO TOP LOGIC =====
+document.addEventListener('DOMContentLoaded', () => {
+  const backToTopBtn = document.createElement('button');
+  backToTopBtn.id = 'backToTop';
+  backToTopBtn.className = 'back-to-top';
+  backToTopBtn.title = 'Lên đầu trang';
+  backToTopBtn.innerHTML = '<i class="bi bi-arrow-up"></i>';
+  document.body.appendChild(backToTopBtn);
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
 });

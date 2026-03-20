@@ -73,10 +73,21 @@
 
   <div class="topbar-right" style="margin-left: auto;">
     <!-- Notification bell -->
-    <button class="topbar-notif" title="Thông báo">
-      <i class="bi bi-bell"></i>
-      <span class="notif-badge">0</span>
-    </button>
+    <div class="dropdown d-inline-block">
+      <button class="topbar-notif dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="notifDropdownBtn" title="Thông báo">
+        <i class="bi bi-bell"></i>
+        <span class="notif-badge">0</span>
+      </button>
+      <div class="dropdown-menu dropdown-menu-end notif-dropdown shadow" aria-labelledby="notifDropdownBtn">
+        <div class="notif-dropdown-header">
+          Thông báo
+        </div>
+        <div class="notif-dropdown-body">
+          <img src="../assets/note_taking.svg" alt="No notifications" />
+          <p>Bạn chưa có thông báo nào</p>
+        </div>
+      </div>
+    </div>
 
     <!-- User dropdown -->
     <div class="dropdown">
