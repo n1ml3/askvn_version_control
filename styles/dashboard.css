@@ -488,6 +488,7 @@ body {
   margin-bottom: 16px;
 }
 
+
 .cal-controls {
   display: flex;
   align-items: center;
@@ -540,8 +541,6 @@ body {
   font-size: .88rem;
   padding: 24px 0;
 }
-
-
 /* Ô ngày dùng span bên trong để tạo hình tròn chính xác */
 #calendar table {
   width: 100%;
