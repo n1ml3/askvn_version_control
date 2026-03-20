@@ -22,8 +22,38 @@ const MONTHS_VN = [
   'Tháng 7','Tháng 8','Tháng 9','Tháng 10','Tháng 11','Tháng 12'
 ];
 
-// Các ngày có sự kiện trong tháng hiện tại (tuỳ chỉnh)
-const EVENT_DAYS = [19];
+// Mock Stats
+const mockStats = [
+  { icon: "bi-journal-bookmark", label: "Khóa đang học", value: "2" },
+  { icon: "bi-check-circle", label: "Đã hoàn thành", value: "2" },
+  { icon: "bi-award", label: "Chứng chỉ", value: "0" },
+  { icon: "bi-wallet", label: "Đã thanh toán", value: "0" }
+];
+
+// Mock mini calendar events 
+const mockDashboardEvents = [
+  { date: '2026-03-19' },
+  { date: '2026-03-20' },
+  { date: '2026-03-25' }
+];
+
+function renderDashboardStats() {
+  const container = document.getElementById('dashboardStats');
+  if(!container) return;
+  
+  container.innerHTML = mockStats.map(stat => `
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="stat-card">
+        <div class="stat-icon"><i class="bi ${stat.icon}"></i></div>
+        <div class="stat-info">
+          <div class="label">${stat.label}</div>
+          <div class="value">${stat.value}</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+document.addEventListener('DOMContentLoaded', renderDashboardStats);
 
 const now = new Date();
 let viewYear  = now.getFullYear();
@@ -76,12 +106,13 @@ function renderCalendar(year, month) {
   for (let d = 1; d <= daysInMonth; d++) {
     if (dayCount % 7 === 0 && dayCount !== 0) html += '</tr><tr>';
 
+    const cellDateStr = `${year}-${String(month+1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
     const isToday = (
       d === now.getDate() &&
       month === now.getMonth() &&
       year === now.getFullYear()
     );
-    const isEvent = EVENT_DAYS.includes(d) && !isToday;
+    const isEvent = mockDashboardEvents.some(ev => ev.date === cellDateStr) && !isToday;
 
     let cls = '';
     if (isToday)      cls = 'today';
