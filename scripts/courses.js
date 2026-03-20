@@ -21,7 +21,6 @@ const mockCourses = [
     type: "Học online với video",
     price: "0 đ",
     img: "../assets/collection_banner.jpg",
-    emoji: "🎤",
     categories: ["owned", "completed"],
     progress: 100
   },
@@ -32,7 +31,6 @@ const mockCourses = [
     type: "Học online với video",
     price: "0 đ",
     img: "../assets/collection_banner.jpg",
-    emoji: "📗",
     categories: ["studying"],
     progress: 72
   },
@@ -43,7 +41,6 @@ const mockCourses = [
     type: "Học online với video",
     price: "19,900,000 đ",
     img: "../assets/collection_banner.jpg",
-    emoji: "💰",
     categories: ["owned"],
     progress: null
   }
