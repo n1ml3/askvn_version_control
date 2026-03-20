@@ -91,7 +91,7 @@ body.sidebar-collapsed #mainContent {
     border-radius: 8px;
     border: 1.5px solid #e0e0e0;
     background: #fff;
-    color: #555;
+    color: #000000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -110,7 +110,7 @@ body.sidebar-collapsed #mainContent {
     border-radius: 8px;
     border: 1.5px solid #e0e0e0;
     background: #fff;
-    color: #555;
+    color: #000000;
     font-size: .84rem;
     font-weight: 500;
     cursor: pointer;

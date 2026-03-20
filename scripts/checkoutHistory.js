@@ -6,38 +6,38 @@
 document.addEventListener('DOMContentLoaded', () => {
   // --- MOCK DATA ---
   const mockOrders = [
-    {
-      code: "ASK-PAY-10023",
-      date: "14/10/2026 - 15:30",
-      status: "paid",
-      courseName: "Mật Mã Tiền Tệ - K10",
-      teacher: "Mr. Phạm Ngọc Anh",
-      amount: "19,900,000 đ"
-    },
-    {
-      code: "ASK-PAY-10018",
-      date: "02/09/2026 - 09:12",
-      status: "paid",
-      courseName: "Wake Up - K105",
-      teacher: "Mr. Phạm Ngọc Anh",
-      amount: "9,900,000 đ"
-    },
-    {
-      code: "ASK-PAY-10055",
-      date: "20/03/2026 - 10:05",
-      status: "pending",
-      courseName: "Trại Lãnh Đạo Cấp Cao - K05",
-      teacher: "Mr. Phạm Ngọc Anh",
-      amount: "49,900,000 đ"
-    },
-    {
-      code: "ASK-PAY-10060",
-      date: "21/03/2026 - 08:00",
-      status: "pending",
-      courseName: "Sales Success System - K08",
-      teacher: "Mr. Phạm Ngọc Anh",
-      amount: "15,500,000 đ"
-    }
+    // {
+    //   code: "ASK-PAY-10023",
+    //   date: "14/10/2026 - 15:30",
+    //   status: "paid",
+    //   courseName: "Mật Mã Tiền Tệ - K10",
+    //   teacher: "Mr. Phạm Ngọc Anh",
+    //   amount: "19,900,000 đ"
+    // },
+    // {
+    //   code: "ASK-PAY-10018",
+    //   date: "02/09/2026 - 09:12",
+    //   status: "paid",
+    //   courseName: "Wake Up - K105",
+    //   teacher: "Mr. Phạm Ngọc Anh",
+    //   amount: "9,900,000 đ"
+    // },
+    // {
+    //   code: "ASK-PAY-10055",
+    //   date: "20/03/2026 - 10:05",
+    //   status: "pending",
+    //   courseName: "Trại Lãnh Đạo Cấp Cao - K05",
+    //   teacher: "Mr. Phạm Ngọc Anh",
+    //   amount: "49,900,000 đ"
+    // },
+    // {
+    //   code: "ASK-PAY-10060",
+    //   date: "21/03/2026 - 08:00",
+    //   status: "pending",
+    //   courseName: "Sales Success System - K08",
+    //   teacher: "Mr. Phạm Ngọc Anh",
+    //   amount: "15,500,000 đ"
+    // }
   ];
 
   function renderOrders() {
@@ -93,7 +93,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if(paidOrders.length === 0) {
-      tabPaid.innerHTML = '<p class="text-muted text-center py-4">Chưa có giao dịch nào hoàn thành.</p>';
+      tabPaid.innerHTML = `
+        <div class="checkout-empty-state">
+          <img src="../assets/note_taking.svg" alt="Empty" />
+          <h5>Đã thanh toán</h5>
+          <p>Chưa có thông tin nào</p>
+        </div>
+      `;
     }
 
     pendingOrders.forEach(o => {
@@ -101,7 +107,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if(pendingOrders.length === 0) {
-      tabPending.innerHTML = '<p class="text-muted text-center py-4">Không có giao dịch nào đang chờ.</p>';
+      tabPending.innerHTML = `
+        <div class="checkout-empty-state">
+          <img src="../assets/note_taking.svg" alt="Empty" />
+          <h5>Chờ thanh toán</h5>
+          <p>Chưa có thông tin nào</p>
+        </div>
+      `;
     }
   }
 
