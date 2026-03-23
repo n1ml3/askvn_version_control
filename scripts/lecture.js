@@ -14,9 +14,9 @@ const courseData = {
         title: "Phần 1: Khởi động",
         videos: [
           { title: "Video1", pct: "3%", url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi", isCompleted: true },
-          { title: "Video 2", pct: "1%", url: "https://www.youtube.com/embed/3JZ_D3ELwOQ", isCompleted: false },
-          { title: "Video 3", pct: "1%", url: "https://www.youtube.com/embed/tgbNymZ7vqY", isCompleted: false },
-          { title: "Video 4", pct: "0%", url: "https://www.youtube.com/embed/9bZkp7q19f0", isCompleted: false }
+          { title: "Video 2", pct: "1%", url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn", isCompleted: false },
+          { title: "Video 3", pct: "1%", url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn", isCompleted: false },
+          { title: "Video 4", pct: "0%", url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn", isCompleted: false }
         ]
       }
     ]
@@ -29,15 +29,15 @@ const courseData = {
       {
         title: "Phần 1: Giới thiệu",
         videos: [
-          { title: "Bài 1: Kiến thức nền tảng", pct: "100%", url: "https://www.youtube.com/embed/1la1D45_zJg", isCompleted: true },
-          { title: "Bài 2: Tại sao phải đọc nhanh", pct: "100%", url: "https://www.youtube.com/embed/E-0t47rIBfI", isCompleted: true }
+          { title: "Bài 1: Kiến thức nền tảng", pct: "100%", url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn", isCompleted: true },
+          { title: "Bài 2: Tại sao phải đọc nhanh", pct: "100%", url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn", isCompleted: true }
         ]
       },
       {
         title: "Phần 2: Phương pháp & Luyện tập",
         videos: [
-          { title: "Bài 3: Luyện mắt cơ bản", pct: "100%", url: "https://www.youtube.com/embed/dQw4w9WgXcQ", isCompleted: true },
-          { title: "Bài 4: Đọc cả khối", pct: "100%", url: "https://www.youtube.com/embed/3JZ_D3ELwOQ", isCompleted: true }
+          { title: "Bài 3: Luyện mắt cơ bản", pct: "100%", url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn", isCompleted: true },
+          { title: "Bài 4: Đọc cả khối", pct: "100%", url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn", isCompleted: true }
         ]
       }
     ]
@@ -72,6 +72,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (courseProgressText) {
     courseProgressText.textContent = course.progressText;
+    
+    // Update progress bar
+    const courseProgressBar = document.getElementById('courseProgressBar');
+    if (courseProgressBar) {
+      const match = course.progressText.match(/(\d+)%/);
+      const pct = match ? match[1] : 0;
+      courseProgressBar.style.width = `${pct}%`;
+      courseProgressBar.setAttribute('aria-valuenow', pct);
+    }
   }
 
   // Generate dynamic accordion playlist
