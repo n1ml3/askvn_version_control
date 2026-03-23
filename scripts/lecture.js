@@ -13,7 +13,7 @@ const courseData = {
       {
         title: "Phần 1: Khởi động",
         videos: [
-          { title: "Video1", pct: "3%", url: "https://www.youtube.com/embed/dQw4w9WgXcQ?list=RDdQw4w9WgXcQ", isCompleted: true },
+          { title: "Video1", pct: "3%", url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi", isCompleted: true },
           { title: "Video 2", pct: "1%", url: "https://www.youtube.com/embed/3JZ_D3ELwOQ", isCompleted: false },
           { title: "Video 3", pct: "1%", url: "https://www.youtube.com/embed/tgbNymZ7vqY", isCompleted: false },
           { title: "Video 4", pct: "0%", url: "https://www.youtube.com/embed/9bZkp7q19f0", isCompleted: false }
