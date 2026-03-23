@@ -250,7 +250,7 @@ body {
   height: 36px;
   border-radius: 50%;
   border: none;
-  background: rgba(255, 255, 255, .18);
+  background: var(--ask-red);
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
@@ -262,7 +262,7 @@ body {
 }
 
 .topbar-notif:hover {
-  background: rgba(255, 255, 255, .28);
+  background: var(--ask-red-dark);
 }
 
 /* Ẩn mũi tên mặc định của dropdown Bootstrap cho nút chuông */
