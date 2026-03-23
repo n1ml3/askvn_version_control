@@ -1,0 +1,39 @@
+/* ========================================================
+   ASK Training Vietnam – Common Styles
+   ======================================================== */
+
+/* ===== BACK TO TOP BUTTON ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #cc1a1a; /* var(--ask-red) fallback */
+  color: #fff;
+  border: none;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(204, 26, 26, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.back-to-top:hover {
+  background: #a31414; /* var(--ask-red-dark) fallback */
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 14px rgba(204, 26, 26, 0.4);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
