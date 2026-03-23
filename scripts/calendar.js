@@ -158,7 +158,7 @@
       const cellKey = dateKey(cellDate.getFullYear(), cellDate.getMonth(), cellDate.getDate());
       const isToday = (cellKey === todayKey);
 
-      timelineGridHtml += `<div class="timeline-day-col ${isToday ? 'today' : ''}" style="${isToday ? 'background: #fff5f5;' : ''}">`;
+      timelineGridHtml += `<div class="timeline-day-col ${isToday ? 'today' : ''}" style="${isToday ? 'background: #f5facfff;' : ''}">`;
       for (let h = 0; h <= 23; h++) {
         timelineGridHtml += `<div class="timeline-hour-cell"></div>`;
       }
@@ -206,7 +206,7 @@
     }
     timelineGridHtml += `</div><div class="timeline-grid" style="grid-template-columns: 1fr;">`;
 
-    timelineGridHtml += `<div class="timeline-day-col ${isToday ? 'today' : ''}" style="${isToday ? 'background: #fff5f5;' : ''}">`;
+    timelineGridHtml += `<div class="timeline-day-col ${isToday ? 'today' : ''}" style="${isToday ? 'background: #f5facfff;' : ''}">`;
     for (let h = 0; h <= 23; h++) {
       timelineGridHtml += `<div class="timeline-hour-cell"></div>`;
     }

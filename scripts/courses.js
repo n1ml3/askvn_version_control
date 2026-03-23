@@ -64,7 +64,7 @@ function renderCourses() {
   });
 
   courseGrid.innerHTML = '';
-  
+
   if (filtered.length === 0) {
     if (emptyState) emptyState.classList.remove('d-none');
     return;
