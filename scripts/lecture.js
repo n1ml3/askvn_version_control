@@ -7,7 +7,7 @@
 const courseData = {
   1: {
     title: "Nói Vạn Người Mê",
-    description: "Khóa học Kỹ năng Thuyết trình đỉnh cao giúp bạn tự tin làm chủ sân khấu, thu hút mọi ánh nhìn và tạo sức ảnh hưởng mạnh mẽ.",
+    description: "Chưa có nội dung",
     progressText: "3% Hoàn thành",
     sections: [
       {
@@ -23,7 +23,7 @@ const courseData = {
   },
   2: {
     title: "Nghệ Thuật Đọc Nhanh",
-    description: "Tuyệt chiêu đọc sách siêu tốc, hiểu sâu nhớ lâu, tăng gấp 3-5 lần tốc độ thông thường.",
+    description: "Chưa có nội dung.",
     progressText: "100% Hoàn thành",
     sections: [
       {
