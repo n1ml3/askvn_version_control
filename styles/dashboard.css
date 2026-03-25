@@ -32,13 +32,16 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+  bottom: 0;
   width: var(--sidebar-width);
-  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
   background: #fff;
   border-right: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
   z-index: 1000;
+  overflow-y: auto;
 }
 
 .sidebar-logo {

@@ -18,6 +18,14 @@ function escapeAttr(s) {
     .replace(/</g, '&lt;');
 }
 
+function setVideoItemIcon(videoItem, isActive) {
+  if (!videoItem) return;
+  const icon = videoItem.querySelector('.item-icon i');
+  if (!icon) return;
+  icon.classList.remove('bi-play-circle', 'bi-pause-circle-fill');
+  icon.classList.add(isActive ? 'bi-pause-circle-fill' : 'bi-play-circle');
+}
+
 // Mock Content Data based on URL param "id"
 const courseData = {
   1: {
@@ -32,28 +40,28 @@ const courseData = {
             pct: "3%",
             url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi",
             isCompleted: true,
-            description: "Chưa có nội dung."
+            description: "Chưa có mô tả chi tiết."
           },
           {
             title: "Video 2",
             pct: "0%",
-            url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn",
+            url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi",
             isCompleted: false,
-            description: "Chưa có nội dung."
+            description: "Chưa có mô tả chi tiết."
           },
           {
             title: "Video 3",
             pct: "0%",
-            url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn",
+            url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi",
             isCompleted: false,
-            description: "Chưa có nội dung."
+            description: "Chưa có mô tả chi tiết."
           },
           {
             title: "Video 4",
             pct: "0%",
-            url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn",
+            url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi",
             isCompleted: false,
-            description: "Chưa có nội dung."
+            description: "Chưa có mô tả chi tiết."
           }
         ]
       }
@@ -69,16 +77,16 @@ const courseData = {
           {
             title: "Bài 1: Kiến thức nền tảng",
             pct: "100%",
-            url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn",
+            url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi",
             isCompleted: true,
-            description: "Chưa có nội dung."
+            description: "Nền tảng về tốc độ đọc, sự tập trung và cách đo lường tiến bộ."
           },
           {
             title: "Bài 2: Tại sao phải đọc nhanh",
             pct: "100%",
-            url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn",
+            url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi",
             isCompleted: true,
-            description: "Chưa có nội dung."
+            description: "Lợi ích của đọc nhanh trong học tập và công việc hàng ngày."
           }
         ]
       },
@@ -88,16 +96,16 @@ const courseData = {
           {
             title: "Bài 3: Luyện mắt cơ bản",
             pct: "100%",
-            url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn",
+            url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi",
             isCompleted: true,
-            description: "Chưa có nội dung."
+            description: "Bài tập luyện mắt theo dòng, giảm đọc lại từng chữ."
           },
           {
             title: "Bài 4: Đọc cả khối",
             pct: "100%",
-            url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn",
+            url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi",
             isCompleted: true,
-            description: "Chưa có nội dung."
+            description: "Nhận diện cụm từ và đoạn ý để tăng tốc độ hiểu."
           }
         ]
       }
@@ -149,17 +157,18 @@ document.addEventListener('DOMContentLoaded', () => {
       lessonHtml += `<div class="mb-2"><p class="section-title">${sec.title}</p>`;
       sec.videos.forEach((vid) => {
         const isActiveClass = !isFirstVideoSelected ? 'active' : '';
-        const lessonStatus = vid.isCompleted ? 'Lần xem cuối: 12 Jan 24. 8:00PM' : 'Khóa';
+        const lessonStatus = vid.isCompleted ? 'Lần xem cuối: 12 Jan 24. 8:00PM' : 'Hãy xem video trước để mở khóa';
         const pctLabel = vid.pct && vid.pct !== '0%' ? `Tiến độ hiện tại: ${vid.pct}` : 'Chưa xem';
         const desc = vid.description || 'Chưa có mô tả cho bài học này.';
         const titleAttr = escapeAttr(vid.title);
         const titleHtml = escapeHtml(vid.title);
         const descHtml = escapeHtml(desc);
+        const itemIconClass = isActiveClass ? 'bi-pause-circle-fill' : 'bi-play-circle';
         lessonHtml += `
           <div class="video-item ${isActiveClass}" 
                data-url="${vid.url}" data-title="${titleAttr}">
             <div class="item-icon">
-              <i class="bi bi-play-circle"></i>
+              <i class="bi ${itemIconClass}"></i>
             </div>
             <div class="video-item-body">
               <div class="item-title">${titleHtml}</div>
@@ -185,9 +194,11 @@ document.addEventListener('DOMContentLoaded', () => {
       item.addEventListener('click', function () {
         videoItems.forEach(vi => {
           vi.classList.remove('active');
+          setVideoItemIcon(vi, false);
         });
 
         this.classList.add('active');
+        setVideoItemIcon(this, true);
 
         const url = this.getAttribute('data-url');
         if (videoPlayer && url) {

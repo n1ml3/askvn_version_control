@@ -21,6 +21,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1.8fr) minmax(280px, 1fr);
   gap: 20px;
+  align-items: start;
 }
 
 .video-card {
@@ -165,7 +166,7 @@
 
 .lesson-card {
   padding: 16px;
-  height: 100%;
+  height: auto;
 }
 
 .lesson-header {
@@ -202,8 +203,8 @@
 }
 
 .lesson-list {
-  max-height: 620px;
-  overflow-y: auto;
+  max-height: none;
+  overflow-y: visible;
   padding-right: 4px;
 }
 
@@ -244,6 +245,12 @@
 .item-icon {
   width: 20px;
   color: #9aa3b2;
+  line-height: 1;
+  margin-top: 1px;
+}
+
+.item-icon i {
+  font-size: 16px;
 }
 
 .video-item.active .item-icon {
