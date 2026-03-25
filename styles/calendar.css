@@ -65,9 +65,10 @@ body.sidebar-collapsed #mainContent {
 /* ===== CALENDAR PANEL ===== */
 .cal-panel {
     background: #fff;
-    border-radius: 14px;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, .07);
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
     overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 /* ===== CONTROLS ROW ===== */
@@ -90,7 +91,7 @@ body.sidebar-collapsed #mainContent {
 .cal-nav-btn {
     width: 38px;
     height: 38px;
-    border-radius: 10px;
+    border-radius: 12px;
     border: 1px solid var(--slate-200);
     background: #fff;
     color: var(--text-primary);
@@ -111,7 +112,7 @@ body.sidebar-collapsed #mainContent {
 
 .cal-today-btn {
     padding: 6px 16px;
-    border-radius: 8px;
+    border-radius: 12px;
     border: 1.5px solid #e0e0e0;
     background: #fff;
     color: #000000;
@@ -139,7 +140,7 @@ body.sidebar-collapsed #mainContent {
 .cal-view-btns {
     display: flex;
     border: 1.5px solid var(--ask-red);
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
 }
 
