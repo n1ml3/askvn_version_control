@@ -22,6 +22,8 @@ const mockStats = [
 
 // Mock mini calendar events 
 const mockDashboardEvents = [
+  { date: "2026-03-26", title: "Mật Mã Tiền Tệ" },
+  { date: "2026-03-28", title: "Sales Success" }
 ];
 
 function renderDashboardStats() {
