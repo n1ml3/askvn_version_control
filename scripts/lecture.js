@@ -162,7 +162,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let isFirstVideoSelected = false;
 
     course.sections.forEach((sec, sIdx) => {
-      lessonHtml += `<div class="mb-2"><p class="section-title">${sec.title}</p>`;
+      const sectionId = `section-${sIdx}`;
+      const contentId = `content-${sIdx}`;
+      lessonHtml += `  
+      <div class="section-wrapper">
+          <button class="section-toggle" data-target="${contentId}">
+            <p class="section-title">${sec.title}</p>
+            <i class="bi bi-chevron-down"></i>
+          </button>
+          <div id="${contentId}" class="section-content">`;
+      
       sec.videos.forEach((vid) => {
         const isActiveClass = !isFirstVideoSelected ? 'active' : '';
         const lessonStatus = vid.isCompleted ? 'Lần xem cuối: 12 Jan 24. 8:00PM' : 'Hãy xem video trước để mở khóa';
@@ -194,10 +203,39 @@ document.addEventListener('DOMContentLoaded', () => {
           isFirstVideoSelected = true;
         }
       });
-      lessonHtml += '</div>';
+      lessonHtml += `
+          </div>
+        </div>
+      `;
     });
 
     courseAccordion.innerHTML = lessonHtml;
+
+    // Add section toggle functionality
+    const sectionToggles = document.querySelectorAll('.section-toggle');
+    sectionToggles.forEach((toggle, idx) => {
+      // Expand first section by default
+      if (idx === 0) {
+        const targetId = toggle.getAttribute('data-target');
+        const content = document.getElementById(targetId);
+        const icon = toggle.querySelector('i');
+        if (content && icon) {
+          content.classList.add('expanded');
+          icon.classList.add('expanded');
+        }
+      }
+
+      toggle.addEventListener('click', function () {
+        const targetId = this.getAttribute('data-target');
+        const content = document.getElementById(targetId);
+        const icon = this.querySelector('i');
+
+        if (content) {
+          content.classList.toggle('expanded');
+          icon.classList.toggle('expanded');
+        }
+      });
+    });
 
     const videoItems = document.querySelectorAll('.video-item');
     videoItems.forEach(item => {
