@@ -12,7 +12,7 @@
 }
 
 .breadcrumb-wrap a {
-  color: #4f5e77;
+  color: #000000;
   text-decoration: none;
   font-weight: 600;
 }
@@ -32,19 +32,6 @@
   position: relative;
   height: 430px;
   box-shadow: 0 10px 30px rgba(16, 24, 40, 0.05);
-}
-
-.live-badge {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  z-index: 2;
-  background: #f43f5e;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 600;
-  border-radius: 8px;
-  padding: 6px 10px;
 }
 
 #videoPlayer {
@@ -331,22 +318,22 @@
 }
 
 .item-title {
-  font-size: 14px;
-  font-weight: 500;
-  color: #364152;
+  font-size: 18px;
+  font-weight: 1000;
+  color: #000000;
 }
 
 .item-subtitle {
   display: block;
   margin-top: 2px;
   font-size: 12px;
-  color: #97a1b2;
+  color: #555555;
 }
 
 .item-desc {
   margin: 8px 0 0;
   font-size: 12px;
-  color: #6b7280;
+  color: #555555;
   line-height: 1.45;
   display: -webkit-box;
   -webkit-line-clamp: 4;
