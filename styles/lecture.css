@@ -1,5 +1,5 @@
 .lecture-content {
-  padding: 4px;
+  padding: 6px 0;
 }
 
 .breadcrumb-wrap {
@@ -26,11 +26,12 @@
 
 .video-card {
   background: #fff;
-  border-radius: 14px;
+  border-radius: 12px;
   border: 1px solid #e7ecf6;
   overflow: hidden;
   position: relative;
   height: 430px;
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.05);
 }
 
 .live-badge {
@@ -53,7 +54,7 @@
 }
 
 .video-title {
-  margin: 14px 0;
+  margin: 18px 0 8px;
   font-size: 24px;
   font-weight: 700;
 }
@@ -62,12 +63,92 @@
 .lesson-card {
   background: #fff;
   border: 1px solid #e7ecf6;
-  border-radius: 14px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.05);
 }
 
 .discussion-card {
   padding: 16px;
   margin-bottom: 14px;
+}
+
+.video-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 6px 14px;
+}
+
+.progress-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.progress-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.progress-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.course-progress-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.course-progress-ring-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 6px 0 8px;
+}
+
+.progress-ring {
+  --pct: 0;
+  --ring-size: 92px;
+  --ring-stroke: 12px;
+  --progress-color: #22c55e;
+  --track-color: #e2e8f0;
+  width: var(--ring-size);
+  height: var(--ring-size);
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--progress-color) calc(var(--pct) * 1%),
+    var(--track-color) 0
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(16, 24, 40, 0.05), inset 0 0 0 6px #fff;
+}
+
+.progress-ring::before {
+  content: '';
+  position: absolute;
+  inset: var(--ring-stroke);
+  border-radius: 50%;
+  background: #fff;
+}
+
+.progress-ring > span {
+  position: relative;
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--progress-color);
+}
+
+.progress-ring.is-zero {
+  --progress-color: #94a3b8;
+  --track-color: #eef2f7;
+  box-shadow: 0 10px 25px rgba(16, 24, 40, 0.04), inset 0 0 0 6px #fff;
 }
 
 .discussion-header {
@@ -191,16 +272,7 @@
   color: #475569;
 }
 
-.custom-progress {
-  height: 8px;
-  border-radius: 50px;
-  margin: 12px 0 18px;
-  background: #e9eef9;
-}
-
-#courseProgressBar {
-  background: var(--ask-red, #cc1a1a);
-}
+/* (để lại) .custom-progress/#courseProgressBar - có thể dùng lại ở trang khác */
 
 .lesson-list {
   max-height: none;

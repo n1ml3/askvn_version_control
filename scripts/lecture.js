@@ -36,7 +36,7 @@ const courseData = {
         title: "Phần 1: Khởi động",
         videos: [
           {
-            title: "Video1",
+            title: "Video 1",
             pct: "3%",
             url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi",
             isCompleted: true,
@@ -127,6 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // DOM Elements
   const headerBackLink = document.getElementById('headerBackLink');
   const courseProgressText = document.getElementById('courseProgressText');
+  const courseProgressRing = document.getElementById('courseProgressRing');
+  const courseProgressPct = document.getElementById('courseProgressPct');
   const courseAccordion = document.getElementById('courseAccordion');
   const videoPlayer = document.getElementById('videoPlayer');
   const videoTitle = document.getElementById('videoTitle');
@@ -135,18 +137,24 @@ document.addEventListener('DOMContentLoaded', () => {
   if (headerBackLink) {
     headerBackLink.textContent = course.title;
   }
-  if (courseProgressText) {
-    courseProgressText.textContent = course.progressText;
-    
-    // Update progress bar
-    const courseProgressBar = document.getElementById('courseProgressBar');
-    if (courseProgressBar) {
-      const match = course.progressText.match(/(\d+)%/);
-      const pct = match ? match[1] : 0;
-      courseProgressBar.style.width = `${pct}%`;
-      courseProgressBar.setAttribute('aria-valuenow', pct);
-    }
-  }
+
+  const parsePct = (pctStr) => {
+    if (pctStr === null || pctStr === undefined) return 0;
+    const match = String(pctStr).match(/(\d+)\s*%?/);
+    return match ? Number(match[1]) : 0;
+  };
+
+  const setProgressRing = (ringEl, pct, pctTextEl, textEl, zeroText) => {
+    if (!ringEl) return;
+    ringEl.style.setProperty('--pct', String(pct));
+    ringEl.classList.toggle('is-zero', pct <= 0);
+    if (pctTextEl) pctTextEl.textContent = `${pct}%`;
+    if (textEl) textEl.textContent = pct <= 0 ? (zeroText || 'Chưa xem') : textEl.textContent;
+  };
+
+  if (courseProgressText) courseProgressText.textContent = course.progressText;
+  const coursePct = parsePct(course.progressText);
+  setProgressRing(courseProgressRing, coursePct, courseProgressPct);
 
   // Generate dynamic lesson list
   if (courseAccordion) {
@@ -158,15 +166,17 @@ document.addEventListener('DOMContentLoaded', () => {
       sec.videos.forEach((vid) => {
         const isActiveClass = !isFirstVideoSelected ? 'active' : '';
         const lessonStatus = vid.isCompleted ? 'Lần xem cuối: 12 Jan 24. 8:00PM' : 'Hãy xem video trước để mở khóa';
-        const pctLabel = vid.pct && vid.pct !== '0%' ? `Tiến độ hiện tại: ${vid.pct}` : 'Chưa xem';
+        const pctNum = parsePct(vid.pct);
+        const pctLabel = pctNum > 0 ? `Tiến độ video: ${vid.pct}` : 'Chưa xem';
         const desc = vid.description || 'Chưa có mô tả cho bài học này.';
         const titleAttr = escapeAttr(vid.title);
         const titleHtml = escapeHtml(vid.title);
         const descHtml = escapeHtml(desc);
+        const pctAttr = escapeAttr(vid.pct);
         const itemIconClass = isActiveClass ? 'bi-pause-circle-fill' : 'bi-play-circle';
         lessonHtml += `
           <div class="video-item ${isActiveClass}" 
-               data-url="${vid.url}" data-title="${titleAttr}">
+               data-url="${vid.url}" data-title="${titleAttr}" data-pct="${pctAttr}">
             <div class="item-icon">
               <i class="bi ${itemIconClass}"></i>
             </div>
