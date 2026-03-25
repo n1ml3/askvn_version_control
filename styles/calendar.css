@@ -35,29 +35,31 @@ body.sidebar-collapsed #mainContent {
 }
 
 .cal-tab {
-    padding: 8px 20px;
-    border-radius: 6px;
-    border: 1.5px solid #ddd;
-    background: #fff;
-    color: #555;
-    font-size: .86rem;
-    font-weight: 500;
+    padding: 8px 22px;
+    border-radius: 12px;
+    border: 1px solid var(--slate-200);
+    background: var(--slate-50);
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: all .16s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-family: 'Inter', sans-serif;
     white-space: nowrap;
 }
 
 .cal-tab:hover {
+    background: #fff;
     border-color: var(--ask-red);
     color: var(--ask-red);
+    transform: translateY(-1px);
 }
 
 .cal-tab.active {
     background: var(--ask-red);
     border-color: var(--ask-red);
-    color: #fff;
-    font-weight: 600;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(204, 26, 26, 0.2);
 }
 
 /* ===== CALENDAR PANEL ===== */
@@ -86,23 +88,25 @@ body.sidebar-collapsed #mainContent {
 }
 
 .cal-nav-btn {
-    width: 34px;
-    height: 34px;
-    border-radius: 8px;
-    border: 1.5px solid #e0e0e0;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    border: 1px solid var(--slate-200);
     background: #fff;
-    color: #000000;
+    color: var(--text-primary);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: .95rem;
-    transition: all .15s;
+    font-size: 1rem;
+    transition: all 0.2s;
 }
 
 .cal-nav-btn:hover {
+    background: var(--slate-50);
     border-color: var(--ask-red);
     color: var(--ask-red);
+    transform: translateY(-1px);
 }
 
 .cal-today-btn {
@@ -213,21 +217,23 @@ body.sidebar-collapsed #mainContent {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    font-size: .85rem;
-    font-weight: 500;
-    color: #333;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
     line-height: 1;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    transition: all 0.2s;
 }
 
 /* Today highlight */
 .cal-day.today .cal-day-num {
     background: var(--ask-red);
-    color: #fff;
-    font-weight: 700;
+    color: #ffffff;
+    font-weight: 800;
+    box-shadow: 0 4px 10px rgba(204, 26, 26, 0.3);
 }
 
 /* Days outside current month */
@@ -247,22 +253,24 @@ body.sidebar-collapsed #mainContent {
 /* ===== EVENTS inside day cells ===== */
 .cal-event {
     display: block;
-    padding: 2px 6px;
-    border-radius: 4px;
+    padding: 3px 8px;
+    border-radius: 6px;
     background: var(--ask-red);
-    color: #fff;
-    font-size: .7rem;
-    font-weight: 500;
-    margin-bottom: 2px;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-bottom: 4px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     cursor: pointer;
-    transition: opacity .15s;
+    transition: all 0.2s;
+    border-left: 3px solid rgba(0, 0, 0, 0.1);
 }
 
 .cal-event:hover {
-    opacity: .85;
+    filter: brightness(1.1);
+    transform: translateX(2px);
 }
 
 .cal-event.event-blue {
