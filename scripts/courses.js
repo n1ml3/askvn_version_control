@@ -49,18 +49,14 @@ const mockCourses = [
 const courseGrid = document.getElementById('courseGrid');
 const emptyState = document.getElementById('emptyState');
 const filterBtns = document.querySelectorAll('.filter-btn');
-const searchInput = document.getElementById('top-bar-search');
-
 let activeFilter = 'all';
-let searchQuery = '';
 
 function renderCourses() {
   if (!courseGrid) return;
 
   const filtered = mockCourses.filter(c => {
     const matchFilter = (activeFilter === 'all') || c.categories.includes(activeFilter);
-    const matchSearch = !searchQuery || c.title.toLowerCase().includes(searchQuery) || c.teacher.toLowerCase().includes(searchQuery);
-    return matchFilter && matchSearch;
+    return matchFilter;
   });
 
   courseGrid.innerHTML = '';
@@ -86,7 +82,7 @@ function renderCourses() {
             <span class="progress-pct text-danger fw-bold" style="font-size: 0.9rem;">${pg}%</span>
           </div>
           <div class="progress-track" style="height: 8px; background: #e5e7eb; border-radius: 4px; overflow: hidden;">
-            <div class="progress-fill" style="width:${pg}%; height: 100%; background: #E50000; border-radius: 4px;"></div>
+            <div class="progress-fill" style="width:${pg}%; height: 100%; background: var(--ask-red); border-radius: 4px;"></div>
           </div>
         </div>
         <div class="mt-auto">
@@ -113,7 +109,7 @@ function renderCourses() {
               <span class="progress-pct text-danger fw-bold" style="font-size: 0.85rem;">${c.progress}%</span>
             </div>
             <div class="progress-track" style="height: 6px; background: #f0f0f0; border-radius: 4px; overflow: hidden;">
-              <div class="progress-fill" style="width:${c.progress}%; height: 100%; background: #E50000; border-radius: 4px;"></div>
+              <div class="progress-fill" style="width:${c.progress}%; height: 100%; background: var(--ask-red); border-radius: 4px;"></div>
             </div>
           </div>
         `;
@@ -122,7 +118,7 @@ function renderCourses() {
       footerHtml = `
         ${progressHtml}
         <div class="course-footer mt-auto" style="display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid #f0f0f0; margin-top: 16px;">
-          <span class="course-price" style="font-size: 0.95rem; font-weight: 700; color: #E50000;">${c.price}</span>
+          <span class="course-price" style="font-size: 0.95rem; font-weight: 700; color: var(--ask-red);">${c.price}</span>
           ${badgeHtml}
         </div>
       `;
@@ -139,9 +135,9 @@ function renderCourses() {
             <div class="course-body d-flex flex-column flex-grow-1" style="padding: 20px;">
               <h6 class="course-title" style="font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">${c.title}</h6>
               <p class="course-type" style="font-size: 0.85rem; color: #777; margin-bottom: 12px;">
-                <i class="bi bi-play-circle-fill" style="color: #E50000; margin-right: 6px;"></i>${c.type}
+                <i class="bi bi-play-circle-fill" style="color: var(--ask-red); margin-right: 6px;"></i>${c.type}
               </p>
-              <p class="course-teacher" style="font-size: 0.85rem; color: #E50000; font-weight: 500; margin-bottom: 0;">
+              <p class="course-teacher" style="font-size: 0.85rem; color: var(--ask-red); font-weight: 500; margin-bottom: 0;">
                 <i class="bi bi-person-fill" style="margin-right: 4px;"></i>${c.teacher}
               </p>
               ${footerHtml}
@@ -162,13 +158,6 @@ filterBtns.forEach(btn => {
     renderCourses();
   });
 });
-
-if (searchInput) {
-  searchInput.addEventListener('input', (e) => {
-    searchQuery = e.target.value.trim().toLowerCase();
-    renderCourses();
-  });
-}
 
 document.addEventListener('DOMContentLoaded', () => {
   renderCourses();

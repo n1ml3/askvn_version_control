@@ -6,6 +6,12 @@
 :root {
   --ask-red: #cc1a1a;
   --ask-red-dark: #a31414;
+  --ask-red-soft: #fff0f0;
+  --page-bg: #f5f6fa;
+  --border-subtle: #ececec;
+  --text-primary: #222;
+  --text-secondary: #444;
+  --text-muted: #888;
   --sidebar-width: 220px;
 }
 
@@ -15,9 +21,10 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: #f5f6fa;
+  background: var(--page-bg);
   margin: 0;
   min-height: 100vh;
+  color: var(--text-primary);
 }
 
 /* ===== SIDEBAR ===== */
@@ -28,7 +35,7 @@ body {
   width: var(--sidebar-width);
   height: 100vh;
   background: #fff;
-  border-right: 1px solid #ececec;
+  border-right: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
   z-index: 1000;
@@ -36,7 +43,7 @@ body {
 
 .sidebar-logo {
   padding: 16px 12px 14px;
-  border-bottom: 0px solid #ececec;
+  border-bottom: 0 solid var(--border-subtle);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,7 +92,7 @@ body {
   align-items: center;
   gap: 10px;
   padding: 10px 22px;
-  color: #444;
+  color: var(--text-secondary);
   font-size: 0.92rem;
   font-weight: 500;
   white-space: nowrap;
@@ -122,7 +129,7 @@ body {
 
 .sidebar-bottom {
   padding: 14px 0 18px;
-  border-top: 1px solid #ececec;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .sidebar-bottom .nav-link {
@@ -130,7 +137,7 @@ body {
   align-items: center;
   gap: 10px;
   padding: 10px 22px;
-  color: #444;
+  color: var(--text-secondary);
   font-size: 0.92rem;
   font-weight: 500;
   text-decoration: none;
@@ -205,42 +212,6 @@ body {
 .topbar-breadcrumb .active {
   color: #fff;
   font-weight: 500;
-}
-
-/* ===== TOPBAR SEARCH (Global) ===== */
-.topbar-search {
-  flex: 1;
-  max-width: 380px;
-  margin: 0 24px;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.topbar-search i {
-  position: absolute;
-  left: 12px;
-  color: #aaa;
-  font-size: .95rem;
-  pointer-events: none;
-}
-
-.topbar-search input {
-  width: 100%;
-  border: 1px solid #e8e8e8;
-  border-radius: 24px;
-  padding: 8px 16px 8px 36px;
-  font-size: .88rem;
-  color: #333;
-  background: #f5f6fa;
-  outline: none;
-  transition: border-color .2s, background .2s;
-  font-family: 'Inter', sans-serif;
-}
-
-.topbar-search input:focus {
-  border-color: var(--ask-red);
-  background: #fff;
 }
 
 /* Notification bell */
@@ -512,7 +483,7 @@ body {
 
 .stat-info .label {
   font-size: 0.8rem;
-  color: #888;
+  color: var(--text-muted);
   margin-bottom: 2px;
 }
 

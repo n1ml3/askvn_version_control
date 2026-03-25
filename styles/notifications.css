@@ -29,8 +29,8 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #e0e7ff;
-  color: #4f46e5;
+  background: var(--ask-red-soft, #fff0f0);
+  color: var(--ask-red, #cc1a1a);
   display: flex;
   align-items: center;
   justify-content: center;

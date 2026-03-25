@@ -4,12 +4,12 @@
    ======================================================== */
 
 .page-profile body {
-  background: #f4f7f6;
+  background: var(--page-bg, #f5f6fa);
 }
 
 /* Make topbar blend into the red banner */
 .page-profile #topbar {
-  background: #E50000;
+  background: var(--ask-red);
   /* ASK Red close approx */
   border-bottom: none;
 }
@@ -25,7 +25,7 @@
 
 .page-profile #topbar .topbar-avatar {
   background: #fff;
-  color: #E50000;
+  color: var(--ask-red);
 }
 
 /* Overlapping Red Banner */
@@ -134,7 +134,7 @@
 
 .cam-btn:hover {
   background: #f8f9fa;
-  color: #E50000;
+  color: var(--ask-red);
 }
 
 .profile-name {
@@ -144,7 +144,7 @@
 }
 
 .profile-phone {
-  color: #E50000;
+  color: var(--ask-red);
   font-size: 0.95rem;
   font-weight: 500;
   margin: 0;
@@ -187,12 +187,12 @@
 
 .bg-red-light {
   background: #fff0f0;
-  color: #E50000;
+  color: var(--ask-red);
 }
 
 .bg-blue-light {
-  background: #eef7ff;
-  color: #0ab0f6;
+  background: #f1f5f9;
+  color: #334155;
 }
 
 .contact-info {
@@ -202,7 +202,7 @@
 
 .contact-label {
   font-size: 0.8rem;
-  color: #E50000;
+  color: var(--ask-red);
   font-weight: 500;
 }
 
@@ -233,7 +233,7 @@
 }
 
 .profile-tabs .nav-item .nav-link.active {
-  color: #E50000;
+  color: var(--ask-red);
 }
 
 .profile-tabs .nav-item .nav-link.active::after {
@@ -243,7 +243,7 @@
   left: 0;
   width: 100%;
   height: 3px;
-  background: #E50000;
+  background: var(--ask-red);
   border-radius: 3px 3px 0 0;
 }
 
@@ -266,7 +266,7 @@
 
 .form-control:focus,
 .form-select:focus {
-  border-color: #E50000;
+  border-color: var(--ask-red);
   box-shadow: 0 0 0 0.2rem rgba(229, 0, 0, 0.1);
 }
 

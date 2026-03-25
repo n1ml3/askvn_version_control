@@ -14,7 +14,7 @@ body.auth-page {
 
 .auth-left {
   flex: 1;
-  background-color: var(--ask-red, #E50000);
+  background-color: var(--ask-red, #cc1a1a);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,7 +51,7 @@ body.auth-page {
   height: 44px;
   border-radius: 8px;
   background: #fff3f3;
-  color: var(--ask-red, #E50000);
+  color: var(--ask-red, #cc1a1a);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,7 +72,7 @@ body.auth-page {
 }
 
 .auth-title {
-  color: var(--ask-red, #E50000);
+  color: var(--ask-red, #cc1a1a);
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 8px;
@@ -102,7 +102,7 @@ body.auth-page {
 
 .auth-input:focus {
   outline: none;
-  border-color: var(--ask-red, #E50000);
+  border-color: var(--ask-red, #cc1a1a);
   background: #fff;
   box-shadow: 0 0 0 3px rgba(229, 0, 0, 0.1);
 }
@@ -122,7 +122,7 @@ body.auth-page {
 .auth-forgot {
   display: block;
   text-align: right;
-  color: var(--ask-red, #E50000);
+  color: var(--ask-red, #cc1a1a);
   font-size: 0.95rem;
   font-weight: 500;
   text-decoration: none;
@@ -136,7 +136,7 @@ body.auth-page {
 
 .auth-btn {
   width: 100%;
-  background: var(--ask-red, #E50000);
+  background: var(--ask-red, #cc1a1a);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -159,7 +159,7 @@ body.auth-page {
 }
 
 .auth-switch a {
-  color: var(--ask-red, #E50000);
+  color: var(--ask-red, #cc1a1a);
   font-weight: 600;
   text-decoration: none;
 }

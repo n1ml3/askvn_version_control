@@ -1,6 +1,6 @@
 /* feedback.css */
 body {
-  background-color: #f8f9fa;
+  background-color: var(--page-bg, #f5f6fa);
 }
 
 .feedback-card {
@@ -61,8 +61,8 @@ body {
 
 .form-select:focus,
 .form-control:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.1);
+  border-color: var(--ask-red, #cc1a1a);
+  box-shadow: 0 0 0 0.2rem rgba(204, 26, 26, 0.12);
 }
 
 .btn-save {

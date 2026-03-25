@@ -78,12 +78,12 @@
 }
 
 .btn-cert-primary {
-  background: #eef2ff;
-  color: #4f46e5;
-  border: 1px solid #c7d2fe;
+  background: var(--ask-red-soft, #fff0f0);
+  color: var(--ask-red, #cc1a1a);
+  border: 1px solid rgba(204, 26, 26, 0.25);
 }
 
 .btn-cert-primary:hover {
-  background: #e0e7ff;
-  color: #4338ca;
+  background: #ffe8e8;
+  color: var(--ask-red-dark, #a31414);
 }

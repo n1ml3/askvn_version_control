@@ -266,7 +266,7 @@ body.sidebar-collapsed #mainContent {
 }
 
 .cal-event.event-blue {
-    background: #3b82f6;
+    background: var(--ask-red-dark, #a31414);
 }
 
 .cal-event.event-green {
