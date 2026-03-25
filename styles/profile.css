@@ -275,7 +275,7 @@
 }
 
 .btn-success {
-  background: #22c55e;
+  background: var(--ask-red);
   border: none;
   padding: 10px 24px;
   border-radius: 6px;
@@ -283,5 +283,5 @@
 }
 
 .btn-success:hover {
-  background: #16a34a;
+  background: var(--ask-red);
 }

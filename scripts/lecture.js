@@ -32,28 +32,28 @@ const courseData = {
             pct: "3%",
             url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi",
             isCompleted: true,
-            description: "Làm quen với khóa học, mục tiêu và cách luyện tập hiệu quả trong phần mở đầu."
+            description: "Chưa có nội dung."
           },
           {
             title: "Video 2",
             pct: "0%",
             url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn",
             isCompleted: false,
-            description: "Kỹ năng giao tiếp cơ bản: giọng điệu, nhịp nói và tương tác với người nghe."
+            description: "Chưa có nội dung."
           },
           {
             title: "Video 3",
             pct: "0%",
             url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn",
             isCompleted: false,
-            description: "Thực hành mở đầu bài thuyết trình và giữ sự chú ý của khán giả."
+            description: "Chưa có nội dung."
           },
           {
             title: "Video 4",
             pct: "0%",
             url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn",
             isCompleted: false,
-            description: "Tổng kết phần khởi động và bài tập về nhà gợi ý."
+            description: "Chưa có nội dung."
           }
         ]
       }
@@ -71,14 +71,14 @@ const courseData = {
             pct: "100%",
             url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn",
             isCompleted: true,
-            description: "Nền tảng về tốc độ đọc, sự tập trung và cách đo lường tiến bộ."
+            description: "Chưa có nội dung."
           },
           {
             title: "Bài 2: Tại sao phải đọc nhanh",
             pct: "100%",
             url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn",
             isCompleted: true,
-            description: "Lợi ích của đọc nhanh trong học tập và công việc hàng ngày."
+            description: "Chưa có nội dung."
           }
         ]
       },
@@ -90,14 +90,14 @@ const courseData = {
             pct: "100%",
             url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn",
             isCompleted: true,
-            description: "Bài tập luyện mắt theo dòng, giảm đọc lại từng chữ."
+            description: "Chưa có nội dung."
           },
           {
             title: "Bài 4: Đọc cả khối",
             pct: "100%",
             url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn",
             isCompleted: true,
-            description: "Nhận diện cụm từ và đoạn ý để tăng tốc độ hiểu."
+            description: "Chưa có nội dung."
           }
         ]
       }
