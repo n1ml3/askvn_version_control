@@ -8,68 +8,130 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/dashboard.css" />
   <link rel="stylesheet" href="../styles/common.css" />
   <link rel="stylesheet" href="../styles/lecture.css" />
 </head>
 <body>
-  <div class="market-header">
-    <span class="market-brand">envato market</span>
-    <button class="btn market-btn">Buy now</button>
-  </div>
-
-  <div class="lecture-shell">
-    <aside id="sidebar" class="lecture-sidebar">
+  <aside id="sidebar">
       <div class="sidebar-logo">
-        <a href="dashboard.html" class="d-inline-flex align-items-center gap-2 text-decoration-none">
-          <img src="../assets/logo.png" alt="ASK" />
+        <a href="dashboard.html">
+          <img src="../assets/logo.png" alt="ASK" class="logo-full" />
+        </a>
+        <a href="dashboard.html" class="logo-mini" aria-label="ASK" style="text-decoration: none;">
+          <span>A</span><span>S</span><span>K</span>
         </a>
       </div>
       <nav class="sidebar-nav">
-        <a href="dashboard.html" class="nav-link"><i class="bi bi-grid-1x2"></i><span>Dashboard</span></a>
-        <a href="courses.html" class="nav-link active"><i class="bi bi-journal-bookmark"></i><span>Courses</span></a>
-        <a href="#" class="nav-link"><i class="bi bi-people"></i><span>Students</span></a>
-        <a href="#" class="nav-link"><i class="bi bi-card-checklist"></i><span>Assignments</span></a>
-        <a href="#" class="nav-link"><i class="bi bi-person-badge"></i><span>Mentors</span></a>
-        <a href="#" class="nav-link"><i class="bi bi-folder2-open"></i><span>Resources</span></a>
-        <a href="#" class="nav-link"><i class="bi bi-chat-dots"></i><span>Messages</span></a>
-        <a href="#" class="nav-link"><i class="bi bi-bar-chart"></i><span>Analytics</span></a>
+        <a href="dashboard.html" class="nav-link" title="Dashboard">
+          <i class="bi bi-grid-1x2"></i><span>Dashboard</span>
+        </a>
+        <a href="courses.html" class="nav-link active" title="Khoá học">
+          <i class="bi bi-journal-bookmark"></i><span>Khoá học</span>
+        </a>
+        <a href="calendar.html" class="nav-link" title="Lịch học Zoom">
+          <i class="bi bi-calendar3"></i><span>Lịch học Zoom</span>
+        </a>
+        <a href="checkoutHistory.html" class="nav-link" title="Lịch sử thanh toán">
+          <i class="bi bi-clock"></i><span>Lịch sử thanh toán</span>
+        </a>
+        <a href="certificates.html" class="nav-link" title="chứng nhận">
+          <i class="bi bi-award"></i><span>Chứng nhận</span>
+        </a>
+        <a href="notifications.html" class="nav-link" title="Thông báo">
+          <i class="bi bi-bell"></i><span>Thông báo</span>
+        </a>
+        <a href="feedback.html" class="nav-link" title="Phản hồi, góp ý">
+          <i class="bi bi-list"></i><span>Phản hồi, góp ý</span>
+        </a>
+        <a href="login.html" class="nav-link" title="Đăng xuất">
+          <i class="bi bi-box-arrow-right"></i><span>Đăng xuất</span>
+        </a>
       </nav>
-    </aside>
+  </aside>
 
-    <section class="lecture-main">
-      <header id="topbar" class="lecture-topbar">
-        <button class="topbar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
-        <div class="lecture-search">
-          <i class="bi bi-search"></i>
-          <input type="text" placeholder="Search..." aria-label="Search" />
+  <header id="topbar">
+    <button class="topbar-toggle" id="sidebarToggle">
+      <i class="bi bi-list"></i>
+    </button>
+    <h1 class="topbar-page-title">BÀI GIẢNG</h1>
+    <div class="topbar-breadcrumb">
+      <span>Home</span>
+      <i class="bi bi-chevron-right"></i>
+      <span class="active">Bài giảng</span>
+    </div>
+    <div class="topbar-search d-none d-sm-flex">
+      <i class="bi bi-search"></i>
+      <input type="text" placeholder="Tìm kiếm..." />
+    </div>
+    <div class="topbar-right" style="margin-left: auto;">
+      <div class="dropdown d-inline-block">
+        <button class="topbar-notif dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+          id="notifDropdownBtn" title="Thông báo">
+          <i class="bi bi-bell"></i>
+          <span class="notif-badge">0</span>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end notif-dropdown shadow" aria-labelledby="notifDropdownBtn">
+          <div class="notif-dropdown-header">
+            Thông báo
+          </div>
+          <div class="notif-dropdown-body">
+            <img src="../assets/note_taking.svg" alt="No notifications" />
+            <p>Bạn chưa có thông báo nào</p>
+          </div>
         </div>
-        <div class="lecture-topbar-actions">
-          <button class="icon-btn"><i class="bi bi-bell"></i></button>
-          <button class="icon-btn"><i class="bi bi-globe2"></i></button>
-          <button class="profile-btn">
-            <i class="bi bi-person-circle"></i>
-            <span>hv_ask</span>
-            <i class="bi bi-chevron-down"></i>
-          </button>
-        </div>
-      </header>
+      </div>
+      <div class="dropdown">
+        <button class="topbar-avatar dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+          id="userDropdownBtn" title="Tài khoản">
+          <i class="bi bi-person-fill"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end user-dropdown shadow" aria-labelledby="userDropdownBtn">
+          <li>
+            <div class="user-dropdown-header">
+              <div class="user-avatar-lg"><i class="bi bi-person-circle"></i></div>
+              <div>
+                <div class="user-name">hv_ask</div>
+                <div class="user-phone">0888888888</div>
+              </div>
+            </div>
+          </li>
+          <li><hr class="dropdown-divider my-1"></li>
+          <li>
+            <a class="dropdown-item" href="profile.html">
+              <i class="bi bi-person me-2"></i>Thông tin cá nhân
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="profile.html?tab=password">
+              <i class="bi bi-key me-2"></i>Đổi mật khẩu
+            </a>
+          </li>
+          <li><hr class="dropdown-divider my-1"></li>
+          <li>
+            <a class="dropdown-item text-danger" href="login.html">
+              <i class="bi bi-box-arrow-right me-2"></i>Đăng xuất
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
 
-      <main class="lecture-content">
+  <main id="main-content">
+      <div class="lecture-content">
         <div class="breadcrumb-wrap">
-          <span>Home</span>
+          <span>Khóa học</span>
           <i class="bi bi-chevron-right"></i>
           <a id="headerBackLink" href="courses.html">Course Details</a>
         </div>
-
         <div class="content-grid">
           <div class="video-column">
             <section class="video-card">
               <span class="live-badge">Live</span>
               <iframe id="videoPlayer" src="" title="Video bài giảng" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </section>
-
             <h3 id="videoTitle" class="video-title">Đang tải video...</h3>
-
             <section class="discussion-card">
               <div class="discussion-header">
                 <h4>Questions (85)</h4>
@@ -83,13 +145,11 @@
                 </div>
               </div>
             </section>
-
             <section class="description-card">
               <h5>Mô tả ngắn</h5>
               <p id="courseDescription">Đang tải...</p>
             </section>
           </div>
-
           <div class="lesson-column">
             <section class="lesson-card">
               <div class="lesson-header">
@@ -108,9 +168,8 @@
             </section>
           </div>
         </div>
-      </main>
-    </section>
-  </div>
+      </div>
+  </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../scripts/common.js"></script>
