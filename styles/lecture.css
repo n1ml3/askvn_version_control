@@ -73,9 +73,9 @@
 }
 
 .progress-label {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
-  color: #64748b;
+  color: #967878;
 }
 
 .progress-text {
@@ -271,7 +271,7 @@
 .section-title {
   font-size: 13px;
   font-weight: 600;
-  color: #8b95a7;
+  color: #000000;
   margin: 0 0 8px;
 }
 
