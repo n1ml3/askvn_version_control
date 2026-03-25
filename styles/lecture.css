@@ -260,12 +260,12 @@
   color: #475569;
 }
 
-/* (để lại) .custom-progress/#courseProgressBar - có thể dùng lại ở trang khác */
 
 .lesson-list {
   max-height: none;
   overflow-y: visible;
   padding-right: 4px;
+  margin-top: 12px;
 }
 
 .section-wrapper {
@@ -276,12 +276,13 @@
   width: 100%;
   background: transparent;
   border: none;
-  padding: 0;
+  padding: 10px 0;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
+  margin-bottom: 4px;
   transition: all 0.2s ease;
 }
 
@@ -307,6 +308,7 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
+  padding-top: 4px;
 }
 
 .section-content.expanded {
@@ -314,7 +316,7 @@
 }
 
 .section-title {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   color: #000000;
   margin: 0;
@@ -382,6 +384,7 @@
   line-height: 1.45;
   display: -webkit-box;
   -webkit-line-clamp: 4;
+  line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
