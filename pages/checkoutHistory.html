@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="../styles/dashboard.css" />
   <!-- Common CSS -->
   <link rel="stylesheet" href="../styles/common.css" />
+  <!-- Shared filter button styles (same as Khóa học) -->
+  <link rel="stylesheet" href="../styles/courses.css" />
   <!-- Checkout History CSS -->
   <link rel="stylesheet" href="../styles/checkoutHistory.css" />
 </head>
@@ -142,9 +144,9 @@
   <main id="mainContent">
     <div class="checkout-header">
       <h2 class="page-title">Lịch sử thanh toán</h2>
-      <div class="checkout-tabs">
-        <button class="checkout-tab-btn active" data-tab="paid">Đã thanh toán</button>
-        <button class="checkout-tab-btn" data-tab="pending">Chờ thanh toán</button>
+      <div class="filter-tabs">
+        <button type="button" class="filter-btn active" data-tab="paid">Đã thanh toán</button>
+        <button type="button" class="filter-btn" data-tab="pending">Chờ thanh toán</button>
       </div>
     </div>
 

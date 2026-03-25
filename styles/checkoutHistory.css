@@ -38,33 +38,7 @@ body.sidebar-collapsed #mainContent {
   margin: 0;
 }
 
-/* ===== TABS ===== */
-.checkout-tabs {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.checkout-tab-btn {
-  background: none;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #777;
-  cursor: pointer;
-  border-bottom: 3px solid transparent;
-  transition: all .2s;
-}
-
-.checkout-tab-btn:hover {
-  color: var(--ask-red);
-}
-
-.checkout-tab-btn.active {
-  color: var(--ask-red);
-  border-bottom-color: var(--ask-red);
-}
+/* Tab buttons: reuse .filter-tabs / .filter-btn from courses.css */
 
 /* ===== ORDER CARD ===== */
 .checkout-panel {

@@ -130,20 +130,25 @@
             <h3 id="videoTitle" class="video-title">Đang tải video...</h3>
             <section class="discussion-card">
               <div class="discussion-header">
-                <h4>Hỏi đáp (85)</h4>
-                <button class="see-all-btn">Xem thêm</button>
+                <h4 id="discussionTitle">Hỏi đáp (<span id="discussionCount">85</span>)</h4>
+                <button type="button" class="see-all-btn">Xem thêm</button>
               </div>
-              <div class="discussion-item">
-                <div class="avatar-dot">A</div>
-                <div class="discussion-text">
-                  <strong>Nguyễn Văn A</strong>
-                  <p>Làm thế nào để cải thiện khả năng ghi nhớ sau mỗi bài học?</p>
+              <div class="discussion-compose">
+                <label class="visually-hidden" for="discussionInput">Câu hỏi hoặc bình luận</label>
+                <textarea id="discussionInput" class="discussion-input" rows="3" placeholder="Đặt câu hỏi hoặc bình luận về nội dung video..."></textarea>
+                <div class="discussion-compose-actions">
+                  <button type="button" id="discussionSendBtn" class="discussion-send-btn">Gửi</button>
                 </div>
               </div>
-            </section>
-            <section class="description-card">
-              <h5>Mô tả ngắn</h5>
-              <p id="courseDescription">Đang tải...</p>
+              <div id="discussionList" class="discussion-list">
+                <div class="discussion-item">
+                  <div class="avatar-dot">A</div>
+                  <div class="discussion-text">
+                    <strong>Nguyễn Văn A</strong>
+                    <p>Làm thế nào để cải thiện khả năng ghi nhớ sau mỗi bài học?</p>
+                  </div>
+                </div>
+              </div>
             </section>
           </div>
           <div class="lesson-column">

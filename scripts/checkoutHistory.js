@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderOrders();
 
   // --- TAB LOGIC ---
-  const tabBtns = document.querySelectorAll('.checkout-tab-btn');
+  const tabBtns = document.querySelectorAll('#mainContent .filter-btn[data-tab]');
   const panels = document.querySelectorAll('.checkout-panel');
 
   tabBtns.forEach(btn => {

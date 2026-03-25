@@ -3,41 +3,102 @@
    File: scripts/lecture.js
    ======================================================== */
 
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function escapeAttr(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;');
+}
+
 // Mock Content Data based on URL param "id"
 const courseData = {
   1: {
     title: "Nói Vạn Người Mê",
-    description: "Chưa có nội dung",
     progressText: "3% Hoàn thành",
     sections: [
       {
         title: "Phần 1: Khởi động",
         videos: [
-          { title: "Video1", pct: "3%", url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi", isCompleted: true },
-          { title: "Video 2", pct: "0%", url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn", isCompleted: false },
-          { title: "Video 3", pct: "0%", url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn", isCompleted: false },
-          { title: "Video 4", pct: "0%", url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn", isCompleted: false }
+          {
+            title: "Video1",
+            pct: "3%",
+            url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi",
+            isCompleted: true,
+            description: "Làm quen với khóa học, mục tiêu và cách luyện tập hiệu quả trong phần mở đầu."
+          },
+          {
+            title: "Video 2",
+            pct: "0%",
+            url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn",
+            isCompleted: false,
+            description: "Kỹ năng giao tiếp cơ bản: giọng điệu, nhịp nói và tương tác với người nghe."
+          },
+          {
+            title: "Video 3",
+            pct: "0%",
+            url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn",
+            isCompleted: false,
+            description: "Thực hành mở đầu bài thuyết trình và giữ sự chú ý của khán giả."
+          },
+          {
+            title: "Video 4",
+            pct: "0%",
+            url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn",
+            isCompleted: false,
+            description: "Tổng kết phần khởi động và bài tập về nhà gợi ý."
+          }
         ]
       }
     ]
   },
   2: {
     title: "Nghệ Thuật Đọc Nhanh",
-    description: "Chưa có nội dung.",
     progressText: "100% Hoàn thành",
     sections: [
       {
         title: "Phần 1: Giới thiệu",
         videos: [
-          { title: "Bài 1: Kiến thức nền tảng", pct: "100%", url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn", isCompleted: true },
-          { title: "Bài 2: Tại sao phải đọc nhanh", pct: "100%", url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn", isCompleted: true }
+          {
+            title: "Bài 1: Kiến thức nền tảng",
+            pct: "100%",
+            url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn",
+            isCompleted: true,
+            description: "Nền tảng về tốc độ đọc, sự tập trung và cách đo lường tiến bộ."
+          },
+          {
+            title: "Bài 2: Tại sao phải đọc nhanh",
+            pct: "100%",
+            url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn",
+            isCompleted: true,
+            description: "Lợi ích của đọc nhanh trong học tập và công việc hàng ngày."
+          }
         ]
       },
       {
         title: "Phần 2: Phương pháp & Luyện tập",
         videos: [
-          { title: "Bài 3: Luyện mắt cơ bản", pct: "100%", url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn", isCompleted: true },
-          { title: "Bài 4: Đọc cả khối", pct: "100%", url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn", isCompleted: true }
+          {
+            title: "Bài 3: Luyện mắt cơ bản",
+            pct: "100%",
+            url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn",
+            isCompleted: true,
+            description: "Bài tập luyện mắt theo dòng, giảm đọc lại từng chữ."
+          },
+          {
+            title: "Bài 4: Đọc cả khối",
+            pct: "100%",
+            url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn",
+            isCompleted: true,
+            description: "Nhận diện cụm từ và đoạn ý để tăng tốc độ hiểu."
+          }
         ]
       }
     ]
@@ -57,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // DOM Elements
   const headerBackLink = document.getElementById('headerBackLink');
-  const courseDescription = document.getElementById('courseDescription');
   const courseProgressText = document.getElementById('courseProgressText');
   const courseAccordion = document.getElementById('courseAccordion');
   const videoPlayer = document.getElementById('videoPlayer');
@@ -66,9 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Set initial text properties
   if (headerBackLink) {
     headerBackLink.textContent = course.title;
-  }
-  if (courseDescription) {
-    courseDescription.textContent = course.description;
   }
   if (courseProgressText) {
     courseProgressText.textContent = course.progressText;
@@ -94,15 +151,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const isActiveClass = !isFirstVideoSelected ? 'active' : '';
         const lessonStatus = vid.isCompleted ? 'Lần xem cuối: 12 Jan 24. 8:00PM' : 'Khóa';
         const pctLabel = vid.pct && vid.pct !== '0%' ? `Tiến độ hiện tại: ${vid.pct}` : 'Chưa xem';
+        const desc = vid.description || 'Chưa có mô tả cho bài học này.';
+        const titleAttr = escapeAttr(vid.title);
+        const titleHtml = escapeHtml(vid.title);
+        const descHtml = escapeHtml(desc);
         lessonHtml += `
           <div class="video-item ${isActiveClass}" 
-               data-url="${vid.url}" data-title="${vid.title}">
+               data-url="${vid.url}" data-title="${titleAttr}">
             <div class="item-icon">
               <i class="bi bi-play-circle"></i>
             </div>
-            <div>
-              <div class="item-title">${vid.title}</div>
+            <div class="video-item-body">
+              <div class="item-title">${titleHtml}</div>
               <span class="item-subtitle">${lessonStatus} • ${pctLabel}</span>
+              <p class="item-desc">${descHtml}</p>
             </div>
           </div>
         `;
@@ -137,6 +199,45 @@ document.addEventListener('DOMContentLoaded', () => {
           videoTitle.textContent = title;
         }
       });
+    });
+  }
+
+  const discussionInput = document.getElementById('discussionInput');
+  const discussionSendBtn = document.getElementById('discussionSendBtn');
+  const discussionList = document.getElementById('discussionList');
+  const discussionCountEl = document.getElementById('discussionCount');
+
+  function appendDiscussionComment(text) {
+    if (!discussionList || !text.trim()) return;
+    const initial = 'B';
+    const row = document.createElement('div');
+    row.className = 'discussion-item';
+    row.innerHTML = `
+      <div class="avatar-dot">${initial}</div>
+      <div class="discussion-text">
+        <strong>Bạn</strong>
+        <p></p>
+      </div>
+    `;
+    row.querySelector('p').textContent = text.trim();
+    discussionList.insertBefore(row, discussionList.firstChild);
+    if (discussionCountEl) {
+      const n = parseInt(discussionCountEl.textContent, 10);
+      discussionCountEl.textContent = Number.isFinite(n) ? n + 1 : 1;
+    }
+  }
+
+  if (discussionSendBtn && discussionInput) {
+    discussionSendBtn.addEventListener('click', () => {
+      appendDiscussionComment(discussionInput.value);
+      discussionInput.value = '';
+    });
+    discussionInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        appendDiscussionComment(discussionInput.value);
+        discussionInput.value = '';
+      }
     });
   }
 });
