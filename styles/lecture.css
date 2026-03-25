@@ -27,7 +27,7 @@
 .video-card {
   background: #fff;
   border-radius: 12px;
-  border: 1px solid #e7ecf6;
+  border: 1px solid #ffffff;
   overflow: hidden;
   position: relative;
   height: 430px;
@@ -107,14 +107,14 @@
 .course-progress-ring-wrap {
   display: flex;
   justify-content: center;
-  padding: 6px 0 8px;
+  flex-shrink: 0;
 }
 
 .progress-ring {
   --pct: 0;
   --ring-size: 92px;
   --ring-stroke: 12px;
-  --progress-color: #22c55e;
+  --progress-color: #cc1a1a;
   --track-color: #e2e8f0;
   width: var(--ring-size);
   height: var(--ring-size);
@@ -252,8 +252,9 @@
 
 .lesson-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
+  gap: 16px;
 }
 
 .lesson-header h4 {

@@ -12,11 +12,11 @@
 
   /* ---------- Sample events (mock data) ---------- */
   const events = [
-    // { date: "2026-03-19", title: "Mật Mã Tiền Tệ", color: "badge-success", time: "19:00" },
-    // { date: "2026-03-20", title: "Wake Up", color: "badge-warning", time: "08:30" },
-    // { date: "2026-03-25", title: "Trại Lãnh Đạo", color: "badge-success", time: "09:00" },
-    // { date: "2026-03-27", title: "Sales Success", color: "badge-warning", time: "20:00" },
-    // { date: "2026-04-05", title: "Trại Lãnh Đạo", color: "badge-success", time: "09:00" }
+    { date: "2026-03-19", title: "Mật Mã Tiền Tệ", color: "badge-success", time: "19:00" },
+    { date: "2026-03-20", title: "Wake Up", color: "badge-warning", time: "08:30" },
+    { date: "2026-03-25", title: "Trại Lãnh Đạo", color: "badge-success", time: "09:00" },
+    { date: "2026-03-27", title: "Sales Success", color: "badge-warning", time: "20:00" },
+    { date: "2026-04-05", title: "Trại Lãnh Đạo", color: "badge-success", time: "09:00" }
   ];
 
   /* ---------- DOM refs ---------- */

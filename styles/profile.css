@@ -283,5 +283,5 @@
 }
 
 .btn-success:hover {
-  background: var(--ask-red);
+  background: var(--ask-red #a31414);
 }
