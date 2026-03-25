@@ -5,84 +5,114 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ASK Training – Bài giảng</title>
   <link rel="icon" href="../assets/logo.png" type="image/png" />
-
-  <!-- Bootstrap 5 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <!-- Common CSS -->
   <link rel="stylesheet" href="../styles/common.css" />
   <link rel="stylesheet" href="../styles/lecture.css" />
 </head>
-<body class="bg-light">
+<body>
+  <div class="market-header">
+    <span class="market-brand">envato market</span>
+    <button class="btn market-btn">Buy now</button>
+  </div>
 
-  <header class="lecture-header d-flex align-items-center px-4" style="background-color: #E50000;">
-    <div class="d-flex align-items-center gap-4">
-      <a href="dashboard.html" class="bg-white rounded px-2 py-1 d-flex align-items-center shadow-sm">
-        <img src="../assets/logo.png" alt="ASK Logo" height="45" />
-      </a>
-      <div class="vr bg-white opacity-50"></div>
-      <a href="courses.html" id="headerBackLink" class="text-white text-decoration-none d-flex align-items-center fw-medium header-back-link lh-1">
-        <i class="bi bi-chevron-left me-2"></i> Đang tải...
-      </a>
-    </div>
-  </header>
-
-  <main class="container-fluid py-4 px-xl-5">
-    <div class="row g-4">
-      
-      <!-- Left Column: Video & Info -->
-      <div class="col-12 col-lg-8">
-        <!-- Video Player / Placeholder -->
-        <div class="video-container rounded-3 overflow-hidden bg-white mb-4 shadow-sm" style="border: 1px solid #f0f0f0;">
-          <iframe id="videoPlayer" width="100%" height="500" src="https://youtu.be/dQw4w9WgXcQ?list=RDdQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        
-        <!-- Course Title -->
-        <h3 id="videoTitle" class="fw-bold mb-4 text-dark fs-4">Video1</h3>
-
-        <!-- Description Card -->
-        <div class="card border-0 shadow-sm desc-card" style="border: 1px solid #f0f0f0 !important;">
-          <div class="card-body p-4">
-            <h5 class="text-danger fw-semibold mb-3 fs-6">Mô tả ngắn</h5>
-            <p id="courseDescription" class="text-muted mb-0" style="font-size: 0.95rem;">Đang tải...</p>
-          </div>
-        </div>
+  <div class="lecture-shell">
+    <aside id="sidebar" class="lecture-sidebar">
+      <div class="sidebar-logo">
+        <a href="dashboard.html" class="d-inline-flex align-items-center gap-2 text-decoration-none">
+          <img src="../assets/logo.png" alt="ASK" />
+        </a>
       </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-link"><i class="bi bi-grid-1x2"></i><span>Dashboard</span></a>
+        <a href="courses.html" class="nav-link active"><i class="bi bi-journal-bookmark"></i><span>Courses</span></a>
+        <a href="#" class="nav-link"><i class="bi bi-people"></i><span>Students</span></a>
+        <a href="#" class="nav-link"><i class="bi bi-card-checklist"></i><span>Assignments</span></a>
+        <a href="#" class="nav-link"><i class="bi bi-person-badge"></i><span>Mentors</span></a>
+        <a href="#" class="nav-link"><i class="bi bi-folder2-open"></i><span>Resources</span></a>
+        <a href="#" class="nav-link"><i class="bi bi-chat-dots"></i><span>Messages</span></a>
+        <a href="#" class="nav-link"><i class="bi bi-bar-chart"></i><span>Analytics</span></a>
+      </nav>
+    </aside>
 
-      <!-- Right Column: Playlist/Content -->
-      <div class="col-12 col-lg-4">
-        <div class="card border-0 shadow-sm playlist-card" style="border: 1px solid #f0f0f0 !important;">
-            <!-- Card Header -->
-          <div class="card-header bg-white border-bottom p-4">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <h6 class="mb-0 fw-bold fs-6">Nội dung khóa học</h6>
-              <span id="courseProgressText" class="text-muted" style="font-size: 0.8rem;">Đang tải...</span>
-            </div>
-            <div class="progress w-100" style="height: 6px; border-radius: 4px;">
-              <div id="courseProgressBar" class="progress-bar" role="progressbar" style="width: 0%; background-color: #E50000;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
+    <section class="lecture-main">
+      <header id="topbar" class="lecture-topbar">
+        <button class="topbar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+        <div class="lecture-search">
+          <i class="bi bi-search"></i>
+          <input type="text" placeholder="Search..." aria-label="Search" />
+        </div>
+        <div class="lecture-topbar-actions">
+          <button class="icon-btn"><i class="bi bi-bell"></i></button>
+          <button class="icon-btn"><i class="bi bi-globe2"></i></button>
+          <button class="profile-btn">
+            <i class="bi bi-person-circle"></i>
+            <span>hv_ask</span>
+            <i class="bi bi-chevron-down"></i>
+          </button>
+        </div>
+      </header>
 
-          <!-- Card Body / Accordion -->
-          <div class="card-body p-2 p-md-0">
-            <div class="accordion accordion-flush" id="courseAccordion">
-              <!-- Rendered via HTML / Javascript -->
-              <div class="p-4 text-center text-muted">
-                Đang tải nội dung...
+      <main class="lecture-content">
+        <div class="breadcrumb-wrap">
+          <span>Home</span>
+          <i class="bi bi-chevron-right"></i>
+          <a id="headerBackLink" href="courses.html">Course Details</a>
+        </div>
+
+        <div class="content-grid">
+          <div class="video-column">
+            <section class="video-card">
+              <span class="live-badge">Live</span>
+              <iframe id="videoPlayer" src="" title="Video bài giảng" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </section>
+
+            <h3 id="videoTitle" class="video-title">Đang tải video...</h3>
+
+            <section class="discussion-card">
+              <div class="discussion-header">
+                <h4>Questions (85)</h4>
+                <button class="see-all-btn">See All</button>
               </div>
-            </div>
+              <div class="discussion-item">
+                <div class="avatar-dot">A</div>
+                <div class="discussion-text">
+                  <strong>Amir Hamja</strong>
+                  <p>How can I improve memory retention after each lesson?</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="description-card">
+              <h5>Mô tả ngắn</h5>
+              <p id="courseDescription">Đang tải...</p>
+            </section>
+          </div>
+
+          <div class="lesson-column">
+            <section class="lesson-card">
+              <div class="lesson-header">
+                <div>
+                  <h4>Your Lesson</h4>
+                  <span id="courseProgressText">Đang tải...</span>
+                </div>
+                <span class="lesson-count">3/35</span>
+              </div>
+              <div class="progress custom-progress">
+                <div id="courseProgressBar" class="progress-bar" role="progressbar" style="width: 0%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+              </div>
+              <div id="courseAccordion" class="lesson-list">
+                <div class="empty-lesson">Đang tải nội dung...</div>
+              </div>
+            </section>
           </div>
         </div>
-      </div>
-      
-    </div>
-  </main>
+      </main>
+    </section>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Common JS -->
   <script src="../scripts/common.js"></script>
   <script src="../scripts/lecture.js"></script>
 </body>

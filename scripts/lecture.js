@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Set initial text properties
   if (headerBackLink) {
-    headerBackLink.innerHTML = `<i class="bi bi-chevron-left me-2"></i> ${course.title}`;
+    headerBackLink.textContent = course.title;
   }
   if (courseDescription) {
     courseDescription.textContent = course.description;
@@ -83,94 +83,55 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Generate dynamic accordion playlist
+  // Generate dynamic lesson list
   if (courseAccordion) {
-    let accordionHtml = '';
+    let lessonHtml = '';
     let isFirstVideoSelected = false;
 
     course.sections.forEach((sec, sIdx) => {
-      const collapseId = `collapse_${sIdx}`;
-      const isExpanded = sIdx === 0 ? 'true' : 'false';
-      const collapseClass = sIdx === 0 ? 'show' : '';
-      const btnClass = sIdx === 0 ? '' : 'collapsed';
-
-      let videosHtml = '';
+      lessonHtml += `<div class="mb-2"><p class="section-title">${sec.title}</p>`;
       sec.videos.forEach((vid) => {
-        // Automatically make the first video active
-        const isActiveClass = !isFirstVideoSelected ? 'active border-info-subtle' : 'border-transparent';
-        const iconColor = !isFirstVideoSelected ? 'text-primary' : 'text-muted';
-        const pctHtml = vid.pct !== "0%" ? `<span class="text-danger ms-1">(${vid.pct})</span>` : '';
-
-        videosHtml += `
-          <div class="video-item ${isActiveClass} border rounded m-2 d-flex align-items-center px-4 py-3" 
+        const isActiveClass = !isFirstVideoSelected ? 'active' : '';
+        const lessonStatus = vid.isCompleted ? 'Last access: 12 Jan 24. 8:00PM' : 'Locked';
+        const pctLabel = vid.pct && vid.pct !== '0%' ? `Progress: ${vid.pct}` : 'Not started';
+        lessonHtml += `
+          <div class="video-item ${isActiveClass}" 
                data-url="${vid.url}" data-title="${vid.title}">
-            <div class="item-icon ${iconColor} me-3">
-              <i class="bi bi-play-circle lh-1 fs-5"></i>
+            <div class="item-icon">
+              <i class="bi bi-play-circle"></i>
             </div>
-            <div class="item-title text-muted fw-medium" style="font-size: 0.9rem;">
-              ${vid.title} ${pctHtml}
+            <div>
+              <div class="item-title">${vid.title}</div>
+              <span class="item-subtitle">${lessonStatus} • ${pctLabel}</span>
             </div>
           </div>
         `;
 
-        // Update player source and title to first video right away
         if (!isFirstVideoSelected) {
           if (videoPlayer) videoPlayer.src = vid.url;
           if (videoTitle) videoTitle.textContent = vid.title;
           isFirstVideoSelected = true;
         }
       });
-
-      accordionHtml += `
-        <div class="accordion-item border-bottom${sIdx === course.sections.length - 1 ? '-0' : ''}">
-          <h2 class="accordion-header">
-            <button class="accordion-button ${btnClass} bg-white text-dark fw-medium shadow-none px-4 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#${collapseId}" aria-expanded="${isExpanded}" aria-controls="${collapseId}">
-              ${sec.title}
-            </button>
-          </h2>
-          <div id="${collapseId}" class="accordion-collapse collapse ${collapseClass}" data-bs-parent="#courseAccordion">
-            <div class="accordion-body p-0">
-              ${videosHtml}
-            </div>
-          </div>
-        </div>
-      `;
+      lessonHtml += '</div>';
     });
 
-    // Inject generated HTML
-    courseAccordion.innerHTML = accordionHtml;
+    courseAccordion.innerHTML = lessonHtml;
 
-    // Attach click events dynamically after rendering
     const videoItems = document.querySelectorAll('.video-item');
     videoItems.forEach(item => {
       item.addEventListener('click', function () {
-        // Remove active state from all items
         videoItems.forEach(vi => {
-          vi.classList.remove('active', 'border-info-subtle');
-          vi.classList.add('border-transparent');
-          const icon = vi.querySelector('.item-icon');
-          if (icon) {
-            icon.classList.remove('text-primary');
-            icon.classList.add('text-muted');
-          }
+          vi.classList.remove('active');
         });
 
-        // Add active state to clicked item
-        this.classList.add('active', 'border-info-subtle');
-        this.classList.remove('border-transparent');
-        const icon = this.querySelector('.item-icon');
-        if (icon) {
-          icon.classList.remove('text-muted');
-          icon.classList.add('text-primary');
-        }
+        this.classList.add('active');
 
-        // Update video player
         const url = this.getAttribute('data-url');
         if (videoPlayer && url) {
           videoPlayer.src = url;
         }
 
-        // Update title text under video
         const title = this.getAttribute('data-title');
         if (videoTitle && title) {
           videoTitle.textContent = title;
