@@ -14,8 +14,8 @@ const courseData = {
         title: "Phần 1: Khởi động",
         videos: [
           { title: "Video1", pct: "3%", url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi", isCompleted: true },
-          { title: "Video 2", pct: "1%", url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn", isCompleted: false },
-          { title: "Video 3", pct: "1%", url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn", isCompleted: false },
+          { title: "Video 2", pct: "0%", url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn", isCompleted: false },
+          { title: "Video 3", pct: "0%", url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn", isCompleted: false },
           { title: "Video 4", pct: "0%", url: "https://www.youtube.com/embed/POz1-EmLsTY?si=PBblZWUomCqy_LJn", isCompleted: false }
         ]
       }
@@ -92,8 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
       lessonHtml += `<div class="mb-2"><p class="section-title">${sec.title}</p>`;
       sec.videos.forEach((vid) => {
         const isActiveClass = !isFirstVideoSelected ? 'active' : '';
-        const lessonStatus = vid.isCompleted ? 'Last access: 12 Jan 24. 8:00PM' : 'Locked';
-        const pctLabel = vid.pct && vid.pct !== '0%' ? `Progress: ${vid.pct}` : 'Not started';
+        const lessonStatus = vid.isCompleted ? 'Lần xem cuối: 12 Jan 24. 8:00PM' : 'Khóa';
+        const pctLabel = vid.pct && vid.pct !== '0%' ? `Tiến độ hiện tại: ${vid.pct}` : 'Chưa xem';
         lessonHtml += `
           <div class="video-item ${isActiveClass}" 
                data-url="${vid.url}" data-title="${vid.title}">
