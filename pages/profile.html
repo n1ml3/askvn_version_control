@@ -12,7 +12,7 @@
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <!-- Shared Dashboard CSS -->
   <link rel="stylesheet" href="../styles/dashboard.css" />
   <!-- Common CSS -->
@@ -66,7 +66,14 @@
       <i class="bi bi-list"></i>
     </button>
 
-    <!-- Empty space to push icons to the right -->
+    <h1 class="topbar-page-title text-uppercase">Thông tin cá nhân</h1>
+
+    <div class="topbar-breadcrumb">
+      <span>Pages</span>
+      <i class="bi bi-chevron-right"></i>
+      <span class="active">Thông tin cá nhân</span>
+    </div>
+
     <div class="topbar-right" style="margin-left: auto;">
       <div class="dropdown d-inline-block">
         <button class="topbar-notif dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
@@ -127,20 +134,12 @@
   </header>
 
   <!-- ===== MAIN ===== -->
-  <main id="main-content" class="p-0 position-relative">
-
-    <!-- Red Banner -->
-    <div class="profile-banner">
-      <div class="profile-banner-inner">
-        <h2 class="profile-title">Thông tin cá nhân</h2>
-        <div class="profile-breadcrumb">Pages / <span>Thông tin cá nhân</span></div>
-      </div>
-    </div>
+  <main id="main-content" class="p-3 position-relative">
 
     <div class="profile-container container-fluid">
       <div class="row gx-4">
 
-        <!-- LEfT COLUMN -->
+        <!-- LEFT COLUMN -->
         <div class="col-12 col-xl-4 mb-4">
           <!-- Avatar Section -->
           <div class="profile-card text-center mb-4">
@@ -150,26 +149,26 @@
               </div>
               <button class="cam-btn" title="Đổi ảnh đại diện"><i class="bi bi-camera-fill"></i></button>
             </div>
-            <h4 class="profile-name mt-3">hv_ask</h4>
+            <h4 class="profile-name">hv_ask</h4>
             <p class="profile-phone">0888888888</p>
           </div>
 
           <!-- Contact Section -->
           <div class="contact-card">
-            <h6 class="contact-title">CONTACT</h6>
+            <h6 class="contact-title">Contact Information</h6>
             <div class="contact-item">
-              <div class="contact-icon bg-red-light"><i class="bi bi-phone"></i></div>
+              <div class="contact-icon bg-red-light"><i class="bi bi-telephone-fill"></i></div>
               <div class="contact-info">
                 <span class="contact-label">Mobile</span>
                 <span class="contact-value">0888888888</span>
               </div>
             </div>
             <div class="contact-item mt-3">
-              <div class="contact-icon bg-blue-light"><i class="bi bi-geo-alt"></i></div>
+              <div class="contact-icon bg-red-light"><i class="bi bi-geo-alt-fill"></i></div>
               <div class="contact-info">
-                <span class="contact-label">Tỉnh thành</span>
-                <span class="contact-value text-muted" style="font-size:0.85rem">Chưa cập nhật</span>
-              </div>
+                <span class="contact-label">Địa chỉ</span>
+                <span class="contact-value">Chưa cập nhật</span>
+              </div>  
             </div>
           </div>
         </div>
@@ -181,7 +180,7 @@
             <ul class="nav nav-tabs profile-tabs" id="profileTab" role="tablist">
               <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#info" type="button"
-                  role="tab" aria-controls="info" aria-selected="true">Thông tin</button>
+                  role="tab" aria-controls="info" aria-selected="true">Thông tin cá nhân</button>
               </li>
               <li class="nav-item" role="presentation">
                 <button class="nav-link" id="password-tab" data-bs-toggle="tab" data-bs-target="#password" type="button"
@@ -190,83 +189,93 @@
             </ul>
 
             <!-- Tabs Content -->
-            <div class="tab-content" id="profileTabContent" style="padding: 24px;">
+            <div class="tab-content" id="profileTabContent">
 
               <!-- TAB: THÔNG TIN -->
               <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
-                <form id="profileForm">
-                  <div class="row g-4 mb-4">
-                    <div class="col-md-4">
-                      <label class="form-label">Họ tên</label>
-                      <input type="text" class="form-control" value="hv_ask">
-                    </div>
-                    <div class="col-md-4">
-                      <label class="form-label">Số điện thoại</label>
-                      <input type="text" class="form-control" value="0888888888" readonly>
-                    </div>
-                    <div class="col-md-4">
-                      <label class="form-label">Email</label>
-                      <input type="email" class="form-control" value="hv_01@ask.com">
+                <div class="profile-form-container">
+                  <form id="profileForm">
+                    <div class="row g-4 mb-5">
+                      <div class="col-md-6">
+                        <label class="form-label">Họ và tên</label>
+                        <input type="text" class="form-control" placeholder="Nhập họ tên" value="hv_ask">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Số điện thoại</label>
+                        <input type="text" class="form-control" value="0888888888" readonly>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="Nhập email" value="hv_01@ask.com">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Ngày sinh</label>
+                        <input type="date" class="form-control" value="1995-10-03">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Giới tính</label>
+                        <select class="form-select">
+                          <option value="Nam" selected>Nam</option>
+                          <option value="Nữ">Nữ</option>
+                          <option value="Khác">Khác</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Tỉnh thành</label>
+                        <select id="province" class="form-select">
+                          <option value="">Chọn tỉnh thành</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Quận/Huyện</label>
+                        <select id="district" class="form-select" disabled>
+                          <option value="">Chọn quận huyện</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Phường/Xã</label>
+                        <select id="ward" class="form-select" disabled>
+                          <option value="">Chọn phường xã</option>
+                        </select>
+                      </div>
                     </div>
 
-                    <div class="col-md-4">
-                      <label class="form-label">Ngày sinh</label>
-                      <input type="date" class="form-control" value="2026-10-03">
+                    <div class="d-flex justify-content-end">
+                      <button type="submit" class="btn-save">
+                        <i class="bi bi-check2-circle"></i>Lưu thay đổi
+                      </button>
                     </div>
-                    <div class="col-md-4">
-                      <label class="form-label">Giới tính</label>
-                      <select class="form-select">
-                        <option value="Nam" selected>Nam</option>
-                        <option value="Nữ">Nữ</option>
-                        <option value="Khác">Khác</option>
-                      </select>
-                    </div>
-                    <div class="col-md-4">
-                      <label class="form-label">Tỉnh thành</label>
-                      <select id="province" class="form-select">
-                        <option value="">Chọn tỉnh thành</option>
-                      </select>
-                    </div>
-
-                    <div class="col-md-4">
-                      <label class="form-label">Quận/Huyện</label>
-                      <select id="district" class="form-select" disabled>
-                        <option value="">Chọn quận huyện</option>
-                      </select>
-                    </div>
-                    <div class="col-md-4">
-                      <label class="form-label">Phường/Xã</label>
-                      <select id="ward" class="form-select" disabled>
-                        <option value="">Chọn phường xã</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <button type="submit" class="btn btn-success px-4 fw-semibold mt-2">Lưu thông tin</button>
-                </form>
+                  </form>
+                </div>
               </div>
 
               <!-- TAB: ĐỔI MẬT KHẨU -->
               <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
-                <form id="passwordForm">
-                  <div class="row g-4 mb-4">
-                    <div class="col-md-6">
-                      <label class="form-label">Mật khẩu hiện tại</label>
-                      <input type="password" class="form-control" placeholder="Nhập mật khẩu hiện tại">
+                <div class="profile-form-container">
+                  <form id="passwordForm">
+                    <div class="row g-4 mb-5">
+                      <div class="col-md-12">
+                        <label class="form-label">Mật khẩu hiện tại</label>
+                        <input type="password" class="form-control" placeholder="••••••••">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Mật khẩu mới</label>
+                        <input type="password" class="form-control" placeholder="••••••••">
+                        <div class="form-text">Mật khẩu phải từ 8 ký tự trở lên.</div>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="form-label">Xác nhận mật khẩu mới</label>
+                        <input type="password" class="form-control" placeholder="••••••••">
+                      </div>
                     </div>
-                    <div class="col-12 m-0 p-0"></div> <!-- Line break force -->
-                    <div class="col-md-6">
-                      <label class="form-label">Mật khẩu mới</label>
-                      <input type="password" class="form-control" placeholder="Nhập mật khẩu mới">
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">Xác nhận mật khẩu mới</label>
-                      <input type="password" class="form-control" placeholder="Nhập lại mật khẩu mới">
-                    </div>
-                  </div>
 
-                  <button type="submit" class="btn btn-success px-4 fw-semibold mt-2">Đổi mật khẩu</button>
-                </form>
+                    <div class="d-flex justify-content-end">
+                      <button type="submit" class="btn-save">
+                        <i class="bi bi-shield-lock"></i>Cập nhật mật khẩu
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
 
             </div>
