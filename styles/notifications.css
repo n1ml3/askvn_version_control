@@ -17,12 +17,11 @@
 }
 
 .notif-item.unread {
-  background: #f0fdf4;
-  /* Light green tint */
+  background: white;
 }
 
 .notif-item.unread:hover {
-  background: #dcfce7;
+  background: var(--ask-red);
 }
 
 .notif-icon {
@@ -30,7 +29,7 @@
   height: 44px;
   border-radius: 50%;
   background: var(--ask-red-soft, #fff0f0);
-  color: var(--ask-red, #cc1a1a);
+  color: var(--ask-red, #ffffff);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,8 +39,8 @@
 }
 
 .notif-item.unread .notif-icon {
-  background: #dcfce7;
-  color: #16a34a;
+  background: var(--ask-red-soft);
+  color: black;
 }
 
 .notif-content {
