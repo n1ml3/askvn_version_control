@@ -16,8 +16,6 @@ const mockStats = [
   { icon: "bi-check-circle", label: "Đã hoàn thành", value: "2" },
   { icon: "bi-award", label: "Chứng chỉ", value: "0" },
   { icon: "bi-wallet", label: "Đã thanh toán", value: "0" },
-  // { icon: "bi-square", label: "Đạp xe", value: "0" },
-  // { icon: "bi-triangle", label: "Đi bộ", value: "0" },
 ];
 
 // Mock mini calendar events 

@@ -86,7 +86,7 @@ function renderCourses() {
           </div>
         </div>
         <div class="mt-auto">
-          <a href="lecture.html?id=${c.id}" class="btn w-100 d-flex align-items-center justify-content-center" style="border: 1px solid #3b82f6; color: #3b82f6; border-radius: 8px; padding: 10px 0; font-weight: 600; background: #fff; transition: all 0.2s;">
+          <a href="lecture.html?id=${c.id}" class="btn w-100 d-flex align-items-center justify-content-center" style="border: 1px solid var(--ask-red); color: var(--ask-red); border-radius: 8px; padding: 10px 0; font-weight: 600; background: #fff; transition: all 0.2s;">
             <i class="bi bi-play-circle-fill me-2 fs-5"></i> Bài giảng
           </a>
         </div>

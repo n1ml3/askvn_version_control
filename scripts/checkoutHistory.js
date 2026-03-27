@@ -6,38 +6,38 @@
 document.addEventListener('DOMContentLoaded', () => {
   // --- MOCK DATA ---
   const mockOrders = [
-    // {
-    //   code: "ASK-PAY-10023",
-    //   date: "14/10/2026 - 15:30",
-    //   status: "paid",
-    //   courseName: "Mật Mã Tiền Tệ - K10",
-    //   teacher: "Mr. Phạm Ngọc Anh",
-    //   amount: "19,900,000 đ"
-    // },
-    // {
-    //   code: "ASK-PAY-10018",
-    //   date: "02/09/2026 - 09:12",
-    //   status: "paid",
-    //   courseName: "Wake Up - K105",
-    //   teacher: "Mr. Phạm Ngọc Anh",
-    //   amount: "9,900,000 đ"
-    // },
-    // {
-    //   code: "ASK-PAY-10055",
-    //   date: "20/03/2026 - 10:05",
-    //   status: "pending",
-    //   courseName: "Trại Lãnh Đạo Cấp Cao - K05",
-    //   teacher: "Mr. Phạm Ngọc Anh",
-    //   amount: "49,900,000 đ"
-    // },
-    // {
-    //   code: "ASK-PAY-10060",
-    //   date: "21/03/2026 - 08:00",
-    //   status: "pending",
-    //   courseName: "Sales Success System - K08",
-    //   teacher: "Mr. Phạm Ngọc Anh",
-    //   amount: "15,500,000 đ"
-    // }
+    {
+      code: "ASK-PAY-10023",
+      date: "14/10/2026 - 15:30",
+      status: "paid",
+      courseName: "Mật Mã Tiền Tệ - K10",
+      teacher: "Mr. Phạm Ngọc Anh",
+      amount: "19,900,000 đ"
+    },
+    {
+      code: "ASK-PAY-10018",
+      date: "02/09/2026 - 09:12",
+      status: "paid",
+      courseName: "Wake Up - K105",
+      teacher: "Mr. Phạm Ngọc Anh",
+      amount: "9,900,000 đ"
+    },
+    {
+      code: "ASK-PAY-10055",
+      date: "20/03/2026 - 10:05",
+      status: "pending",
+      courseName: "Trại Lãnh Đạo Cấp Cao - K05",
+      teacher: "Mr. Phạm Ngọc Anh",
+      amount: "49,900,000 đ"
+    },
+    {
+      code: "ASK-PAY-10060",
+      date: "21/03/2026 - 08:00",
+      status: "pending",
+      courseName: "Sales Success System - K08",
+      teacher: "Mr. Phạm Ngọc Anh",
+      amount: "15,500,000 đ"
+    }
   ];
 
   function renderOrders() {
