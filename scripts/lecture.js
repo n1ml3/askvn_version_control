@@ -5,25 +5,25 @@
 
 function escapeHtml(s) {
   return String(s)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
 function escapeAttr(s) {
   return String(s)
-    .replace(/&/g, '&amp;')
-    .replace(/"/g, '&quot;')
-    .replace(/</g, '&lt;');
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;");
 }
 
 function setVideoItemIcon(videoItem, isActive) {
   if (!videoItem) return;
-  const icon = videoItem.querySelector('.item-icon i');
+  const icon = videoItem.querySelector(".item-icon i");
   if (!icon) return;
-  icon.classList.remove('bi-play-circle', 'bi-pause-circle-fill');
-  icon.classList.add(isActive ? 'bi-pause-circle-fill' : 'bi-play-circle');
+  icon.classList.remove("bi-play-circle", "bi-pause-circle-fill");
+  icon.classList.add(isActive ? "bi-pause-circle-fill" : "bi-play-circle");
 }
 
 // Mock Content Data based on URL param "id"
@@ -40,32 +40,32 @@ const courseData = {
             pct: "3%",
             url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi",
             isCompleted: true,
-            description: "Chưa có mô tả chi tiết."
+            description: "Chưa có mô tả chi tiết.",
           },
           {
             title: "Video 2",
             pct: "0%",
             url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi",
             isCompleted: false,
-            description: "Chưa có mô tả chi tiết."
+            description: "Chưa có mô tả chi tiết.",
           },
           {
             title: "Video 3",
             pct: "0%",
             url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi",
             isCompleted: false,
-            description: "Chưa có mô tả chi tiết."
+            description: "Chưa có mô tả chi tiết.",
           },
           {
             title: "Video 4",
             pct: "0%",
             url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi",
             isCompleted: false,
-            description: "Chưa có mô tả chi tiết."
-          }
-        ]
-      }
-    ]
+            description: "Chưa có mô tả chi tiết.",
+          },
+        ],
+      },
+    ],
   },
   2: {
     title: "Nghệ Thuật Đọc Nhanh",
@@ -79,16 +79,18 @@ const courseData = {
             pct: "100%",
             url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi",
             isCompleted: true,
-            description: "Nền tảng về tốc độ đọc, sự tập trung và cách đo lường tiến bộ."
+            description:
+              "Nền tảng về tốc độ đọc, sự tập trung và cách đo lường tiến bộ.",
           },
           {
             title: "Bài 2: Tại sao phải đọc nhanh",
             pct: "100%",
             url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi",
             isCompleted: true,
-            description: "Lợi ích của đọc nhanh trong học tập và công việc hàng ngày."
-          }
-        ]
+            description:
+              "Lợi ích của đọc nhanh trong học tập và công việc hàng ngày.",
+          },
+        ],
       },
       {
         title: "Phần 2: Phương pháp & Luyện tập",
@@ -98,24 +100,24 @@ const courseData = {
             pct: "100%",
             url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi",
             isCompleted: true,
-            description: "Bài tập luyện mắt theo dòng, giảm đọc lại từng chữ."
+            description: "Bài tập luyện mắt theo dòng, giảm đọc lại từng chữ.",
           },
           {
             title: "Bài 4: Đọc cả khối",
             pct: "100%",
             url: "https://www.youtube.com/embed/2PuFyjAs7JA?si=201-VJL5pQocJYmi",
             isCompleted: true,
-            description: "Nhận diện cụm từ và đoạn ý để tăng tốc độ hiểu."
-          }
-        ]
-      }
-    ]
-  }
+            description: "Nhận diện cụm từ và đoạn ý để tăng tốc độ hiểu.",
+          },
+        ],
+      },
+    ],
+  },
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
-  let courseId = urlParams.get('id');
+  let courseId = urlParams.get("id");
 
   // Default to course 1 if id not found or invalid
   if (!courseId || !courseData[courseId]) {
@@ -125,13 +127,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const course = courseData[courseId];
 
   // DOM Elements
-  const headerBackLink = document.getElementById('headerBackLink');
-  const courseProgressText = document.getElementById('courseProgressText');
-  const courseProgressRing = document.getElementById('courseProgressRing');
-  const courseProgressPct = document.getElementById('courseProgressPct');
-  const courseAccordion = document.getElementById('courseAccordion');
-  const videoPlayer = document.getElementById('videoPlayer');
-  const videoTitle = document.getElementById('videoTitle');
+  const headerBackLink = document.getElementById("headerBackLink");
+  const courseProgressText = document.getElementById("courseProgressText");
+  const courseProgressRing = document.getElementById("courseProgressRing");
+  const courseProgressPct = document.getElementById("courseProgressPct");
+  const courseAccordion = document.getElementById("courseAccordion");
+  const videoPlayer = document.getElementById("videoPlayer");
+  const videoTitle = document.getElementById("videoTitle");
 
   // Set initial text properties
   if (headerBackLink) {
@@ -146,10 +148,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const setProgressRing = (ringEl, pct, pctTextEl, textEl, zeroText) => {
     if (!ringEl) return;
-    ringEl.style.setProperty('--pct', String(pct));
-    ringEl.classList.toggle('is-zero', pct <= 0);
+    ringEl.style.setProperty("--pct", String(pct));
+    ringEl.classList.toggle("is-zero", pct <= 0);
     if (pctTextEl) pctTextEl.textContent = `${pct}%`;
-    if (textEl) textEl.textContent = pct <= 0 ? (zeroText || 'Chưa xem') : textEl.textContent;
+    if (textEl)
+      textEl.textContent =
+        pct <= 0 ? zeroText || "Chưa xem" : textEl.textContent;
   };
 
   if (courseProgressText) courseProgressText.textContent = course.progressText;
@@ -158,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Generate dynamic lesson list
   if (courseAccordion) {
-    let lessonHtml = '';
+    let lessonHtml = "";
     let isFirstVideoSelected = false;
 
     course.sections.forEach((sec, sIdx) => {
@@ -171,18 +175,22 @@ document.addEventListener('DOMContentLoaded', () => {
             <i class="bi bi-chevron-down"></i>
           </button>
           <div id="${contentId}" class="section-content">`;
-      
+
       sec.videos.forEach((vid) => {
-        const isActiveClass = !isFirstVideoSelected ? 'active' : '';
-        const lessonStatus = vid.isCompleted ? 'Lần xem cuối: 12 Jan 24. 8:00PM' : 'Hãy xem video trước để mở khóa';
+        const isActiveClass = !isFirstVideoSelected ? "active" : "";
+        const lessonStatus = vid.isCompleted
+          ? "Lần xem cuối: 12 Jan 24. 8:00PM"
+          : "Hãy xem video trước để mở khóa";
         const pctNum = parsePct(vid.pct);
-        const pctLabel = pctNum > 0 ? `Tiến độ video: ${vid.pct}` : 'Chưa xem';
-        const desc = vid.description || 'Chưa có mô tả cho bài học này.';
+        const pctLabel = pctNum > 0 ? `Tiến độ video: ${vid.pct}` : "Chưa xem";
+        const desc = vid.description || "Chưa có mô tả cho bài học này.";
         const titleAttr = escapeAttr(vid.title);
         const titleHtml = escapeHtml(vid.title);
         const descHtml = escapeHtml(desc);
         const pctAttr = escapeAttr(vid.pct);
-        const itemIconClass = isActiveClass ? 'bi-pause-circle-fill' : 'bi-play-circle';
+        const itemIconClass = isActiveClass
+          ? "bi-pause-circle-fill"
+          : "bi-play-circle";
         lessonHtml += `
           <div class="video-item ${isActiveClass}" 
                data-url="${vid.url}" data-title="${titleAttr}" data-pct="${pctAttr}">
@@ -212,48 +220,48 @@ document.addEventListener('DOMContentLoaded', () => {
     courseAccordion.innerHTML = lessonHtml;
 
     // Add section toggle functionality
-    const sectionToggles = document.querySelectorAll('.section-toggle');
+    const sectionToggles = document.querySelectorAll(".section-toggle");
     sectionToggles.forEach((toggle, idx) => {
       // Expand first section by default
       if (idx === 0) {
-        const targetId = toggle.getAttribute('data-target');
+        const targetId = toggle.getAttribute("data-target");
         const content = document.getElementById(targetId);
-        const icon = toggle.querySelector('i');
+        const icon = toggle.querySelector("i");
         if (content && icon) {
-          content.classList.add('expanded');
-          icon.classList.add('expanded');
+          content.classList.add("expanded");
+          icon.classList.add("expanded");
         }
       }
 
-      toggle.addEventListener('click', function () {
-        const targetId = this.getAttribute('data-target');
+      toggle.addEventListener("click", function () {
+        const targetId = this.getAttribute("data-target");
         const content = document.getElementById(targetId);
-        const icon = this.querySelector('i');
+        const icon = this.querySelector("i");
 
         if (content) {
-          content.classList.toggle('expanded');
-          icon.classList.toggle('expanded');
+          content.classList.toggle("expanded");
+          icon.classList.toggle("expanded");
         }
       });
     });
 
-    const videoItems = document.querySelectorAll('.video-item');
-    videoItems.forEach(item => {
-      item.addEventListener('click', function () {
-        videoItems.forEach(vi => {
-          vi.classList.remove('active');
+    const videoItems = document.querySelectorAll(".video-item");
+    videoItems.forEach((item) => {
+      item.addEventListener("click", function () {
+        videoItems.forEach((vi) => {
+          vi.classList.remove("active");
           setVideoItemIcon(vi, false);
         });
 
-        this.classList.add('active');
+        this.classList.add("active");
         setVideoItemIcon(this, true);
 
-        const url = this.getAttribute('data-url');
+        const url = this.getAttribute("data-url");
         if (videoPlayer && url) {
           videoPlayer.src = url;
         }
 
-        const title = this.getAttribute('data-title');
+        const title = this.getAttribute("data-title");
         if (videoTitle && title) {
           videoTitle.textContent = title;
         }
@@ -261,16 +269,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const discussionInput = document.getElementById('discussionInput');
-  const discussionSendBtn = document.getElementById('discussionSendBtn');
-  const discussionList = document.getElementById('discussionList');
-  const discussionCountEl = document.getElementById('discussionCount');
+  const discussionInput = document.getElementById("discussionInput");
+  const discussionSendBtn = document.getElementById("discussionSendBtn");
+  const discussionList = document.getElementById("discussionList");
+  const discussionCountEl = document.getElementById("discussionCount");
 
   function appendDiscussionComment(text) {
     if (!discussionList || !text.trim()) return;
-    const initial = 'B';
-    const row = document.createElement('div');
-    row.className = 'discussion-item';
+    const initial = "B";
+    const row = document.createElement("div");
+    row.className = "discussion-item";
     row.innerHTML = `
       <div class="avatar-dot">${initial}</div>
       <div class="discussion-text">
@@ -278,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <p></p>
       </div>
     `;
-    row.querySelector('p').textContent = text.trim();
+    row.querySelector("p").textContent = text.trim();
     discussionList.insertBefore(row, discussionList.firstChild);
     if (discussionCountEl) {
       const n = parseInt(discussionCountEl.textContent, 10);
@@ -287,15 +295,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (discussionSendBtn && discussionInput) {
-    discussionSendBtn.addEventListener('click', () => {
+    discussionSendBtn.addEventListener("click", () => {
       appendDiscussionComment(discussionInput.value);
-      discussionInput.value = '';
+      discussionInput.value = "";
     });
-    discussionInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' && !e.shiftKey) {
+    discussionInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
         e.preventDefault();
         appendDiscussionComment(discussionInput.value);
-        discussionInput.value = '';
+        discussionInput.value = "";
       }
     });
   }

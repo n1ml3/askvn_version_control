@@ -3,7 +3,7 @@
    File: scripts/checkoutHistory.js
    ======================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   // --- MOCK DATA ---
   const mockOrders = [
     {
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
       status: "paid",
       courseName: "Mật Mã Tiền Tệ - K10",
       teacher: "Mr. Phạm Ngọc Anh",
-      amount: "19,900,000 đ"
+      amount: "19,900,000 đ",
     },
     {
       code: "ASK-PAY-10018",
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
       status: "paid",
       courseName: "Wake Up - K105",
       teacher: "Mr. Phạm Ngọc Anh",
-      amount: "9,900,000 đ"
+      amount: "9,900,000 đ",
     },
     {
       code: "ASK-PAY-10055",
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
       status: "pending",
       courseName: "Trại Lãnh Đạo Cấp Cao - K05",
       teacher: "Mr. Phạm Ngọc Anh",
-      amount: "49,900,000 đ"
+      amount: "49,900,000 đ",
     },
     {
       code: "ASK-PAY-10060",
@@ -36,27 +36,27 @@ document.addEventListener('DOMContentLoaded', () => {
       status: "pending",
       courseName: "Sales Success System - K08",
       teacher: "Mr. Phạm Ngọc Anh",
-      amount: "15,500,000 đ"
-    }
+      amount: "15,500,000 đ",
+    },
   ];
 
   function renderOrders() {
-    const tabPaid = document.getElementById('tabPaid');
-    const tabPending = document.getElementById('tabPending');
+    const tabPaid = document.getElementById("tabPaid");
+    const tabPending = document.getElementById("tabPending");
 
     if (!tabPaid || !tabPending) return;
 
-    tabPaid.innerHTML = '';
-    tabPending.innerHTML = '';
+    tabPaid.innerHTML = "";
+    tabPending.innerHTML = "";
 
-    const paidOrders = mockOrders.filter(o => o.status === 'paid');
-    const pendingOrders = mockOrders.filter(o => o.status === 'pending');
+    const paidOrders = mockOrders.filter((o) => o.status === "paid");
+    const pendingOrders = mockOrders.filter((o) => o.status === "pending");
 
     const generateCard = (order) => {
-      const isPaid = order.status === 'paid';
-      const statusClass = isPaid ? 'badge-success' : 'badge-warning';
-      const statusText = isPaid ? 'Đã thanh toán' : 'Chờ thanh toán';
-      const amountClass = isPaid ? '' : 'text-warning';
+      const isPaid = order.status === "paid";
+      const statusClass = isPaid ? "badge-success" : "badge-warning";
+      const statusText = isPaid ? "Đã thanh toán" : "Chờ thanh toán";
+      const amountClass = isPaid ? "" : "text-warning";
 
       let html = `
         <div class="order-card">
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return html;
     };
 
-    paidOrders.forEach(o => {
+    paidOrders.forEach((o) => {
       tabPaid.innerHTML += generateCard(o);
     });
 
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     }
 
-    pendingOrders.forEach(o => {
+    pendingOrders.forEach((o) => {
       tabPending.innerHTML += generateCard(o);
     });
 
@@ -121,24 +121,27 @@ document.addEventListener('DOMContentLoaded', () => {
   renderOrders();
 
   // --- TAB LOGIC ---
-  const tabBtns = document.querySelectorAll('#mainContent .filter-btn[data-tab]');
-  const panels = document.querySelectorAll('.checkout-panel');
+  const tabBtns = document.querySelectorAll(
+    "#mainContent .filter-btn[data-tab]",
+  );
+  const panels = document.querySelectorAll(".checkout-panel");
 
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+  tabBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
       // Bỏ active tất cả các tab
-      tabBtns.forEach(b => b.classList.remove('active'));
+      tabBtns.forEach((b) => b.classList.remove("active"));
       // Active tab được click
-      btn.classList.add('active');
+      btn.classList.add("active");
 
       // Ẩn tất cả các panel
-      panels.forEach(p => p.classList.add('d-none'));
+      panels.forEach((p) => p.classList.add("d-none"));
 
       // Hiện panel tương ứng
-      const targetId = btn.getAttribute('data-tab') === 'paid' ? 'tabPaid' : 'tabPending';
+      const targetId =
+        btn.getAttribute("data-tab") === "paid" ? "tabPaid" : "tabPending";
       const targetPanel = document.getElementById(targetId);
       if (targetPanel) {
-        targetPanel.classList.remove('d-none');
+        targetPanel.classList.remove("d-none");
       }
     });
   });

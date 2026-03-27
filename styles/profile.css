@@ -39,7 +39,9 @@
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 16px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.03);
   padding: 24px;
   transition: var(--profile-transition);
 }
@@ -115,17 +117,31 @@
 
 /* Animation */
 @keyframes profileEntrance {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.profile-card, .contact-card, .profile-content-card {
+.profile-card,
+.contact-card,
+.profile-content-card {
   animation: profileEntrance 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
 }
 
-.profile-card { animation-delay: 0.1s; }
-.contact-card { animation-delay: 0.2s; }
-.profile-content-card { animation-delay: 0.3s; }
+.profile-card {
+  animation-delay: 0.1s;
+}
+.contact-card {
+  animation-delay: 0.2s;
+}
+.profile-content-card {
+  animation-delay: 0.3s;
+}
 
 /* Contact Card Styling */
 .contact-item {
@@ -270,11 +286,19 @@
 
 /* Subtle Animation */
 @keyframes profileEntrance {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.profile-card, .contact-card, .profile-content-card {
+.profile-card,
+.contact-card,
+.profile-content-card {
   animation: profileEntrance 0.5s ease-out backwards;
 }
 

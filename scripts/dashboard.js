@@ -4,10 +4,20 @@
    ======================================================== */
 
 // ===== Calendar logic =====
-const DAYS = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
+const DAYS = ["T2", "T3", "T4", "T5", "T6", "T7", "CN"];
 const MONTHS_VN = [
-  'Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6',
-  'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'
+  "Tháng 1",
+  "Tháng 2",
+  "Tháng 3",
+  "Tháng 4",
+  "Tháng 5",
+  "Tháng 6",
+  "Tháng 7",
+  "Tháng 8",
+  "Tháng 9",
+  "Tháng 10",
+  "Tháng 11",
+  "Tháng 12",
 ];
 
 // Mock Stats
@@ -18,17 +28,19 @@ const mockStats = [
   { icon: "bi-wallet", label: "Đã thanh toán", value: "0" },
 ];
 
-// Mock mini calendar events 
+// Mock mini calendar events
 const mockDashboardEvents = [
   { date: "2026-03-26", title: "Mật Mã Tiền Tệ" },
-  { date: "2026-03-28", title: "Sales Success" }
+  { date: "2026-03-28", title: "Sales Success" },
 ];
 
 function renderDashboardStats() {
-  const container = document.getElementById('dashboardStats');
+  const container = document.getElementById("dashboardStats");
   if (!container) return;
 
-  container.innerHTML = mockStats.map(stat => `
+  container.innerHTML = mockStats
+    .map(
+      (stat) => `
     <div class="col-12 col-md-6 col-lg-3">
       <div class="stat-card">
         <div class="stat-icon"><i class="bi ${stat.icon}"></i></div>
@@ -38,22 +50,24 @@ function renderDashboardStats() {
         </div>
       </div>
     </div>
-  `).join('');
+  `,
+    )
+    .join("");
 }
-document.addEventListener('DOMContentLoaded', renderDashboardStats);
+document.addEventListener("DOMContentLoaded", renderDashboardStats);
 
 const now = new Date();
 let viewYear = now.getFullYear();
 let viewMonth = now.getMonth(); // 0-based
 
-const selMonth = document.getElementById('selMonth');
-const selYear = document.getElementById('selYear');
+const selMonth = document.getElementById("selMonth");
+const selYear = document.getElementById("selYear");
 
 // Dropdowns
 if (selMonth && selYear) {
   // Populate year dropdown
   for (let y = viewYear - 3; y <= viewYear + 3; y++) {
-    const opt = document.createElement('option');
+    const opt = document.createElement("option");
     opt.value = y;
     opt.textContent = y;
     if (y === viewYear) opt.selected = true;
@@ -65,16 +79,19 @@ if (selMonth && selYear) {
   function renderCalendar(year, month) {
     selMonth.value = month;
     selYear.value = year;
-    document.getElementById('calTitle').textContent = `${MONTHS_VN[month]} ${year}`;
+    document.getElementById("calTitle").textContent =
+      `${MONTHS_VN[month]} ${year}`;
 
     const firstDay = new Date(year, month, 1).getDay();
-    const startOffset = (firstDay === 0) ? 6 : firstDay - 1;
+    const startOffset = firstDay === 0 ? 6 : firstDay - 1;
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const daysInPrev = new Date(year, month, 0).getDate();
 
-    let html = '<table><thead><tr>';
-    DAYS.forEach(d => { html += `<th>${d}</th>`; });
-    html += '</tr></thead><tbody><tr>';
+    let html = "<table><thead><tr>";
+    DAYS.forEach((d) => {
+      html += `<th>${d}</th>`;
+    });
+    html += "</tr></thead><tbody><tr>";
 
     let dayCount = 0;
 
@@ -84,19 +101,19 @@ if (selMonth && selYear) {
     }
 
     for (let d = 1; d <= daysInMonth; d++) {
-      if (dayCount % 7 === 0 && dayCount !== 0) html += '</tr><tr>';
+      if (dayCount % 7 === 0 && dayCount !== 0) html += "</tr><tr>";
 
-      const cellDateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
-      const isToday = (
+      const cellDateStr = `${year}-${String(month + 1).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+      const isToday =
         d === now.getDate() &&
         month === now.getMonth() &&
-        year === now.getFullYear()
-      );
-      const isEvent = mockDashboardEvents.some(ev => ev.date === cellDateStr) && !isToday;
+        year === now.getFullYear();
+      const isEvent =
+        mockDashboardEvents.some((ev) => ev.date === cellDateStr) && !isToday;
 
-      let cls = '';
-      if (isToday) cls = 'today';
-      else if (isEvent) cls = 'has-event';
+      let cls = "";
+      if (isToday) cls = "today";
+      else if (isEvent) cls = "has-event";
 
       html += `<td class="${cls}" title="${d}/${month + 1}/${year}"><span class="day-num">${d}</span></td>`;
       dayCount++;
@@ -109,32 +126,38 @@ if (selMonth && selYear) {
       }
     }
 
-    html += '</tr></tbody></table>';
-    document.getElementById('calendar').innerHTML = html;
+    html += "</tr></tbody></table>";
+    document.getElementById("calendar").innerHTML = html;
   }
 
   // Render mặc định
   renderCalendar(viewYear, viewMonth);
 
   // Navigation buttons
-  document.getElementById('prevMonth').addEventListener('click', () => {
+  document.getElementById("prevMonth").addEventListener("click", () => {
     viewMonth--;
-    if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+    if (viewMonth < 0) {
+      viewMonth = 11;
+      viewYear--;
+    }
     renderCalendar(viewYear, viewMonth);
   });
 
-  document.getElementById('nextMonth').addEventListener('click', () => {
+  document.getElementById("nextMonth").addEventListener("click", () => {
     viewMonth++;
-    if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+    if (viewMonth > 11) {
+      viewMonth = 0;
+      viewYear++;
+    }
     renderCalendar(viewYear, viewMonth);
   });
 
-  selMonth.addEventListener('change', () => {
+  selMonth.addEventListener("change", () => {
     viewMonth = +selMonth.value;
     renderCalendar(viewYear, viewMonth);
   });
 
-  selYear.addEventListener('change', () => {
+  selYear.addEventListener("change", () => {
     viewYear = +selYear.value;
     renderCalendar(viewYear, viewMonth);
   });

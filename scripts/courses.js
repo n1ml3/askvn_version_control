@@ -12,7 +12,7 @@ const mockCourses = [
     price: "0 đ",
     img: "../assets/collection_banner.jpg",
     categories: ["owned", "studying"],
-    progress: 45
+    progress: 45,
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const mockCourses = [
     price: "0 đ",
     img: "../assets/collection_banner.jpg",
     categories: ["owned", "completed"],
-    progress: 100
+    progress: 100,
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const mockCourses = [
     price: "0 đ",
     img: "../assets/collection_banner.jpg",
     categories: ["studying"],
-    progress: 72
+    progress: 72,
   },
   {
     id: 4,
@@ -42,39 +42,40 @@ const mockCourses = [
     price: "19,900,000 đ",
     img: "../assets/collection_banner.jpg",
     categories: ["owned"],
-    progress: null
-  }
+    progress: null,
+  },
 ];
 
-const courseGrid = document.getElementById('courseGrid');
-const emptyState = document.getElementById('emptyState');
-const filterBtns = document.querySelectorAll('.filter-btn');
-let activeFilter = 'all';
+const courseGrid = document.getElementById("courseGrid");
+const emptyState = document.getElementById("emptyState");
+const filterBtns = document.querySelectorAll(".filter-btn");
+let activeFilter = "all";
 
 function renderCourses() {
   if (!courseGrid) return;
 
-  const filtered = mockCourses.filter(c => {
-    const matchFilter = (activeFilter === 'all') || c.categories.includes(activeFilter);
+  const filtered = mockCourses.filter((c) => {
+    const matchFilter =
+      activeFilter === "all" || c.categories.includes(activeFilter);
     return matchFilter;
   });
 
-  courseGrid.innerHTML = '';
+  courseGrid.innerHTML = "";
 
   if (filtered.length === 0) {
-    if (emptyState) emptyState.classList.remove('d-none');
+    if (emptyState) emptyState.classList.remove("d-none");
     return;
   } else {
-    if (emptyState) emptyState.classList.add('d-none');
+    if (emptyState) emptyState.classList.add("d-none");
   }
 
-  filtered.forEach(c => {
-    let badgeHtml = '';
-    let footerHtml = '';
+  filtered.forEach((c) => {
+    let badgeHtml = "";
+    let footerHtml = "";
 
-    if (activeFilter === 'owned') {
+    if (activeFilter === "owned") {
       let pg = c.progress !== null ? c.progress : 0;
-      if (c.categories.includes('completed')) pg = 100;
+      if (c.categories.includes("completed")) pg = 100;
       footerHtml = `
         <div class="course-progress" style="margin-top: 16px; margin-bottom: 20px;">
           <div class="d-flex justify-content-between align-items-center mb-2">
@@ -92,16 +93,20 @@ function renderCourses() {
         </div>
       `;
     } else {
-      if (c.categories.includes('completed')) {
+      if (c.categories.includes("completed")) {
         badgeHtml = `<span class="course-badge completed"><i class="bi bi-check-circle-fill me-1"></i>Hoàn thành</span>`;
-      } else if (c.categories.includes('studying')) {
+      } else if (c.categories.includes("studying")) {
         badgeHtml = `<span class="course-badge studying">Đang học</span>`;
-      } else if (c.categories.includes('owned')) {
+      } else if (c.categories.includes("owned")) {
         badgeHtml = `<span class="course-badge owned">Sở hữu</span>`;
       }
 
-      let progressHtml = '';
-      if (c.progress !== null && activeFilter !== 'all' && !c.categories.includes('completed')) {
+      let progressHtml = "";
+      if (
+        c.progress !== null &&
+        activeFilter !== "all" &&
+        !c.categories.includes("completed")
+      ) {
         progressHtml = `
           <div class="course-progress" style="margin-top: 12px;">
             <div class="d-flex justify-content-between mb-1">
@@ -127,7 +132,7 @@ function renderCourses() {
     const html = `
       <div class="col-12 col-md-6 col-lg-4">
         <div class="course-card h-100 d-flex flex-column" style="background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: transform 0.2s;">
-          <a href="${activeFilter === 'owned' ? 'lecture.html?id=' + c.id : '#'}" class="course-link d-flex flex-column flex-grow-1 text-decoration-none text-dark">
+          <a href="${activeFilter === "owned" ? "lecture.html?id=" + c.id : "#"}" class="course-link d-flex flex-column flex-grow-1 text-decoration-none text-dark">
             <div class="course-thumb" style="aspect-ratio: 16/9; overflow: hidden; background: #f5f6fa; flex-shrink: 0;">
               <img src="${c.img}" alt="${c.title}" style="width: 100%; height: 100%; object-fit: cover; border-top-left-radius: 16px; border-top-right-radius: 16px;"
                    onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22180%22><rect fill=%22%23f5f6fa%22 width=%22300%22 height=%22180%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2240%22>${c.emoji}</text></svg>'"/>
@@ -150,15 +155,15 @@ function renderCourses() {
   });
 }
 
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeFilter = btn.getAttribute('data-filter');
+filterBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    filterBtns.forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+    activeFilter = btn.getAttribute("data-filter");
     renderCourses();
   });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   renderCourses();
 });

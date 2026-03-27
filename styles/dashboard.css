@@ -20,7 +20,7 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   background: var(--page-bg);
   margin: 0;
   min-height: 100vh;
@@ -52,14 +52,14 @@ body {
   justify-content: center;
   /* căn giữa logo */
   overflow: hidden;
-  transition: padding .25s;
+  transition: padding 0.25s;
 }
 
 .sidebar-logo img.logo-full {
   height: 60px;
   width: auto;
   object-fit: contain;
-  transition: opacity .2s;
+  transition: opacity 0.2s;
   display: block;
 }
 
@@ -74,13 +74,13 @@ body {
   height: 16px;
   background: var(--ask-red);
   color: #fff;
-  font-size: .6rem;
+  font-size: 0.6rem;
   font-weight: 900;
   border-radius: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .sidebar-nav {
@@ -107,7 +107,7 @@ body {
 }
 
 .sidebar-nav .nav-link span {
-  transition: opacity .2s;
+  transition: opacity 0.2s;
   flex-shrink: 0;
 }
 
@@ -140,11 +140,13 @@ body {
   text-decoration: none;
   white-space: nowrap;
   overflow: hidden;
-  transition: color .15s, padding .25s;
+  transition:
+    color 0.15s,
+    padding 0.25s;
 }
 
 .sidebar-bottom .nav-link span {
-  transition: opacity .2s;
+  transition: opacity 0.2s;
 }
 
 .sidebar-bottom .nav-link:hover {
@@ -166,7 +168,7 @@ body {
   justify-content: space-between;
   padding: 0 24px;
   z-index: 999;
-  transition: left .25s;
+  transition: left 0.25s;
   gap: 12px;
 }
 
@@ -200,14 +202,14 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: .82rem;
+  font-size: 0.82rem;
   color: var(--text-muted);
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 .topbar-breadcrumb i {
-  font-size: .65rem;
+  font-size: 0.65rem;
   opacity: 0.6;
 }
 
@@ -230,7 +232,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all .2s;
+  transition: all 0.2s;
   flex-shrink: 0;
 }
 
@@ -251,7 +253,7 @@ body {
   right: 4px;
   background: var(--ask-red);
   color: #fff;
-  font-size: .6rem;
+  font-size: 0.6rem;
   font-weight: 700;
   width: 16px;
   height: 16px;
@@ -317,7 +319,7 @@ body {
   font-size: 1.3rem;
   color: var(--text-secondary);
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
 .topbar-avatar:hover {
@@ -352,28 +354,30 @@ body {
 
 .user-avatar-lg {
   font-size: 2.4rem;
-  color: rgba(255, 255, 255, .85);
+  color: rgba(255, 255, 255, 0.85);
   flex-shrink: 0;
 }
 
 .user-name {
   font-weight: 700;
-  font-size: .98rem;
+  font-size: 0.98rem;
 }
 
 .user-phone {
-  font-size: .78rem;
-  opacity: .85;
+  font-size: 0.78rem;
+  opacity: 0.85;
   margin-top: 1px;
 }
 
 .user-dropdown .dropdown-item {
-  font-size: .88rem;
+  font-size: 0.88rem;
   padding: 9px 18px;
   color: #333;
   display: flex;
   align-items: center;
-  transition: background .12s, color .12s;
+  transition:
+    background 0.12s,
+    color 0.12s;
 }
 
 .user-dropdown .dropdown-item:hover {
@@ -395,29 +399,55 @@ body {
   margin-top: 64px;
   padding: 32px 40px;
   min-height: calc(100vh - 64px);
-  transition: all .25s ease;
+  transition: all 0.25s ease;
   animation: fadeIn 0.6s ease-out;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.card-section, .welcome-banner, .stat-card {
+.card-section,
+.welcome-banner,
+.stat-card {
   animation: slideUp 0.5s ease-out backwards;
 }
 
-.welcome-banner { animation-delay: 0.1s; }
-.stat-card:nth-child(1) { animation-delay: 0.2s; }
-.stat-card:nth-child(2) { animation-delay: 0.3s; }
-.stat-card:nth-child(3) { animation-delay: 0.4s; }
-.stat-card:nth-child(4) { animation-delay: 0.5s; }
-.card-section { animation-delay: 0.6s; }
+.welcome-banner {
+  animation-delay: 0.1s;
+}
+.stat-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.stat-card:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.stat-card:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.stat-card:nth-child(4) {
+  animation-delay: 0.5s;
+}
+.card-section {
+  animation-delay: 0.6s;
+}
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ===== WELCOME BANNER ===== */
@@ -473,25 +503,33 @@ body {
 
 /* Wave decoration */
 .welcome-banner::after {
-  content: '';
+  content: "";
   position: absolute;
   right: -50px;
   bottom: -50px;
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
   border-radius: 50%;
   z-index: 1;
 }
 
 .welcome-banner::before {
-  content: '';
+  content: "";
   position: absolute;
   left: -100px;
   top: -100px;
   width: 250px;
   height: 250px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
   border-radius: 50%;
   z-index: 1;
 }
@@ -571,10 +609,9 @@ body {
 
 .card-section h6 {
   font-weight: 700;
-  font-size: .98rem;
+  font-size: 0.98rem;
   margin-bottom: 16px;
 }
-
 
 .cal-controls {
   display: flex;
@@ -595,7 +632,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
 .cal-controls .cal-nav:hover {
@@ -673,7 +710,7 @@ body {
 }
 
 #calendar th {
-  font-size: .78rem;
+  font-size: 0.78rem;
   color: #888;
   font-weight: 600;
   text-align: center;
@@ -683,7 +720,7 @@ body {
 #calendar td {
   text-align: center;
   padding: 3px 2px;
-  font-size: .84rem;
+  font-size: 0.84rem;
   color: #333;
   cursor: pointer;
 }
@@ -697,8 +734,10 @@ body {
   height: 32px;
   border-radius: 50%;
   /* TRÒN hoàn hảo */
-  font-size: .84rem;
-  transition: background .12s, color .12s;
+  font-size: 0.84rem;
+  transition:
+    background 0.12s,
+    color 0.12s;
   margin: auto;
 }
 
@@ -721,7 +760,7 @@ body {
 }
 
 #calendar td.today .day-num::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 100%;
@@ -732,8 +771,14 @@ body {
 }
 
 @keyframes pulse-ring {
-  0% { transform: scale(0.8); opacity: 0.5; }
-  100% { transform: scale(1.4); opacity: 0; }
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
 }
 
 /* Ngày có sự kiện — hình tròn hồng dịu */
@@ -752,7 +797,7 @@ body {
 
   #sidebar {
     transform: translateX(-220px);
-    transition: transform .25s;
+    transition: transform 0.25s;
     width: 220px;
   }
 
@@ -860,13 +905,13 @@ body.sidebar-collapsed .sidebar-nav .nav-link:hover::after {
   left: 68px;
   background: #333;
   color: #fff;
-  font-size: .78rem;
+  font-size: 0.78rem;
   padding: 4px 10px;
   border-radius: 6px;
   white-space: nowrap;
   pointer-events: none;
   z-index: 2000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 body.sidebar-collapsed .sidebar-nav .nav-link {

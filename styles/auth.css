@@ -4,7 +4,7 @@
    ======================================================== */
 
 body.auth-page {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   min-height: 100vh;
   margin: 0;
   display: flex;
@@ -14,7 +14,11 @@ body.auth-page {
 
 .auth-left {
   flex: 1.2;
-  background: linear-gradient(135deg, var(--ask-red) 0%, var(--ask-red-dark) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--ask-red) 0%,
+    var(--ask-red-dark) 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,19 +27,27 @@ body.auth-page {
 }
 
 .auth-left::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 150%;
   height: 150%;
-  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 70%
+  );
   top: -25%;
   left: -25%;
   animation: rotate 20s linear infinite;
 }
 
 @keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .auth-left img {
@@ -155,7 +167,11 @@ body.auth-page {
 
 .auth-btn {
   width: 100%;
-  background: linear-gradient(135deg, var(--ask-red) 0%, var(--ask-red-dark) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--ask-red) 0%,
+    var(--ask-red-dark) 100%
+  );
   color: #fff;
   border: none;
   border-radius: 12px;

@@ -114,11 +114,13 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  box-shadow: 0 10px 25px rgba(16, 24, 40, 0.05), inset 0 0 0 6px #fff;
+  box-shadow:
+    0 10px 25px rgba(16, 24, 40, 0.05),
+    inset 0 0 0 6px #fff;
 }
 
 .progress-ring::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: var(--ring-stroke);
   border-radius: 50%;
@@ -135,7 +137,9 @@
 .progress-ring.is-zero {
   --progress-color: #94a3b8;
   --track-color: #eef2f7;
-  box-shadow: 0 10px 25px rgba(16, 24, 40, 0.04), inset 0 0 0 6px #fff;
+  box-shadow:
+    0 10px 25px rgba(16, 24, 40, 0.04),
+    inset 0 0 0 6px #fff;
 }
 
 .discussion-header {
@@ -171,7 +175,9 @@
   font-family: inherit;
   resize: vertical;
   min-height: 72px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 
 .discussion-input:focus {
@@ -259,7 +265,6 @@
   font-weight: 600;
   color: #475569;
 }
-
 
 .lesson-list {
   max-height: none;
